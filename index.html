@@ -1,0 +1,2375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Arena - Sarnia Laser Tag</title>
+    <!-- Other meta tags and links -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-status-bar-style" content="translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="var(--arena-purple)">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://res.cloudinary.com/di8j84ent/image/upload/v1709228921/favicon2_cefnb0.png" type="image/png">
+
+    <!-- Apple Touch Icon (for iOS devices when added to home screen) -->
+    <link rel="apple-touch-icon" href="https://res.cloudinary.com/di8j84ent/image/upload/v1709228921/favicon_2023_dimp5x.png">
+
+    <!-- Styles and links -->
+	<link rel="preload" href="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide01_ntfdq3.png" as="image">
+	<link rel="preload" href="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide02_qnp48e.png" as="image">
+	<link rel="preload" href="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide03_l6jgoz.png" as="image">
+	<link rel="preload" href="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide04_po0zbq.png" as="image">
+	<link rel="preload" href="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide05_w7tosn.png" as="image">
+	<link rel="preload" href="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805064/slide06_s3ixrt.png" as="image">
+	<link rel="preload" href="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725840536/slide07_urkz1b.png" as="image">
+	<link rel="preload" href="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725840536/slide08_zi7cym.png" as="image">
+	<link rel="stylesheet" href="https://unpkg.com/flickity@2.2.2/dist/flickity.min.css">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;800&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <style type="text/css">
+:root {
+    --arena-purple: #44148f;
+    --arena-dark-purple: #320775;
+    --arena-magenta: #990099;
+    --arena-pink: #ffb0db;
+	--arena-green: #d5de58;
+    --arena-light-gray: #eee;
+    --arena-white: #fff;
+    --arena-black: #090909;
+    --arena-black-30: rgba(9, 9, 9, 0.43);
+    --arena-dark-blue: #14088e;
+    --arena-light-blue: #8ac2d9;
+    --arena-blue: #3292e0;
+    --arena-lavender: #be95ff;
+    --arena-deep-purple: #8b40ff;
+    --arena-light-purple: #d0a4e1;
+    --arena-teal: #6cf7f3;
+    --arena-dark-gray: #333;
+    --arena-yellow: #edf763;
+}
+
+/* For WebKit browsers (e.g., Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--arena-dark-purple);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--arena-purple);
+    border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--arena-magenta);
+}
+
+h1, h2, h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;        
+}
+.headershadow {
+    text-shadow: 3px 3px 0px var(--arena-black-30);
+}
+
+/* Apply the underline effect only to links with the underline-effect class */
+.underline-effect {
+    position: relative;
+    text-decoration: none;
+    color: var(--arena-white);
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+    padding-bottom: 0;
+    z-index: 1;
+}
+
+.underline-effect::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px; /* Starting height */
+    left: -1.5px;
+    bottom: -2px;
+    background-color: var(--arena-yellow);
+    transition: height 0.3s ease-in-out;
+    z-index: -1;
+}
+
+.underline-effect:hover {
+    color: var(--arena-purple);
+}
+
+.underline-effect:hover::after {
+    height: 100%; /* Expand height to cover the entire link */
+}
+
+/* Remove the pseudo-element for links that contain images */
+.underline-effect:has(img)::after {
+    content: none;
+}
+
+/* Specific styles for navigation links */
+nav ul li a {
+    font-size: 1.1em;
+    color: var(--arena-white);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 0px;
+    transition: color 0.3s ease-in-out; /* Add a transition for the text color */
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2.5px;
+    left: 0;
+    bottom: -2px;
+    background-color: var(--arena-yellow);
+    transition: width 0.3s ease-in-out;
+    border-radius: 20px;
+}
+
+nav ul li a:hover {
+    color: var(--arena-white); /* Ensure the text color is white on hover */
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+    height: 2.5px;
+}
+
+/* Avoid applying the underline effect to buttons styled as links */
+button, .btn, .no-underline {
+    text-decoration: none !important;
+}
+
+/* Icon link styles */
+.icon-link {
+    color: var(--arena-white);
+    font-size: 1.5em;
+    text-decoration: none !important; /* Ensure no underline */
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 0; /* Reset padding */
+}
+
+.icon-link::after {
+    content: none; /* Remove the underline pseudo-element */
+}
+
+.icon-link:hover {
+    color: var(--arena-yellow);
+    text-decoration: none !important; /* Force remove underline */
+}
+
+.icon-link i {
+    text-decoration: none !important; /* Apply to the icon itself */
+}
+
+
+
+section {
+    margin-bottom: 40px;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Karla', sans-serif;
+    background-image: url('https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1723741684/doodle_bg_yhstgv.png');
+    background-color: var(--arena-dark-purple);
+    background-size: 30%;
+    color: var(--arena-light-gray);
+    scroll-behavior: smooth;
+	overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.purplebg {
+    background-color: var(--arena-purple);
+}
+
+.darkpurplebg {
+    background-color: var(--arena-dark-purple);
+}
+
+.header {
+    background: var(--arena-dark-purple);
+    color: var(--arena-white);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.header img {
+    width: 250px;
+}
+
+.backtotop {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 15px;
+    right: -60px; /* Start off-screen */
+    background: var(--arena-white);
+    border: 2px solid var(--arena-black);
+    box-shadow: 0px 7px 0px var(--arena-black-30);
+    border-radius: 8px;
+    z-index: 99;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: right 0.1s ease, opacity 0.3s ease;
+    opacity: 0;
+    text-decoration: none;
+    display: flex;
+}
+
+.backtotop.show {
+    right: 15px; /* Slide in to this position */
+    opacity: 1; /* Fade in */
+    display: flex;
+}
+
+.top-icon {
+    color: var(--arena-black);
+    font-size: 2em;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+.full-nav {
+    /* Add your styles for the full navigation here */
+}
+
+.mobile-nav {
+    display: none; /* Hide by default */
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Remove top margin */
+    display: flex; /* Change to flex */
+    flex-direction: column; /* Change to column */
+    align-items: center; /* Center items horizontally */
+}
+
+.mobile-nav ul li {
+    padding: 20px;
+    text-align: center;
+    width: 100%; /* Make list items full width */
+}
+
+.mobile-nav ul li a {
+    color: var(--arena-white);
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.mobile-nav ul li a:hover {
+    text-decoration: none;
+}
+
+.menu-icon {
+    display: none;
+}
+
+.close-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: var(--arena-white);
+    cursor: pointer;
+    font-size: 2em;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+}
+
+.hero .text {
+    width: 70%;
+}
+
+.hero .text h1 {
+    font-size: 3em;
+}
+
+.hero p {
+    font-size: 1.2em;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+    text-align: center;
+}
+
+.hero .image {
+    width: 50%;
+    display: flex;
+    justify-content: right;
+}
+
+.starbg {
+    background-image: url('https://res.cloudinary.com/di8j84ent/image/upload/v1714252618/spacebro-bg_mjhgk4.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+	padding: 20px;	
+}
+
+.main img {
+    width: 100%;
+    max-width: 400px !important;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.main img {
+    animation: float 5s ease-in-out infinite;
+}
+
+.hero button {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    padding: 10px 20px;
+    background-color: var(--arena-magenta);
+    color: var(--arena-white);
+    border: 2px solid var(--arena-black);
+    border-radius: 8px;
+    box-shadow: 0px 7px 0px var(--arena-black-30);
+    cursor: pointer;
+    margin: 20px;
+}
+
+.hero button:hover {
+    background-color: var(--arena-purple);
+    transition: 0.3s ease-in-out;
+}
+
+.welcome-message {
+    position: relative;
+    display: inline-block;
+    font-size: 3em; /* Adjust as needed */
+    font-weight: bold;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.welcome-message::before,
+.welcome-message::after {
+    content: '';
+    position: absolute;
+    width: 1.2em; /* Size of the icon */
+    height: 1.2em;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.welcome-message::before {
+    background-image: url('https://res.cloudinary.com/di8j84ent/image/upload/v1723999636/sparkle_01_awkaoa.svg'); /* Left icon */
+    top: 30%;
+    left: -40px; /* Position to the left of the text */
+    transform: translateY(-50%);
+}
+
+.welcome-message::after {
+    background-image: url('https://res.cloudinary.com/di8j84ent/image/upload/v1723999635/sparkle_02_tvwfyk.svg'); /* Right icon */
+    top: 70%;
+    right: -40px; /* Position to the right of the text */
+    transform: translateY(-50%);
+}
+
+.full-width {
+    width: 100% !important;
+    align-items: center;
+    text-align: center;
+}
+
+.circle {
+    padding: 50px;
+    border-radius: 50%;
+    border: 2px dashed var(--arena-light-gray);
+    margin: 20px;
+}
+
+.welcome {
+    text-align: center;
+}
+
+.welcome h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-top: 0px;
+}
+
+.welcome p {
+    font-weight: bold;
+    letter-spacing: 0.10rem;
+    font-family: 'Roboto Mono', monospace;
+    background-color: var(--arena-light-purple);
+}
+
+.activities {
+    display: flex;
+    justify-content: space-around;
+    padding: 0px;
+    margin-bottom: 40px;
+}
+
+.activity {
+    flex: 1 1 auto;
+    width: calc(100% / 3);
+    margin: 10px;
+    padding: 20px 20px;
+    background: var(--arena-white);
+    border: 2px solid var(--arena-black);
+    box-shadow: 0px 7px 0px var(--arena-black-30);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.activity img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid var(--arena-black);
+}
+
+.activity div.text-content {
+    flex: 1;
+}
+
+.activity h3, .activity p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.activity h3 {
+    margin: 10px;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--arena-dark-gray);
+}
+
+.activity p {
+    font-family: 'Roboto Mono', monospace;
+    padding: 0px;
+    color: var(--arena-dark-gray);
+}
+
+.pricing {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.price-category {
+    width: calc(50% - 60px);
+    background: var(--arena-white);
+    margin-bottom: 20px;
+    border: 2px solid var(--arena-black);
+    box-shadow: 0px 7px 0px var(--arena-black-30);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: var(--arena-dark-gray);
+}
+
+.price-item, .group-package {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    width: calc(50% - 10px);
+}
+
+.price-div {
+	border-bottom: 0px dashed var(--arena-purple);
+}
+
+.price-item img, .group-package img {
+    width: 120px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.price-item, .group-package > div {
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Adjusted to manage spacing dynamically */
+    padding: 0px;
+}
+
+.testimonial {
+    flex: 0 0 calc(25% - 20px); /* Adjust the width to accommodate 4 items per row accounting for margin */
+    margin: 10px;
+    padding: 20px;
+    background: var(--arena-white);
+    border: 2px solid var(--arena-black);
+    box-shadow: 0px 7px 0px var(--arena-black-30);
+    border-radius: 8px;
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    color: var(--arena-dark-gray);
+}
+
+.testimonial h3 {
+    margin-bottom: 0px;
+}
+
+.testimonial img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--arena-black);
+}
+
+@keyframes wiggle-lefttilt {
+    0%, 100% {
+        transform: rotate(-1deg);
+    }
+
+    50% {
+        transform: rotate(1deg);
+    }
+}
+
+@keyframes wiggle-righttilt {
+    0%, 100% {
+        transform: rotate(1deg);
+    }
+
+    50% {
+        transform: rotate(-1deg);
+    }
+}
+
+.testimonial.lefttilt:hover {
+    animation: wiggle-lefttilt 1s ease-in-out infinite;
+}
+
+.testimonial.righttilt:hover {
+    animation: wiggle-righttilt 1s ease-in-out infinite;
+}
+
+.pink {
+    background-color: var(--arena-pink);
+}
+
+.blue {
+    background-color: var(--arena-blue);
+}
+
+.yellow {
+    background-color: var(--arena-yellow);
+}
+
+.righttilt {
+    transform: rotate(1deg);
+}
+
+.lefttilt {
+    transform: rotate(-1deg);
+}
+
+.hours {
+    color: var(--arena-white);
+    padding: 0px;
+    text-align: center;
+}
+
+.threepath {
+    width: 70%;
+    margin: auto;
+}
+
+.squiggle-right {
+    width: 70%;
+    margin: auto;
+    transform: scaleX(-1);
+}
+
+.onepath {
+    display: none;
+}
+
+.squiggle {
+    display: none;
+}
+
+.straightpath {
+    display: none;
+}
+
+.highlight-yellow {
+    position: relative;
+    display: inline-block;
+    padding: 5px 15px;
+    z-index: 1;
+    line-height: 0.8;
+}
+
+.highlight-yellow::before {
+    content: "";
+    background-color: var(--arena-dark-blue);
+    position: absolute;
+    border-radius: 2px;
+    z-index: -1;
+    top: 35%;
+    left: 0;
+    right: 0;
+    height: 35%;
+    transform: rotate(-0.5deg);
+    overflow: hidden;
+}
+
+.highlight-pink {
+    position: relative;
+    display: inline-block;
+    padding: 5px 15px;
+    z-index: 1;
+    line-height: 0.8;
+}
+
+.highlight-pink::before {
+    content: "";
+    background-color: var(--arena-pink);
+    position: absolute;
+    border-radius: 2px;
+    z-index: -1;
+    top: 35%;
+    left: 0;
+    right: 0;
+    height: 35%;
+    transform: rotate(0.5deg);
+}
+
+.highlight-pink-text {
+    color: #e052a1;
+    font-weight: bold;
+}
+
+.highlight-blue {
+    position: relative;
+    display: inline-block;
+    padding: 5px 15px;
+    z-index: 1;
+    line-height: 0.8;
+}
+
+.highlight-blue::before {
+    content: "";
+    background-color: var(--arena-light-blue);
+    position: absolute;
+    border-radius: 2px;
+    z-index: -1;
+    top: 35%;
+    left: 0;
+    right: 0;
+    height: 35%;
+    transform: rotate(-0.3deg);
+}
+
+.highlight-blue-text {
+    color: var(--arena-blue);
+    font-weight: bold;
+}
+
+.highlight-purple {
+    position: relative;
+    display: inline-block;
+    padding: 5px 15px;
+    z-index: 1;
+    line-height: 0.8;
+}
+
+.highlight-purple::before {
+    content: "";
+    background-color: var(--arena-lavender);
+    position: absolute;
+    border-radius: 2px;
+    z-index: -1;
+    top: 35%;
+    left: 0;
+    right: 0;
+    height: 35%;
+    transform: rotate(0.5deg);
+}
+
+.highlight-purple-text {
+    color: var(--arena-deep-purple);
+    font-weight: bold;
+}
+
+.business-hours {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 0.9em;
+}
+
+.business-hour {
+    flex-basis: calc(16.666% - 20px);
+    border: 2px solid var(--arena-black);
+    box-shadow: 0px 5px 0px var(--arena-black-30);
+    color: var(--arena-white);
+    border-radius: 8px;
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-top: 10px;
+    background: linear-gradient(to bottom, var(--arena-teal) 50%, var(--arena-white) 50%);
+    overflow: hidden;
+}
+
+.business-hour b {
+    color: var(--arena-dark-gray);
+    font-family: 'Bricolage Grotesque';
+}
+
+.business-hour p {
+    color: var(--arena-dark-gray);
+    font-family: 'Roboto Mono', monospace;
+}
+
+.highlight {
+    background: linear-gradient(to bottom, var(--arena-yellow) 50%, var(--arena-white) 50%);
+    overflow: hidden;
+}
+
+.business-hour.highlight b {
+    color: var(--arena-dark-gray);
+    font-weight: 800;
+}
+
+.double {
+    width: calc(100% - 10px);
+}
+
+.double h1 {
+    display: flex;
+    font-size: 3rem;
+    justify-content: center;
+    margin: 10px 0 40px 0;
+    font-family: "Bricolage Grotesque";
+}
+
+.ribbon {
+    background-color: var(--arena-purple);
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);
+    padding: 10px 0;
+    text-align: center;
+    border-top: 2px solid var(--arena-black);
+    border-bottom: 2px solid var(--arena-black);
+    box-shadow: 0px 7px 0px var(--arena-black-30);
+    margin: 80px 0px 80px 0px;
+}
+
+.ribbontext {
+    display: inline-block;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-family: 'Bricolage Grotesque', sans-serif !important;
+    font-size: 1.2em !important;
+    letter-spacing: 2.5px;
+    color: var(--arena-light-gray);
+}
+
+.iframe-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 720px;
+    overflow: hidden;
+    border: 2px solid var(--arena-black);
+    box-shadow: 0px 7px 0px var(--arena-black-30);
+    border-radius: 8px;
+    margin-top: 40px;
+    background-color: var(--arena-white);
+}
+
+.toggleHeader {
+    border: 2px solid var(--arena-black);
+    box-shadow: 0px 7px 0px var(--arena-black-30);
+    cursor: pointer;
+    max-width: 100%;
+    background-color: var(--arena-white);
+    padding: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--arena-dark-gray);
+    border-radius: 8px;
+}
+
+.faqcontent {
+    display: none;
+    padding: 20px;
+    max-width: 100%;
+    margin-bottom: 20px;
+    background-color: var(--arena-purple);
+    border-radius: 8px;
+    border: 2px solid var(--arena-black);
+    box-shadow: 0px 7px 0px var(--arena-black-30);
+}
+
+.faqcontent p {
+    font-family: Roboto Mono;
+}
+
+.faqcontent h2 {
+    font-family: Roboto Mono;
+}
+
+.faqbx {
+    font-size: 32px;
+    color: var(--arena-dark-gray);
+    vertical-align: middle;
+}
+
+.scroll-container {
+    position: relative;
+    width: 100%; /* Fixed width */
+    height: 600px; /* Fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: auto; /* Center the container */
+}
+
+.message {
+    position: relative;
+    font-size: 3.5rem;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.text-left, .text-right {
+    display: inline-block;
+    width: 450px;
+}
+
+.giftcard {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 410px;
+    border-radius: 25px;
+    transition: transform 0.5s ease;
+    z-index: 2;
+    image-rendering: -webkit-optimize-contrast; /* Chrome, Safari */
+    image-rendering: crisp-edges; /* Firefox */
+}
+
+.bounce-left {
+    transform: translateX(-500px) translateY(-50%);
+}
+
+.bounce-right {
+    transform: translateX(0) translateY(-50%);
+}
+
+.phone-icon {
+    font-size: 1.5em;
+    border: 3px solid var(--arena-dark-purple);
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.check-icon {
+    color: var(--arena-deep-purple);
+    margin-left: -9px;
+    padding: 0;
+    font-weight: 800;
+	font-size: 1.3em;
+	
+}
+
+.icon-sparkle, .icon-twinkle {
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
+
+.icon-sparkle {
+    background-image: url('https://res.cloudinary.com/di8j84ent/image/upload/v1723999636/sparkle_01_awkaoa.svg');
+}
+
+.icon-twinkle {
+    background-image: url('https://res.cloudinary.com/di8j84ent/image/upload/v1723999635/sparkle_02_tvwfyk.svg');
+}
+
+.footer {
+    background-color: var(--arena-purple);
+    padding: 20px 20px;
+    color: var(--arena-light-gray);
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 10px;
+    min-width: 250px;
+    font-size: 1em;
+}
+
+.footer-section h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1em;
+    margin: 15px 0;
+    color: var(--arena-white);
+    text-decoration: none;
+}
+
+.social-icons a {
+    color: var(--arena-white);
+    font-size: 2em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--arena-yellow);
+    text-decoration: none !important;
+}
+
+.footer-bottom {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9em;
+}
+
+/* Booking section styles */
+.booking-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.booking-package {
+    width: calc(25% - 80px); /* Four items per row */
+    background: var(--arena-white);
+    margin-bottom: 20px;
+    border: 2px solid var(--arena-black);
+    box-shadow: 0px 7px 0px var(--arena-black-30);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--arena-dark-gray);
+    position: relative; /* Ensure the button is positioned relative to the div */
+    padding-bottom: 80px; /* Add padding to create space for the button */
+}
+
+.booking-package img {
+    width: 120px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.booking-package h3 {
+    margin: 10px;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--arena-dark-gray);
+    text-align: center;
+	align-items: bottom;
+    min-height: 60px; /* Ensure consistent height for all headings */
+}
+
+.booking-package p {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--arena-dark-gray);
+    margin-bottom: 40px;
+	text-align: center;
+}
+
+.booking-package .price {
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+
+.booking-package packtime {
+	font=size: 1.1rem;
+	text-align: center;
+}
+
+.booking-package ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Make the list take up available space */
+}
+
+.booking-package ul li {
+    font-family: 'Roboto Mono', monospace;
+    color: var(--arena-dark-gray);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    font-size: 1rem;
+}
+
+.booking-package ul li i {
+    color: var(--arena-deep-purple);
+    margin-right: 10px;
+}
+
+.booking-package .book-now-btn {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    padding: 10px 20px;
+	width: 110px;
+	margin-bottom: 20px;
+    background-color: var(--arena-magenta);
+    color: var(--arena-white);
+    border: 2px solid var(--arena-black);
+    border-radius: 8px;
+    box-shadow: 0px 7px 0px var(--arena-black-30);
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    position: absolute; /* Position the button absolutely within the div */
+    bottom: 20px; /* Align it to the bottom of the div */
+    left: 50%;
+    transform: translateX(-50%);
+	text-decoration: none;
+}
+
+.booking-package .book-now-btn:hover {
+    background-color: var(--arena-purple);
+}
+
+    .weekly img {
+	width: 100%;
+    max-width: 300px !important;
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 0 0 40px 0;
+}
+	.weeklydeals-lg {
+    	display: flex;
+    	width: 80%;
+    	justify-content: center;
+    	align-items: center;
+    	margin: auto;
+		margin-top: 20px;
+		}
+		
+.carousel {
+  width: 100%;
+  height: auto; /* Keep auto height for dynamic adjustment */
+  overflow: visible; /* Allow rotated images to overflow */
+  position: relative; /* Necessary for ::before to be relative to carousel */
+  margin-top: -40px;
+  background-image:url(https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725815512/squiggle-bg-100_xii2sv.png);
+  background-size: 30%;
+  background-repeat: repeat-x;
+  background-position: center;
+}
+
+
+
+
+.carousel-cell {
+  margin-right: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  padding-bottom: 20px;
+}
+
+.carousel img {
+  max-height: 80%; /* Ensure image fits within the carousel height */
+  height: 230px;
+  width: 250px; /* Maintain aspect ratio */
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0px 7px 0px rgba(0, 0, 0, 0.3);
+  transform-origin: center; /* Ensure rotation happens around the center */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .carousel {
+    height: auto; /* Adjust height for smaller screens */
+	padding-bottom: 40px;
+	background-image:url(https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725815512/squiggle-bg-100_xii2sv.png);
+	background-size: 100%;
+  }
+  .carousel img {
+	width: 250px;
+	}
+}
+
+@media (max-width: 480px) {
+  .carousel {
+    height: auto; /* Adjust height for mobile */
+	margin-top: -60px;
+  }
+  .carousel img {
+    max-height: 90%; /* Keep the image size consistent */
+  }
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .booking-package {
+        width: 100%; /* Make each package take up full width on small screens */
+        padding-bottom: 80px; /* Adjust padding for mobile screens */
+    }
+
+    .booking-package .book-now-btn {
+        bottom: 20px; /* Keep the button aligned to the bottom */
+    }
+}
+
+
+
+
+
+@media (max-width: 768px) {
+	.weeklydeals-lg {
+    	display: flex;
+    	width: 100%;
+    	justify-content: center;
+    	align-items: center;
+    	margin: auto;
+		}
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    body, html {
+        background-size: 100%;
+    }
+
+    .header img {
+        width: 150px;
+    }
+
+    .full-nav {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+        color: var(--arena-white);
+        font-size: 2em;
+    }
+
+    .mobile-nav.active {
+        right: 0;
+    }
+
+    .mobile-nav {
+        display: flex; /* Show only on smaller screens */
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100%;
+        background: var(--arena-dark-purple);
+        transition: 0.5s ease;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero .text, .hero .image {
+        width: 100%;
+        margin: auto;
+    }
+
+    .hero .image {
+        justify-content: center;
+    }
+
+    .main img {
+        width: 100%;
+        max-width: 100% !important;
+    }
+
+    .hero .text h1 {
+        font-size: 2.5rem;
+    }
+
+    .welcome h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+    }
+
+    .activities {
+        flex-direction: column;
+    }
+
+    .activity {
+        width: auto;
+    }
+
+    .pricing, .price-category {
+        width: 100%;
+    }
+
+    .price-item, .group-package {
+        width: 100%;
+    }
+
+    .testimonials {
+        flex-direction: column;
+    }
+
+    .testimonial {
+        width: auto;
+        margin-bottom: 40px;
+    }
+
+    .threepath {
+        display: none;
+    }
+
+    .onepath {
+        display: flex;
+        width: 70%;
+        margin: auto;
+        justify-content: center;
+    }
+
+    .squiggle {
+        display: flex;
+        width: 70%;
+        margin: auto;
+        justify-content: center;
+    }
+
+    .squiggle-right {
+        display: none;
+    }
+
+    .straightpath {
+        display: flex;
+        width: 70%;
+        margin: auto;
+        justify-content: center;
+    }
+
+    .rev {
+        transform: rotate(180deg);
+    }
+
+    .double h1 {
+        text-align: center;
+    }
+	
+	.ribbon {
+		margin: 0px;
+		margin-bottom: 40px;
+	}
+
+    .ribbontext {
+        font-size: 0.5em !important;
+        letter-spacing: 1px;
+    }
+
+    .business-hour {
+        flex-basis: calc(50% - 20px);
+    }
+
+    .icon-sparkle, .icon-twinkle {
+        width: 1em;
+        height: 1em;
+    }
+}
+
+@media (max-width: 340px) {
+    .hero .text h1 {
+        font-size: 2rem;
+    }
+}
+
+</style>
+
+</head>
+<body>
+<div class="purplebg">
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto,f_auto/v1692228829/The_Arena_Logo_pdltcc.svg" alt="Logo">
+            </div>
+            <div class="full-nav">
+                <nav>
+                    <ul>
+                        <li><a href="#activities">Activities</a></li>
+                        <li><a href="#pricing">Prices</a></li>
+						<li><a href="#promos">Promotions</a></li>
+                        <li><a href="#bookonline">Book Online</a></li>
+                        <li><a href="#">eGift Cards</a></li>
+                        <li><a href="#visit">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class='bx bx-menu menu-icon' name='menu' onclick="toggleMobileNav()"></i>
+            <div class="mobile-nav" id="mobileNav">
+                <i class="bx bx-x-circle close-icon" onclick="toggleMobileNav()"></i>
+                <nav>
+                    <ul>
+                        <li><a href="#activities">Activities</a></li>
+                        <li><a href="#pricing">Prices</a></li>
+						<li><a href="#promos">Promotions</a></li>
+                        <li><a href="#bookonline">Book Online</a></li>
+                        <li><a href="#">eGift Cards</a></li>
+                        <li><a href="#visit">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <button class="backtotop" id="backToTopBtn">
+            <i class='bx bx-up-arrow-alt top-icon'></i>
+        </button>
+                   
+        <section class="hero">
+            <div class="text">
+
+                     <div style="display: flex; align-items: center; justify-content: center; margin-top:60px; margin-bottom: 20px;">
+						<div style="display: flex; align-items: center;">
+							<i class="icon-sparkle" style="margin-top: -20px; margin-right: 15px; width: 50px; height: 50px;"></i>
+						</div>
+						<div style="text-align: center;">
+							<h1 style="margin: 0; font-size: 3em;" class="headershadow">Choose Your Adventure!</h1>
+						</div>
+						<div style="display: flex; align-items: center;">
+							<i class="icon-twinkle" style="margin-bottom: -20px; margin-left: 10px; width: 50px; height: 50px;"></i>
+						</div>
+					</div>
+                <p>Dive into a vibe where adventure meets relaxation at Sarnia's ultimate spot. Feel the thrill with 
+    <span class="highlight-pink-text">laser tag</span> in our multi-level mazes, packed with epic hideouts and sniper spots just waiting to be claimed. 
+    Challenge yourself on our <span class="highlight-blue-text">rock climbing</span> wall to test your grit and showcase your climbing skills. 
+    Or, take a breather with some laid-back <span class="highlight-purple-text">mini golf</span>, where quirky courses are ready for your mastery. 
+    Whether you're here to boost your adrenaline or unwind, we've got your perfect escape covered. Get ready for a day in Sarnia that's anything but ordinary.
+</p>
+
+            </div>
+            <div class="image main starbg">
+                <img src="https://res.cloudinary.com/di8j84ent/image/upload/v1714256232/spcebro3_nyjbol.png" alt="Astronaut floating in space">
+            </div>
+        </section>
+
+        <div class="threepath">
+            <img src="https://dvdbsh.github.io/arena/threepath.svg">
+        </div>
+
+        <div class="onepath">
+            <img src="https://dvdbsh.github.io/arena/onepath.svg">
+        </div>
+
+        <section class="activities" id="activities">
+            <div class="activity laser">
+                <img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1724932951/lasertag-act_ppytjn.png" alt="Laser Tag">
+                <div class="text-content">
+                    <h3>Laser Tag</h3>
+                    <p>At our arena, we take laser tag to the next level by offering a 
+                        <span class="highlight-pink-text">two-storey</span> playing space. Prepare to be amazed as you explore 
+                        the multiple levels, corridors, and strategic vantage points that our arena has to offer. With two 
+                        storeys of <span class="highlight-pink-text">intense gameplay</span>, you'll find yourself fully immersed 
+                        in an adrenaline-pumping adventure like never before.
+                    </p>
+                </div>
+            </div>
+            <div class="squiggle">
+                <img src="https://dvdbsh.github.io/arena/squiggle.svg">
+            </div>
+            <div class="activity rockclimb">
+                <img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1724932951/rockclimb-act_skmjue.png" alt="Rock Climbing">
+                <div class="text-content">
+                    <h3>Rock Climbing</h3>
+                    <p>Embark on an exhilarating journey up our challenging rock climbing wall. Designed to test your limits, 
+                        each handhold and foothold becomes an obstacle to conquer, requiring 
+                        <span class="highlight-blue-text">strength, focus, and determination</span>. Feel the adrenaline surge 
+                        as you ascend, overcoming challenges and reaching new heights, marking personal achievements with every climb.
+                    </p>
+                </div>
+            </div>
+            <div class="squiggle rev">
+                <img src="https://dvdbsh.github.io/arena/squiggle.svg">
+            </div>
+            <div class="activity">
+                <img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1724932951/minigolf-act_lqgbax.png" alt="Mini Golf">
+                <div class="text-content">
+                    <h3>Mini Golf</h3>
+                    <p>For a relaxed, fun activity, dive into a round of mini golf. This game blends precision, strategy, and light-hearted competition. 
+                        Tackle our vibrant, creatively designed course, weaving through obstacles and mastering tricky curves. 
+                        Test your putting skills and chase that <span class="highlight-purple-text">hole-in-one</span>, 
+                        all while enjoying friendly banter and laughter in a cheerful atmosphere.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+
+    </div>
+</div>
+
+
+  <img 
+  src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png" 
+  alt="" 
+  srcset="
+    https://res.cloudinary.com/di8j84ent/image/upload/w_512,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 512w, 
+    https://res.cloudinary.com/di8j84ent/image/upload/w_1024,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 1024w, 
+    https://res.cloudinary.com/di8j84ent/image/upload/w_2048,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 2048w, 
+    https://res.cloudinary.com/di8j84ent/image/upload/w_4096,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 4096w" 
+  sizes="200vw" 
+  style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:fill;image-rendering:auto" 
+  loading="lazy">
+  
+
+	<div class="container">
+		<section class="hero" id="pricing">
+                <div class="text full-width">
+                    <div style="display: flex; align-items: center; justify-content: center;">
+						<div style="display: flex; align-items: center;">
+							<i class="icon-sparkle" style="margin-top: -20px; margin-right: 15px; width: 50px; height: 50px;"></i>
+						</div>
+						<div style="text-align: center;">
+							<h1 style="margin: 0;" class="headershadow">Our Prices</h1>
+						</div>
+						<div style="display: flex; align-items: center;">
+							<i class="icon-twinkle" style="margin-bottom: -20px; margin-left: 10px; width: 50px; height: 50px;"></i>
+						</div>
+					</div>
+                    <p>We're happy to offer a wide variety of fun activities at affordable prices! Whether you want to stop by on a whim with your bestie, or plan ahead and bring the whole crew, we've got you covered!</p>
+                </div>
+        </section>
+        <section class="pricing">		
+            <div class="price-category">
+                <div class="double">
+                    <h1><span class="highlight-blue">Walk-In Prices</span></h1>
+                </div>
+
+                <div class="price-item price-div">
+                    <img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1708885911/minigolf-icon_guotkk.png" alt="Mini Golf">
+                    <div>
+                        <h3>Mini Golf</h3>
+                        <p><strong>$10 per person</strong></p>
+                        <p>One round 10-hole mini golf</p>
+                    </div>
+                </div>
+
+                <div class="price-item price-div">
+                    <img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1708885911/lasertag-icon_bin78v.png" alt="Laser Tag" style="transform: rotate(-25deg);">
+                    <div>
+                        <h3>Laser Tag</h3>
+                        <p><strong>$14 per person</strong></p>
+                        <p>20 minute game of laser tag</p>
+                    </div>
+                </div>
+
+                <div class="price-item price-div">
+                    <img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1708885911/lasertag-icon_bin78v.png" alt="Laser Tag" style="transform: rotate(-25deg);">
+                    <div>
+                        <h3>Laser Tag</h3>
+                        <p><strong>$16 per person</strong></p>
+                        <p>30 minute game of laser tag</p>
+                    </div>
+                </div>
+
+                <div class="price-item price-div">
+                    <img src="https://res.cloudinary.com/di8j84ent/image/upload/v1710517090/climb-icon_zkqemf_uzo7mc.png" alt="Rock Climbing">
+                    <div>
+                        <h3>Rock Climbing</h3>
+                        <p><strong>$16 per person</strong></p>
+                        <p>3 rock climbs</p>
+                    </div>
+                </div>
+
+                <div class="price-item">
+                    <img src="https://res.cloudinary.com/di8j84ent/image/upload/v1710517090/climb-icon_zkqemf_uzo7mc.png" alt="Rock Climbing">
+                    <div>
+                        <h3>Rock Climbing</h3>
+                        <p><strong>$20 per person</strong></p>
+                        <p>30 minutes of rock climbs</p>
+                    </div>
+                </div>
+
+                <div class="price-item">
+                    <img src="https://res.cloudinary.com/di8j84ent/image/upload/v1710517090/climb-icon_zkqemf_uzo7mc.png" alt="Rock Climbing">
+                    <div>
+                        <h3>Rock Climbing</h3>
+                        <p><strong>$25 per person</strong></p>
+                        <p>One hour of rock climbs</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="squiggle rev">
+                <img src="https://dvdbsh.github.io/arena/squiggle.svg">
+            </div>
+
+            <div class="price-category">
+                <div class="double">
+                    <h1><span class="highlight-pink">Group Prices</span></h1>
+                </div>
+
+                <div class="group-package double">
+                    <img src="https://res.cloudinary.com/di8j84ent/image/upload/v1710516020/group_viuias.png" alt="Package">
+                    <div>
+                        <h2>Keep In Mind</h2>
+                        <p>Groups must have 6 people minimum. Pricing is per person.</p>
+                    </div>
+                </div>
+
+                <div class="group-package price-div">
+                    <img src="https://res.cloudinary.com/di8j84ent/image/upload/v1710514210/1_1_ickk6k.png" alt="Package 1">
+                    <div>
+                        <h3>Double Trouble</h3>
+                        <p><strong>$22 per person</strong></p>
+                        <p><i class='bx bx-check check-icon'></i> Two 20 minute games of laser tag</p>
+                    </div>
+                </div>
+
+                <div class="group-package price-div">
+                    <img src="https://res.cloudinary.com/di8j84ent/image/upload/v1710514210/2_1_wsn2gy.png" alt="Package 2">
+                    <div>
+                        <h3>Climb & Conquer</h3>
+                        <p><strong>$28 per person</strong></p>
+                        <p><i class='bx bx-check check-icon'></i> Two 20 minute games of laser tag<br>
+                            <i class='bx bx-check check-icon'></i> Two rock climbs
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group-package">
+                    <img src="https://res.cloudinary.com/di8j84ent/image/upload/v1710514250/3_5_n1vkc6.png" alt="Package 3">
+                    <div>
+                        <h3>Putt & Play</h3>
+                        <p><strong>$28 per person</strong></p>
+                        <p><i class='bx bx-check check-icon'></i> Two 20 minute games of laser tag<br>
+                            <i class='bx bx-check check-icon'></i> One round of 10-hole mini golf
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group-package">
+                    <img src="https://res.cloudinary.com/di8j84ent/image/upload/v1710514210/4_1_cnthj0.png" alt="Package 4">
+                    <div>
+                        <h3>Ultimate Adventure</h3>
+                        <p><strong>$32 per person</strong></p>
+                        <p><i class='bx bx-check check-icon'></i> One 20 minute game of laser tag<br>
+                            <i class='bx bx-check check-icon'></i> Two rock climbs<br>
+                            <i class='bx bx-check check-icon'></i> One round of 10-hole mini golf
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="squiggle-right">
+            <img src="https://dvdbsh.github.io/arena/squiggle-right.svg">
+        </div>
+
+        <section class="hero circle">
+            <div class="text full-width">
+                <h1 class="headershadow">Hosting a Larger Event?</h1>
+                <a href=""><button><i class="icon-sparkle"></i> Reach out to us directly!</button></a>
+            </div>
+        </section>
+		
+		
+    </div>
+	
+
+<img 
+  src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1723741926/squiggle-trans-purple_weytxa.png" 
+  alt="" 
+  srcset="
+    https://res.cloudinary.com/di8j84ent/image/upload/w_512,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 512w, 
+    https://res.cloudinary.com/di8j84ent/image/upload/w_1024,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 1024w, 
+    https://res.cloudinary.com/di8j84ent/image/upload/w_2048,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 2048w, 
+    https://res.cloudinary.com/di8j84ent/image/upload/w_4096,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 4096w" 
+  sizes="200vw" 
+  style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:fill;image-rendering:auto" 
+  loading="lazy">
+
+
+<div class="purplebg">
+	<div class="container">
+        <section class="testimonials">
+			<section class="hero">
+					<div class="text full-width">
+						                    <div style="display: flex; align-items: center; justify-content: center;">
+						<div style="display: flex; align-items: center;">
+							<i class="icon-sparkle" style="margin-top: -20px; margin-right: 15px; width: 50px; height: 50px;"></i>
+						</div>
+						<div style="text-align: center;">
+							<h1 style="margin: 0;" class="headershadow">People Are Talking!</h1>
+						</div>
+						<div style="display: flex; align-items: center;">
+							<i class="icon-twinkle" style="margin-bottom: -20px; margin-left: 10px; width: 50px; height: 50px;"></i>
+						</div>
+					</div>
+						<p>We love hearing that you had a great visit! Share your experience with us <a href="" class="underline-effect">here!</a></p>
+					</div>
+			</section>
+            <section class="testimonials">
+                <div class="testimonial righttilt">
+                    <img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1712442347/marcus.svg" class="yellow" alt="Customer Review">
+                    <p>"Had an amazing time rock climbing! The routes were challenging but fun, and the staff were really encouraging. Definitely coming back!" 
+                        <h3>Marcus W.</h3>
+                    </p>
+                </div>
+                <div class="straightpath">
+                    <img src="https://dvdbsh.github.io/arena/straightpath.svg">
+                </div>
+                <div class="testimonial lefttilt">
+                    <img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1712442345/priya.svg" class="pink" alt="Customer Review">
+                    <p>"My kid’s mini golf party was awesome! The package was great, staff were super nice, and the courses were so fun. Totally worth it." 
+                        <h3>Priya R.</h3>
+                    </p>
+                </div>
+                <div class="straightpath rev">
+                    <img src="https://dvdbsh.github.io/arena/straightpath.svg">
+                </div>
+                <div class="testimonial righttilt">
+                    <img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1712442345/alex.svg" class="blue" alt="Customer Review">
+                    <p>"Laser tag at The Arena is epic! The multi-level play areas and strategy kept us on our toes. Can't wait for the next game!" 
+                        <h3>Alex G.</h3>
+                    </p>
+                </div>
+                <div class="straightpath">
+                    <img src="https://dvdbsh.github.io/arena/straightpath.svg">
+                </div>
+                <div class="testimonial lefttilt">
+                    <img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1712442346/jenna.svg" class="blue" alt="Customer Review">
+                    <p>"Our office team building event at laser tag was a blast. It was fun, engaging, and perfect for boosting team spirit!" 
+                        <h3>Jenna K</h3>
+                    </p>
+                </div>
+                <div class="straightpath rev">
+                    <img src="https://dvdbsh.github.io/arena/straightpath.svg">
+                </div>
+                <div class="testimonial righttilt">
+                    <img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1712442344/sophia.svg" class="yellow" alt="Customer Review">
+                    <p>"Hosting my son’s laser tag birthday was easy and fun. The staff were super helpful, and everything went smoothly. Unforgettable day!" 
+                        <h3>Sophia M.</h3>
+                    </p>
+                </div>
+                <div class="straightpath">
+                    <img src="https://dvdbsh.github.io/arena/straightpath.svg">
+                </div>
+                <div class="testimonial lefttilt">
+                    <img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1712442345/darren.svg" class="pink" alt="Customer Review">
+                    <p>"The mini golf adventure was cool! The courses made for a fun rainy day activity. We'll definitely be back." 
+                        <h3>Darren L.</h3>
+                    </p>
+                </div>
+            </section>
+        </section>
+	</div>
+	<div class="carousel" data-flickity='{ "wrapAround": true, "autoPlay": 3000, "lazyLoad": true, "pageDots": false, "prevNextButtons": false, "contain": true }'>
+  <div class="carousel-cell">
+    <img 
+      src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide01_ntfdq3.png" 
+      alt="Slide 1"
+      style="transform: rotate(-3deg);">
+  </div>
+  <div class="carousel-cell">
+    <img 
+      src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide02_qnp48e.png" 
+      alt="Slide 2"
+      style="transform: rotate(2deg);">
+  </div>
+  <div class="carousel-cell">
+    <img 
+      src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide03_l6jgoz.png" 
+      alt="Slide 3"
+      style="transform: rotate(-2deg);">
+  </div>
+  <div class="carousel-cell">
+    <img 
+      src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide04_po0zbq.png" 
+      alt="Slide 4"
+      style="transform: rotate(1deg);">
+  </div>
+  <div class="carousel-cell">
+    <img 
+      src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide05_w7tosn.png" 
+      alt="Slide 5"
+      style="transform: rotate(-3deg);">
+  </div>
+  <div class="carousel-cell">
+    <img 
+      src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805064/slide06_s3ixrt.png" 
+      alt="Slide 6"
+      style="transform: rotate(1deg);">
+  </div>
+  <div class="carousel-cell">
+    <img 
+      src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725840536/slide07_urkz1b.png" 
+      alt="Slide 7"
+      style="transform: rotate(-2deg);">
+  </div>
+  <div class="carousel-cell">
+    <img 
+      src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725840536/slide08_zi7cym.png" 
+      alt="Slide 8"
+      style="transform: rotate(1deg);">
+  </div>
+</div>
+
+<script src="https://unpkg.com/flickity@2.2.2/dist/flickity.pkgd.min.js"></script>
+</div>
+
+
+
+<img 
+  src="https://res.cloudinary.com/di8j84ent/image/upload/v1723741147/squiggle-purple-trans_fwbpmp.png" 
+  alt="" 
+  srcset="
+    https://res.cloudinary.com/di8j84ent/image/upload/w_512,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 512w, 
+    https://res.cloudinary.com/di8j84ent/image/upload/w_1024,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 1024w, 
+    https://res.cloudinary.com/di8j84ent/image/upload/w_2048,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 2048w, 
+    https://res.cloudinary.com/di8j84ent/image/upload/w_4096,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 4096w" 
+  sizes="200vw" 
+  style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:fill;image-rendering:auto" 
+  loading="lazy">
+ 
+<div class="container">
+        <section class="hero" id="promos">
+            <div class="text full-width">
+                <div style="display: flex; align-items: center; justify-content: center;">
+						<div style="display: flex; align-items: center;">
+							<i class="icon-sparkle" style="margin-top: -20px; margin-right: 15px; width: 50px; height: 50px;"></i>
+						</div>
+						<div style="text-align: center;">
+							<h1 style="margin: 0;" class="headershadow">Rocket Powered Rates!</h1>
+						</div>
+						<div style="display: flex; align-items: center;">
+							<i class="icon-twinkle" style="margin-bottom: -20px; margin-left: 10px; width: 50px; height: 50px;"></i>
+						</div>
+					</div>
+                <p>Every week we offer daily specials on select activities! Looking for a great deal? You found it!</p>
+
+                <div class="weeklydeals-lg"><img id="weeklyDealImage" src=""></div>
+                                <p>All prices displayed are walk-in prices only, are priced per person, and cannot be combined with any other offer or promotion.</p>
+            </div>       
+        </section>
+    </div>      
+    <script>
+        // Get the current day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+        var dayOfWeek = new Date().getDay();
+        
+        var imgSrc;
+        switch(dayOfWeek) {
+            case 0: // Sunday
+            case 1: // Monday
+            case 2: // Tuesday
+            case 6: // Saturday
+                imgSrc = 'https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1715473287/weekly-sm_1_m696op.svg';
+                break;
+            case 3: // Wednesday
+                imgSrc = 'https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1715473640/wed_vtfbix.svg';
+                break;
+            case 4: // Thursday
+                imgSrc = 'https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1715473502/thur_nxvrnu.svg';
+                break;
+            case 5: // Friday
+                imgSrc = 'https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1715473499/fri_aq6xtu.svg';
+                break;
+        }
+
+        // Set the source for the image
+        document.getElementById('weeklyDealImage').src = imgSrc;
+    </script> 
+  
+<img 
+  src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1723741926/squiggle-trans-purple_weytxa.png" 
+  alt="" 
+  srcset="
+    https://res.cloudinary.com/di8j84ent/image/upload/w_512,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 512w, 
+    https://res.cloudinary.com/di8j84ent/image/upload/w_1024,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 1024w, 
+    https://res.cloudinary.com/di8j84ent/image/upload/w_2048,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 2048w, 
+    https://res.cloudinary.com/di8j84ent/image/upload/w_4096,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 4096w" 
+  sizes="200vw" 
+  style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:fill;image-rendering:auto" 
+  loading="lazy">
+  
+	
+
+
+<div class="purplebg">
+	<div class="container">
+        <section class="hero">
+            <div class="text">
+
+                     <div style="display: flex; align-items: center; justify-content: center; margin-top:60px; margin-bottom: 20px;">
+						<div style="display: flex; align-items: center;">
+							<i class="icon-sparkle" style="margin-top: -20px; margin-right: 15px; width: 50px; height: 50px;"></i>
+						</div>
+						<div style="text-align: center;">
+							<h1 style="margin: 0; font-size: 3em;" class="headershadow">Gift a Galaxy of Fun!</h1>
+						</div>
+						<div style="display: flex; align-items: center;">
+							<i class="icon-twinkle" style="margin-bottom: -20px; margin-left: 10px; width: 50px; height: 50px;"></i>
+						</div>
+					</div>
+                <p>Choose one of our e-gift cards to send to a friend, co-worker, or loved one for any occasion!</p>
+
+            </div>
+            <div class="image">
+                <img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1714696856/cards_1_rgqfck.png" alt="An image of gift cards flying through space like meteors">
+            </div>
+</section>
+	</div>
+</div>
+
+<img 
+  src="https://res.cloudinary.com/di8j84ent/image/upload/v1723741147/squiggle-purple-trans_fwbpmp.png" 
+  alt="" 
+  srcset="
+    https://res.cloudinary.com/di8j84ent/image/upload/w_512,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 512w, 
+    https://res.cloudinary.com/di8j84ent/image/upload/w_1024,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 1024w, 
+    https://res.cloudinary.com/di8j84ent/image/upload/w_2048,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 2048w, 
+    https://res.cloudinary.com/di8j84ent/image/upload/w_4096,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 4096w" 
+  sizes="200vw" 
+  style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:fill;image-rendering:auto" 
+  loading="lazy">  
+
+	
+
+
+<div class="container">
+        <section id="bookonline">
+            <div class="container">
+			<section class="hero">
+					<div class="text full-width">
+						                    <div style="display: flex; align-items: center; justify-content: center;">
+						<div style="display: flex; align-items: center;">
+							<i class="icon-sparkle" style="margin-top: -20px; margin-right: 15px; width: 50px; height: 50px;"></i>
+						</div>
+						<div style="text-align: center;">
+							<h1 style="margin: 0;" class="headershadow">Book Your Group Visit Online!</h1>
+						</div>
+						<div style="display: flex; align-items: center;">
+							<i class="icon-twinkle" style="margin-bottom: -20px; margin-left: 10px; width: 50px; height: 50px;"></i>
+						</div>
+					</div>
+						<p>No need to stress about the details – we've made it super easy to book ahead online. Lock in your plans, secure your spot, and get ready for a blast!</p>
+					</div>
+			</section>
+
+                <div class="toggleHeader" onclick="toggleVisibility('faq0', this)">
+                    <h2>How does group pricing work?</h2>
+                    <i class='faqbx bx bx-down-arrow-circle' id="arrow-faq0"></i>
+                </div>
+                <div id="faq0" class="faqcontent">
+                    <h2><i class="icon-sparkle"></i> It's simple!</h2>
+                    <p>Our group packages are priced per person and include access to all listed activities within that package, as well as a private party room. 
+                        To qualify for group pricing and the private room, each group must consist of at least 6 participants. Please note, the maximum number of people per group is limited to 20 at any time.
+                    </p>
+                    <p>When you arrive for your event, we will check you in, confirm the number of guests and finalize payment. We do not take payments online.</p>
+                    <p>Are you looking to book for a larger event for a business, school or organization? 
+                        <a href="https://www.sarnialasertag.com/organization" class="underline-effect">Reach out to us directly</a>.
+                    </p>    
+                </div>
+
+                <div class="toggleHeader" onclick="toggleVisibility('faq3', this)">
+                    <h2>Is there a minimum or maxium amount of people I can have?</h2>
+                    <i class='faqbx bx bx-down-arrow-circle' id="arrow-faq3"></i>
+                </div>
+                <div id="faq3" class="faqcontent">
+                    <h2><i class="icon-sparkle"></i> Yes!</h2>
+                    <p>To qualify for group pricing and the private room, each group must consist of at least 6 participants. Please note, the maximum number of people per group is limited to 20 at any time.
+                    </p>
+                    <p>Are you looking to book for a larger event for a business, school or organization? 
+                        <a href="https://www.sarnialasertag.com/organization" class="underline-effect">Reach out to us directly</a>.
+                    </p>
+                </div>
+
+                <div class="toggleHeader" onclick="toggleVisibility('faq1', this)">
+                    <h2>Will my group have a private room available to them?</h2>
+                    <i class='faqbx bx bx-down-arrow-circle' id="arrow-faq1"></i>
+                </div>
+                <div id="faq1" class="faqcontent">
+                    <h2><i class="icon-sparkle"></i> Yes!</h2>
+                    <p>Throughout your booking slot, you'll have exclusive access to a private party room. It's your space to decorate and use as needed for your event. Enjoy the privacy and flexibility to make your celebration perfect!</p>
+                </div>
+
+                <div class="toggleHeader" onclick="toggleVisibility('faq2', this)">
+                    <h2>Can I bring in my own food for my event?</h2>
+                    <i class='faqbx bx bx-down-arrow-circle' id="arrow-faq2"></i>
+                </div>
+                <div id="faq2" class="faqcontent">
+                    <h2><i class="icon-sparkle"></i> Yes!</h2>
+                    <p>You're welcome to bring your favorite treats, like a birthday cake or snacks, along with non-alcoholic beverages to enjoy during your event. Additionally, we offer a selection of personal-sized snacks including chips and chocolate bars, as well as soda and water available for purchase, should you need a little extra refreshment.</p>
+                    <p>Please note that The Arena maintains a <b>strict zero-tolerance policy regarding the presence and use of alcohol or drugs on the premises</b>. 
+                        We are committed to providing a safe and enjoyable environment for all guests. If any member of your party is found violating this policy, the entire group will be required to leave immediately, and no compensation will be offered for the disruption. 
+                        We appreciate your cooperation and understanding in helping us maintain a safe and welcoming space for everyone.
+                    </p>
+                </div>
+
+<section class="booking-section">
+    <div class="booking-package">
+        <img src="https://res.cloudinary.com/di8j84ent/image/upload/v1710514210/1_1_ickk6k.png" alt="Package 1">
+        <div class="header-container">
+            <h3>Double Trouble</h3>
+            <p class="price">$22 per person</p>
+			<p class="packtime">Approx. 1 hour 30 mins</p>
+        </div>
+        <ul>
+            <li><i class='bx bx-check check-icon'></i> Two 20-minute games of laser tag</li>
+        </ul>
+        <a href="https://book.squareup.com/appointments/ubo4tlk6rwm1nl/location/3N7XM7GWRSW3E/services/XQ7BGO5JLRW4B3TO6AZI5SRX" class="book-now-btn"><i class="icon-sparkle"></i> Book Now</a>
+    </div>
+
+    <div class="booking-package">
+        <img src="https://res.cloudinary.com/di8j84ent/image/upload/v1710514210/2_1_wsn2gy.png" alt="Package 2">
+        <div class="header-container">
+            <h3>Climb & Conquer</h3>
+            <p class="price">$28 per person</p>
+			<p class="packtime">Approx. 2 hours</p>
+        </div>
+        <ul>
+            <li><i class='bx bx-check check-icon'></i> Two 20-minute games of laser tag</li>
+            <li><i class='bx bx-check check-icon'></i> Two rock climbs</li>
+        </ul>
+        <a href="https://book.squareup.com/appointments/ubo4tlk6rwm1nl/location/3N7XM7GWRSW3E/services/RTSWPT23H3HDAMH2N5WFM45Z" class="book-now-btn"><i class="icon-sparkle"></i> Book Now</a>
+    </div>
+
+    <div class="booking-package">
+        <img src="https://res.cloudinary.com/di8j84ent/image/upload/v1710514250/3_5_n1vkc6.png" alt="Package 3">
+        <div class="header-container">
+            <h3>Putt & Play</h3>
+            <p class="price">$28 per person</p>
+			<p class="packtime">Approx. 2 hours</p>
+        </div>
+        <ul>
+            <li><i class='bx bx-check check-icon'></i> Two 20-minute games of laser tag</li>
+            <li><i class='bx bx-check check-icon'></i> One round of 10-hole mini golf</li>
+        </ul>
+        <a href="https://book.squareup.com/appointments/ubo4tlk6rwm1nl/location/3N7XM7GWRSW3E/services/KUWB2SSAJRK5BXDXEIOFZNWO" class="book-now-btn"><i class="icon-sparkle"></i> Book Now</a>
+    </div>
+
+    <div class="booking-package">
+        <img src="https://res.cloudinary.com/di8j84ent/image/upload/v1710514210/4_1_cnthj0.png" alt="Package 4">
+        <div class="header-container">
+            <h3>Ultimate Adventure</h3>
+            <p class="price">$32 per person</p>
+			<p class="packtime">Approx. 2 hours</p>
+        </div>
+        <ul>
+            <li><i class='bx bx-check check-icon'></i> One 20-minute game of laser tag</li>
+            <li><i class='bx bx-check check-icon'></i> Two rock climbs</li>
+            <li><i class='bx bx-check check-icon'></i> One round of 10-hole mini golf</li>
+        </ul>
+        <a href="https://book.squareup.com/appointments/ubo4tlk6rwm1nl/location/3N7XM7GWRSW3E/services/M2APHKUCURYXC4XONKDLUDGN" class="book-now-btn"><i class="icon-sparkle"></i> Book Now</a>
+    </div>
+</section>
+
+            </div>
+        </section>
+	</div>
+	<div class="ribbon">
+<div class="ribbontext">
+    Sarnia Plays Here <i class="icon-sparkle"></i> Sarnia Laughs Here <i class="icon-twinkle"></i> Sarnia Climbs Here <i class="icon-sparkle"></i> Sarnia Wins Here <i class="icon-twinkle"></i> Sarnia Putts Here 
+    Sarnia Parties Here <i class="icon-sparkle"></i> Sarnia Plays Here <i class="icon-twinkle"></i> Sarnia Laughs Here <i class="icon-sparkle"></i> Sarnia Climbs Here <i class="icon-twinkle"></i> Sarnia Wins Here <i class="icon-sparkle"></i> 
+    Sarnia Putts Here <i class="icon-twinkle"></i> Sarnia Parties Here <i class="icon-sparkle"></i> Sarnia Plays Here <i class="icon-twinkle"></i> Sarnia Laughs Here <i class="icon-sparkle"></i> Sarnia Climbs Here <i class="icon-twinkle"></i> 
+    Sarnia Wins Here <i class="icon-sparkle"></i> Sarnia Putts Here <i class="icon-twinkle"></i> Sarnia Parties Here <i class="icon-sparkle"></i> Sarnia Plays Here <i class="icon-sparkle"></i> Sarnia Laughs Here <i class="icon-twinkle"></i> Sarnia Climbs Here <i class="icon-sparkle"></i> Sarnia Wins Here <i class="icon-twinkle"></i> Sarnia Putts Here 
+    Sarnia Parties Here <i class="icon-sparkle"></i> Sarnia Plays Here <i class="icon-twinkle"></i> Sarnia Laughs Here <i class="icon-sparkle"></i> Sarnia Climbs Here <i class="icon-twinkle"></i> Sarnia Wins Here <i class="icon-sparkle"></i> 
+    Sarnia Putts Here <i class="icon-twinkle"></i> Sarnia Parties Here <i class="icon-sparkle"></i> Sarnia Plays Here <i class="icon-twinkle"></i> Sarnia Laughs Here <i class="icon-sparkle"></i> Sarnia Climbs Here <i class="icon-twinkle"></i> 
+    Sarnia Wins Here <i class="icon-sparkle"></i> Sarnia Putts Here <i class="icon-twinkle"></i> Sarnia Parties Here <i class="icon-sparkle"></i> 
+</div>
+
+    </div>
+	<div class="container">
+        <section class="hero" id="visit">
+            <div class="text">
+                                    <div style="display: flex; align-items: center; justify-content: center;">
+						<div style="display: flex; align-items: center;">
+							<i class="icon-sparkle" style="margin-top: -20px; margin-right: 15px; width: 50px; height: 50px;"></i>
+						</div>
+						<div style="text-align: center;">
+							<h1 style="margin: 0;" class="headershadow">Ready to Visit?</h1>
+						</div>
+						<div style="display: flex; align-items: center;">
+							<i class="icon-twinkle" style="margin-bottom: -20px; margin-left: 10px; width: 50px; height: 50px;"></i>
+						</div>
+					</div>
+
+                <p>We're over the moon with excitement at the thought of welcoming you! Our doors are open wide during our business hours. Navigate your way through the stars and drop by!
+                </p>
+                <p>
+                    <a href="tel:+15195421001"><button><i class='bx bx-phone'></i> Call Us!</button></a>
+					<a href="tel:+15195421001"><button><i class='bx bx-envelope'></i> Message Us!</button></a>
+                </p>
+            </div>
+            <div class="text">
+                <!-- Replace the src with your image link -->
+                <a href="https://www.google.com/maps/dir/42.9802491,-81.2037244/1886+London+Line,+Sarnia,+ON+N7W+1B3/@42.9321471,-83.1115738,8z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x882583f032715077:0xdf8f3cb05927e5!2m2!1d-82.3151737!2d42.9853351?entry=ttu" target="_blank">
+                    <img src="https://res.cloudinary.com/di8j84ent/image/upload/v1712845028/map_2_k1jpgv.png" alt="Business Location Map" border="0">
+                </a>
+            </div>
+        </section>
+
+        <section class="hours">
+            <div class="business-hours">
+                <div class="business-hour sunday">
+                    <p><b>SUN</b></p>
+                    <p>11AM - 7PM</p>
+                </div>
+                <div class="business-hour montuesday">
+                    <p><b>MON + TUES</b></p>
+                    <p>Closed</p>
+                </div>
+                <div class="business-hour wednesday">
+                    <p><b>WED</b></p>
+                    <p>4PM - 8PM</p>
+                </div>
+                <div class="business-hour thursday">
+                    <p><b>THURS</b></p>
+                    <p>4PM - 8PM</p>
+                </div>
+                <div class="business-hour friday">
+                    <p><b>FRI</b></p>
+                    <p>4PM - 10PM</p>
+                </div>
+                <div class="business-hour saturday">
+                    <p><b>SAT</b></p>
+                    <p>12PM - 10PM</p>
+                </div>
+            </div>
+        </section>
+    </div>
+	<img 
+  src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1723741926/squiggle-trans-purple_weytxa.png" 
+  alt="" 
+  srcset="
+    https://res.cloudinary.com/di8j84ent/image/upload/w_512,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 512w, 
+    https://res.cloudinary.com/di8j84ent/image/upload/w_1024,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 1024w, 
+    https://res.cloudinary.com/di8j84ent/image/upload/w_2048,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 2048w, 
+    https://res.cloudinary.com/di8j84ent/image/upload/w_4096,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 4096w" 
+  sizes="200vw" 
+  style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:fill;image-rendering:auto" 
+  loading="lazy">
+	<div class="footer">
+
+    <div class="container">
+        <div class="footer-content">
+<div class="footer-section">
+    <h3>The Fine Print</h3>
+    <p>All prices are displayed without applicable taxes and are subject to change without notice.</p>
+    <p>The Arena - Sarnia Laser Tag is a local, independently owned and run business. We thank you for your continued support and patronage.</p>
+    <p>By using our venue and facilities, you agree to abide by our <a href="/respect-responsible-use-policy" class="underline-effect">Respect & Responsible Use Policy</a> and <a href="/privacy-policy" class="underline-effect">Privacy Policy</a>.</p>
+
+</div>
+
+            <div class="footer-section">
+                <h3>Follow Us!</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/thearenasarnia/" target="_blank" class="icon-link"><i class='bx bxl-facebook-circle'></i></a>
+                    <a href="https://www.instagram.com/thearenasarnia" target="_blank" class="icon-link"><i class='bx bxl-instagram'></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Robbie Bennett Holdings Inc.</p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+const swiper = new Swiper('.swiper-container', {
+  loop: true,
+  spaceBetween: 10,
+  slidesPerView: 'auto',
+  grabCursor: true,
+  centeredSlides: false,
+  autoplay: {
+    delay: 3000,
+  },
+  preloadImages: true, // Disable preloading
+  lazy: {
+    loadPrevNext: true, // Load next/prev images in the queue
+    loadPrevNextAmount: 7, // Number of slides to preload in advance
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+  },
+});
+</script>   
+   <script>
+        function toggleVisibility(sectionId, header) {
+            var content = document.getElementById(sectionId);
+            var arrow = document.getElementById('arrow-' + sectionId);
+            var allContents = document.querySelectorAll('.faqcontent');
+            var allArrows = document.querySelectorAll('faqbx');
+
+            allContents.forEach(function(otherContent) {
+                if (otherContent !== content) {
+                    otherContent.style.display = 'none';
+                }
+            });
+
+            allArrows.forEach(function(otherArrow) {
+                if (otherArrow !== arrow) {
+                    otherArrow.className = 'faqbx bx bx-down-arrow-circle';
+                }
+            });
+
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                arrow.className = 'faqbx bx bx-up-arrow-circle';
+            } else {
+                content.style.display = 'none';
+                arrow.className = 'faqbx bx bx-down-arrow-circle';
+            }
+        }
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationName = entry.target.classList.contains('lefttilt') ? 'wiggle-lefttilt' : 'wiggle-righttilt';
+                        entry.target.style.animationDuration = '2s';
+                        entry.target.style.animationIterationCount = 'infinite';
+                        entry.target.style.animationTimingFunction = 'ease-in-out';
+                    } else {
+                        entry.target.style.animationName = 'none';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.testimonial').forEach(testimonial => {
+                observer.observe(testimonial);
+            });
+        });
+    </script>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            requestAnimationFrame(() => {
+                const scrollPosition = window.pageYOffset;
+                const ribbonText = document.querySelector('.ribbontext');
+                ribbonText.style.transform = `translateX(${-scrollPosition * 0.2}px)`;
+            });
+        });
+    </script>
+
+<script>
+    function toggleMobileNav() {
+        var mobileNav = document.getElementById('mobileNav');
+        mobileNav.classList.toggle('active');
+
+        if (mobileNav.classList.contains('active')) {
+            document.addEventListener('click', closeNavOnClickOutside);
+        } else {
+            document.removeEventListener('click', closeNavOnClickOutside);
+        }
+    }
+
+    function closeNavOnClickOutside(event) {
+        var mobileNav = document.getElementById('mobileNav');
+        if (!mobileNav.contains(event.target) && !event.target.classList.contains('menu-icon')) {
+            mobileNav.classList.remove('active');
+            document.removeEventListener('click', closeNavOnClickOutside);
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav ul li a');
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                toggleMobileNav();
+            });
+        });
+    });
+</script>
+
+
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+            const scrollThreshold = 300;
+
+            if (scrollPosition > scrollThreshold) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+    </script>
+
+    <script>
+        document.getElementById('backToTopBtn').addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const giftcard = document.querySelector('.giftcard');
+            const container = document.querySelector('.scroll-container');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        giftcard.classList.add('bounce-left');
+                        giftcard.classList.remove('bounce-right');
+                        observer.disconnect();
+                    }
+                });
+            }, {
+                threshold: 0.9
+            });
+
+            observer.observe(container);
+        });
+    </script>
+
+    <script>
+        const currentDay = new Date().getDay();
+
+        const dayToClassMapping = {
+            0: "sunday",
+            1: "monday",
+            2: "tuesday",
+            3: "wednesday",
+            4: "thursday",
+            5: "friday",
+            6: "saturday",
+        };
+
+        let dayClassName = dayToClassMapping[currentDay];
+
+        if (currentDay === 1 || currentDay === 2) {
+            dayClassName = "montuesday";
+        }
+
+        const businessHourDiv = document.querySelector(`.business-hour.${dayClassName}`);
+
+        if (businessHourDiv) {
+            businessHourDiv.classList.add("highlight");
+        }
+    </script>
+	
+	
+</body>
+</html>
