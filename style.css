@@ -332,9 +332,7 @@ nav ul li {
     }
 }
 
-.main img {
-    animation: float 5s ease-in-out infinite;
-}
+
 
 .hero button {
     font-family: 'Roboto Mono', monospace;
