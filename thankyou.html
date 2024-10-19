@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="5; url=index.html">
+    <title>Thank You!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://res.cloudinary.com/di8j84ent/image/upload/v1709228921/favicon2_cefnb0.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://res.cloudinary.com/di8j84ent/image/upload/v1709228921/favicon_2023_dimp5x.png">
+
+    <style>
+        :root {
+            --arena-purple: #44148f;
+            --arena-magenta: #990099;
+            --arena-white: #fff;
+            --arena-black: #090909;
+            --arena-gray: #333;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--arena-purple);
+            color: var(--arena-white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .container {
+            background-color: var(--arena-white);
+            color: var(--arena-black);
+            border: 2px solid var(--arena-black);
+            box-shadow: 0px 7px 0px rgba(9, 9, 9, 0.43);
+            border-radius: 8px;
+            padding: 40px;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            color: var(--arena-gray);
+            font-weight: 800;
+        }
+
+        p {
+            font-family: 'Roboto Mono', sans-serif;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .redirect-link {
+            font-weight: bold;
+            color: var(--arena-magenta);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .redirect-link:hover {
+            color: var(--arena-purple);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Thank You!</h1>
+        <p>Your submission has been received. We appreciate your interest and will get back to you shortly.</p>
+        <p>Redirecting in <span id="countdown">5</span> seconds... or <a href="index.html" class="redirect-link">click here</a>.</p>
+    </div>
+    <script>
+        let countdownElement = document.getElementById('countdown');
+        let countdownValue = 5;
+        
+        setInterval(() => {
+            countdownValue--;
+            countdownElement.textContent = countdownValue;
+        }, 1000);
+    </script>
+</body>
+</html>
