@@ -6,6 +6,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-status-bar-style" content="translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Dive into adventure at Sarnia's ultimate spot with laser tag, rock climbing, and mini golf. Visit The Arena in Sarnia for an unforgettable experience!">
+    <meta name="keywords" content="Sarnia, laser tag, rock climbing, mini golf, group events, fun activities, family entertainment, Sarnia laser tag, The Arena Sarnia, birthday parties">
 
     <!-- Theme color for mobile browsers -->
     <meta name="theme-color" content="var(--arena-purple)">
@@ -33,6 +35,8 @@
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	<link rel="stylesheet" href="style.css">
+	
+
 
 </head>
 <body>
@@ -826,200 +830,15 @@
     </div>
 </div>
 
-
-<script>
-const swiper = new Swiper('.swiper-container', {
-  loop: true,
-  spaceBetween: 10,
-  slidesPerView: 'auto',
-  grabCursor: true,
-  centeredSlides: false,
-  autoplay: {
-    delay: 3000,
-  },
-  preloadImages: true, // Disable preloading
-  lazy: {
-    loadPrevNext: true, // Load next/prev images in the queue
-    loadPrevNextAmount: 7, // Number of slides to preload in advance
-  },
-  breakpoints: {
-    640: {
-      slidesPerView: 1,
-    },
-    768: {
-      slidesPerView: 2,
-    },
-    1024: {
-      slidesPerView: 3,
-    },
-  },
-});
-</script>   
-   <script>
-        function toggleVisibility(sectionId, header) {
-            var content = document.getElementById(sectionId);
-            var arrow = document.getElementById('arrow-' + sectionId);
-            var allContents = document.querySelectorAll('.faqcontent');
-            var allArrows = document.querySelectorAll('faqbx');
-
-            allContents.forEach(function(otherContent) {
-                if (otherContent !== content) {
-                    otherContent.style.display = 'none';
-                }
-            });
-
-            allArrows.forEach(function(otherArrow) {
-                if (otherArrow !== arrow) {
-                    otherArrow.className = 'faqbx bx bx-down-arrow-circle';
-                }
-            });
-
-            if (content.style.display === 'none' || content.style.display === '') {
-                content.style.display = 'block';
-                arrow.className = 'faqbx bx bx-up-arrow-circle';
-            } else {
-                content.style.display = 'none';
-                arrow.className = 'faqbx bx bx-down-arrow-circle';
-            }
-        }
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animationName = entry.target.classList.contains('lefttilt') ? 'wiggle-lefttilt' : 'wiggle-righttilt';
-                        entry.target.style.animationDuration = '2s';
-                        entry.target.style.animationIterationCount = 'infinite';
-                        entry.target.style.animationTimingFunction = 'ease-in-out';
-                    } else {
-                        entry.target.style.animationName = 'none';
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            document.querySelectorAll('.testimonial').forEach(testimonial => {
-                observer.observe(testimonial);
-            });
-        });
-    </script>
-
-    <script>
-        window.addEventListener('scroll', function () {
-            requestAnimationFrame(() => {
-                const scrollPosition = window.pageYOffset;
-                const ribbonText = document.querySelector('.ribbontext');
-                ribbonText.style.transform = `translateX(${-scrollPosition * 0.2}px)`;
-            });
-        });
-    </script>
-
-<script>
-    function toggleMobileNav() {
-        var mobileNav = document.getElementById('mobileNav');
-        mobileNav.classList.toggle('active');
-
-        if (mobileNav.classList.contains('active')) {
-            document.addEventListener('click', closeNavOnClickOutside);
-        } else {
-            document.removeEventListener('click', closeNavOnClickOutside);
-        }
-    }
-
-    function closeNavOnClickOutside(event) {
-        var mobileNav = document.getElementById('mobileNav');
-        if (!mobileNav.contains(event.target) && !event.target.classList.contains('menu-icon')) {
-            mobileNav.classList.remove('active');
-            document.removeEventListener('click', closeNavOnClickOutside);
-        }
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav ul li a');
-
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                toggleMobileNav();
-            });
-        });
-    });
-</script>
-
-
-
-    <script>
-        window.addEventListener('scroll', function () {
-            const backToTopBtn = document.getElementById('backToTopBtn');
-            const scrollPosition = window.scrollY || document.documentElement.scrollTop;
-            const scrollThreshold = 300;
-
-            if (scrollPosition > scrollThreshold) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
-            }
-        });
-    </script>
-
-    <script>
-        document.getElementById('backToTopBtn').addEventListener('click', function () {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const giftcard = document.querySelector('.giftcard');
-            const container = document.querySelector('.scroll-container');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        giftcard.classList.add('bounce-left');
-                        giftcard.classList.remove('bounce-right');
-                        observer.disconnect();
-                    }
-                });
-            }, {
-                threshold: 0.9
-            });
-
-            observer.observe(container);
-        });
-    </script>
-
-    <script>
-        const currentDay = new Date().getDay();
-
-        const dayToClassMapping = {
-            0: "sunday",
-            1: "monday",
-            2: "tuesday",
-            3: "wednesday",
-            4: "thursday",
-            5: "friday",
-            6: "saturday",
-        };
-
-        let dayClassName = dayToClassMapping[currentDay];
-
-        if (currentDay === 1 || currentDay === 2) {
-            dayClassName = "montuesday";
-        }
-
-        const businessHourDiv = document.querySelector(`.business-hour.${dayClassName}`);
-
-        if (businessHourDiv) {
-            businessHourDiv.classList.add("highlight");
-        }
-    </script>
-	
+	<!-- JavaScript Files -->
+    <script src="scripts/swiper-init.js"></script>
+    <script src="scripts/toggle-faq.js"></script>
+    <script src="scripts/testimonial-animation.js"></script>
+    <script src="scripts/ribbon-scroll.js"></script>
+    <script src="scripts/mobile-nav.js"></script>
+    <script src="scripts/back-to-top.js"></script>
+    <script src="scripts/highlight-business-hours.js"></script>
+    <script src="scripts/weekly-deals-image.js"></script>	
 	
 </body>
 </html>
