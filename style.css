@@ -168,6 +168,20 @@ body, html {
     background-color: var(--arena-purple);
 }
 
+.spacewaves {
+	background-image:url(https://res.cloudinary.com/di8j84ent/image/upload/v1729963401/space-waves_stbof3.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: top center;
+}
+
+@media (max-width: 768px) {
+.spacewaves {
+	background-image:url(https://res.cloudinary.com/di8j84ent/image/upload/v1729963401/space-waves_stbof3.png);
+	background-size: 200%;
+	background-repeat: no-repeat;
+}
+}
 .darkpurplebg {
     background-color: var(--arena-dark-purple);
 }
@@ -931,6 +945,9 @@ nav ul li {
     padding: 20px 20px;
     color: var(--arena-light-gray);
     text-align: center;
+	background-image:url(https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1729963533/space-waves-2_jmc7hj.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
 }
 
 .footer-content {
@@ -1193,6 +1210,9 @@ nav ul li {
         margin-bottom: 20px;
         text-align: center;
     }
+	.footer {
+		background-position: bottom;
+	}
 }
 
 @media (max-width: 768px) {
