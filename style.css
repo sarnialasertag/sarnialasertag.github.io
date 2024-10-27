@@ -1121,7 +1121,6 @@ nav ul li {
   overflow: visible; /* Allow rotated images to overflow */
   position: relative; /* Necessary for ::before to be relative to carousel */
   margin-top: -40px;
-  background-image:url(https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725815512/squiggle-bg-100_xii2sv.png);
   background-size: 30%;
   background-repeat: repeat-x;
   background-position: center;
