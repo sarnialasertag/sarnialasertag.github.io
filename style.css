@@ -1187,6 +1187,24 @@ nav ul li {
     }
 }
 
+.svg-mobile {
+    display: none; /* Hide the fallback image by default */
+}
+
+.svg-desktop {
+    display: block; /* Show SVG by default */
+}
+
+@media (max-width: 768px) {
+    .svg-mobile {
+        display: block; /* Show the fallback image on smaller screens */
+    }
+    .svg-desktop {
+        display: none; /* Hide SVG on smaller screens */
+    }
+}
+
+
 
 
 
