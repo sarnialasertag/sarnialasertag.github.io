@@ -44,6 +44,86 @@ h1, h2, h3 {
     text-shadow: 3px 3px 0px var(--arena-black-30);
 }
 
+/* Styles for the cookie consent banner */
+#cookie-banner {
+    position: fixed;
+    left: 15px;
+    bottom: 15px;
+    width: 60%;
+    max-width: 500px;
+    background: var(--arena-white);
+    border: 2px solid var(--arena-black);
+    box-shadow: 0px 7px 0px var(--arena-black-30);
+    color: var(--arena-dark-gray);
+    border-radius: 8px;
+    z-index: 99;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Styles for the banner text and link */
+#cookie-banner span {
+    flex: 1;
+    min-width: 100%;
+    text-align: center;
+}
+
+#learn-more-link {
+    color: var(--arena-black);
+    text-decoration: underline;
+}
+
+/* Styles for the accept and decline buttons */
+#accept-cookies-btn,
+#decline-cookies-btn {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    flex: 0 0 auto;
+}
+
+#accept-cookies-btn {
+    background: var(--arena-black);
+    color: var(--arena-white);
+}
+
+#decline-cookies-btn {
+    background: #ccc;
+    color: var(--arena-black);
+}
+
+/* Mobile-specific styles using a media query */
+@media (max-width: 768px) {
+    #cookie-banner {
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        width: auto;
+        max-width: none;
+        padding: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #cookie-banner span {
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    #accept-cookies-btn, 
+    #decline-cookies-btn {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}
+
+
 /* Apply the underline effect only to links with the underline-effect class */
 .underline-effect {
     position: relative;
