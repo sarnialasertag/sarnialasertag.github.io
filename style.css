@@ -132,6 +132,7 @@ h1, h2, h3 {
     display: none; /* Hide mobile logo by default */
 }
 
+
 /* Media Query for Mobile Devices */
 @media (max-width: 768px) {
     .logo-large {
@@ -268,7 +269,7 @@ body, html {
 }
 
 .spacewaves {
-	background-image:url(https://res.cloudinary.com/di8j84ent/image/upload/v1729963401/space-waves_stbof3.png);
+	background-image:url(https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1729963401/space-waves_stbof3.png);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-position: top center;
@@ -276,7 +277,7 @@ body, html {
 
 @media (max-width: 768px) {
 .spacewaves {
-	background-image:url(https://res.cloudinary.com/di8j84ent/image/upload/v1729963401/space-waves_stbof3.png);
+	background-image:url(https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1729963401/space-waves_stbof3.png);
 	background-size: 200%;
 	background-repeat: no-repeat;
 }
@@ -416,7 +417,7 @@ nav ul li {
 }
 
 .starbg {
-    background-image: url('https://res.cloudinary.com/di8j84ent/image/upload/v1714252618/spacebro-bg_mjhgk4.png');
+    background-image: url('https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1714252618/spacebro-bg_mjhgk4.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -488,14 +489,14 @@ nav ul li {
 }
 
 .welcome-message::before {
-    background-image: url('https://res.cloudinary.com/di8j84ent/image/upload/v1723999636/sparkle_01_awkaoa.svg'); /* Left icon */
+    background-image: url('https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1723999636/sparkle_01_awkaoa.svg'); /* Left icon */
     top: 30%;
     left: -40px; /* Position to the left of the text */
     transform: translateY(-50%);
 }
 
 .welcome-message::after {
-    background-image: url('https://res.cloudinary.com/di8j84ent/image/upload/v1723999635/sparkle_02_tvwfyk.svg'); /* Right icon */
+    background-image: url('https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1723999635/sparkle_02_tvwfyk.svg'); /* Right icon */
     top: 70%;
     right: -40px; /* Position to the right of the text */
     transform: translateY(-50%);
@@ -1034,11 +1035,11 @@ nav ul li {
 }
 
 .icon-sparkle {
-    background-image: url('https://res.cloudinary.com/di8j84ent/image/upload/v1723999636/sparkle_01_awkaoa.svg');
+    background-image: url('https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1723999636/sparkle_01_awkaoa.svg');
 }
 
 .icon-twinkle {
-    background-image: url('https://res.cloudinary.com/di8j84ent/image/upload/v1723999635/sparkle_02_tvwfyk.svg');
+    background-image: url('https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1723999635/sparkle_02_tvwfyk.svg');
 }
 
 .footer {

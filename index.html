@@ -1,61 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-		<div id="cookie-banner">
-		  <span>
-			We use cookies to understand how visitors use our site and to help us improve it. No ads, just insights to make your experience better. 
-			<a href="/privacy-policy.html" id="learn-more-link">Learn More</a>.
-		  </span>
-		  <button id="accept-cookies-btn">Accept</button>
-		  <button id="decline-cookies-btn">Decline</button>
-		</div>
+	<script>
+    // This script will run before any HTML is rendered
+    document.addEventListener('DOMContentLoaded', function () {
+      const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+      if (cookiesAccepted === null) {
+        // If no decision yet, make the banner visible
+        document.getElementById('cookie-banner').style.display = 'block';
+      } else if (cookiesAccepted === 'true') {
+        // If cookies were accepted, load analytics immediately
+        loadGoogleAnalytics();
+      }
+    });
 
-		<script>
-		  function loadGoogleAnalytics() {
-			var script = document.createElement("script");
-			script.async = true;
-			script.src = "https://www.googletagmanager.com/gtag/js?id=G-G2VXSD6SG9";
-			document.head.appendChild(script);
+    function loadGoogleAnalytics() {
+      var script = document.createElement("script");
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-G2VXSD6SG9";
+      document.head.appendChild(script);
 
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
 
-			gtag('config', 'G-G2VXSD6SG9', {
-			  'anonymize_ip': true
-			});
-		  }
+      gtag('config', 'G-G2VXSD6SG9', {
+        'anonymize_ip': true
+      });
+    }
+  </script>
 
-		  document.addEventListener('DOMContentLoaded', function() {
-			const banner = document.getElementById('cookie-banner');
-			const acceptBtn = document.getElementById('accept-cookies-btn');
-			const declineBtn = document.getElementById('decline-cookies-btn');
-
-			// Check if the user has already made a choice
-			const cookiesAccepted = localStorage.getItem('cookiesAccepted');
-			if (cookiesAccepted === 'true') {
-			  loadGoogleAnalytics();  // Load analytics if consent is given
-			  banner.style.display = 'none';
-			} else if (cookiesAccepted === 'false') {
-			  banner.style.display = 'none';
-			}
-
-			// If the user accepts cookies, set consent and load Google Analytics
-			acceptBtn.addEventListener('click', function() {
-			  localStorage.setItem('cookiesAccepted', 'true');
-			  loadGoogleAnalytics();
-			  banner.style.display = 'none';
-			});
-
-			// If the user declines cookies, hide the banner
-			declineBtn.addEventListener('click', function() {
-			  localStorage.setItem('cookiesAccepted', 'false');
-			  banner.style.display = 'none';
-			});
-		  });
-		</script>
 
       <title>The Arena - Sarnia Laser Tag</title>
       <!-- Other meta tags and links -->
@@ -91,6 +67,35 @@
       <link rel="stylesheet" href="style.css">
    </head>
    <body>
+   <div id="cookie-banner" style="display: none;">
+    <span>
+      We use cookies to understand how visitors use our site and to help us improve it. No ads, just insights to make your experience better.
+      <a href="/privacy-policy.html" id="learn-more-link">Learn More</a>.
+    </span>
+    <button id="accept-cookies-btn">Accept</button>
+    <button id="decline-cookies-btn">Decline</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const banner = document.getElementById('cookie-banner');
+      const acceptBtn = document.getElementById('accept-cookies-btn');
+      const declineBtn = document.getElementById('decline-cookies-btn');
+
+      // If the user accepts cookies, set consent and load Google Analytics
+      acceptBtn.addEventListener('click', function () {
+        localStorage.setItem('cookiesAccepted', 'true');
+        loadGoogleAnalytics();
+        banner.style.display = 'none';
+      });
+
+      // If the user declines cookies, hide the banner
+      declineBtn.addEventListener('click', function () {
+        localStorage.setItem('cookiesAccepted', 'false');
+        banner.style.display = 'none';
+      });
+    });
+  </script>
       <div class="purplebg spacewaves">
          <div class="container">
             <div class="header">
