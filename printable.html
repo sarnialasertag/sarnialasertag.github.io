@@ -63,7 +63,8 @@
 
         <!-- Preview container with scaled-down image -->
         <div class="preview-container" id="imageContainer">
-            <img src="https://sarnialasertag.com/printables/set_01/01.jpg" alt="Invitation Background" id="backgroundImage">
+            <!-- Replace with your base64 or hosted image URL if needed -->
+            <img src="printables/set_01/01.jpg" alt="Invitation Background" id="backgroundImage">
             <div class="overlay-text" id="eventTitle">Event Title</div>
             <div class="overlay-text" id="date">Date</div>
             <div class="overlay-text" id="startTime">Start Time</div>
@@ -74,21 +75,19 @@
     </div>
 
     <script>
-        // Function to update overlay text in real time
         function updateText(id) {
             const inputValue = document.getElementById(id + "Input").value;
             document.getElementById(id).innerText = inputValue;
         }
 
-        // Function to save image at full resolution
         function saveImage() {
             const container = document.getElementById("imageContainer");
 
-            // Use html2canvas to capture at 1200x1800 resolution
+            // Use html2canvas with explicit scale and size for high-resolution output
             html2canvas(container, {
-                width: 1200, // Full resolution width
-                height: 1800, // Full resolution height
-                scale: 3 // Increase scale to enhance quality
+                scale: 3, // Increase scale to enhance quality
+                width: 1200, // Set full resolution width
+                height: 1800, // Set full resolution height
             }).then(canvas => {
                 const link = document.createElement("a");
                 link.href = canvas.toDataURL("image/png");
