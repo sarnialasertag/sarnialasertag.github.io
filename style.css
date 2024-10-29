@@ -123,6 +123,12 @@ h1, h2, h3 {
     }
 }
 
+.boxshadow	{
+    border: 2px solid var(--arena-black);
+    box-shadow: 0px 7px 0px var(--arena-black-30);
+    border-radius: 8px;
+}
+
 /* General CSS to set the initial state */
 .logo-large {
     display: block; /* Show logo for large screens by default */
@@ -1240,7 +1246,7 @@ nav ul li {
   height: auto; /* Keep auto height for dynamic adjustment */
   overflow: visible; /* Allow rotated images to overflow */
   position: relative; /* Necessary for ::before to be relative to carousel */
-  margin-top: -40px;
+  margin-top: 0px;
   background-size: 30%;
   background-repeat: repeat-x;
   background-position: center;
@@ -1275,7 +1281,6 @@ nav ul li {
   .carousel {
     height: auto; /* Adjust height for smaller screens */
 	padding-bottom: 40px;
-	background-image:url(https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725815512/squiggle-bg-100_xii2sv.png);
 	background-size: 100%;
   }
   .carousel img {
@@ -1286,7 +1291,7 @@ nav ul li {
 @media (max-width: 480px) {
   .carousel {
     height: auto; /* Adjust height for mobile */
-	margin-top: -60px;
+	margin-top: 0px;
   }
   .carousel img {
     max-height: 90%; /* Keep the image size consistent */

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Space Flap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;800&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body, html { background-color: #050110; margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }
+        canvas {
+            display: block;
+            background-color: #050110;
+            background-image: url('https://res.cloudinary.com/di8j84ent/image/upload/v1716573916/spacebg3_rjyhqt.png');
+            background-size: 40%;
+            margin: auto;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+        }
+        #startButton, #restartButton {
+            display: none;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1em;
+            font-weight: bold;
+            padding: 15px;
+            cursor: pointer;
+            border: 3px solid #eee;
+            background: rgba(0, 0, 0, 0.3);
+            color: #eee;
+            border-radius: 8px;
+            font-family: 'Roboto Mono';
+            margin-top: 10px;
+        }
+        #startButton:hover, #restartButton:hover {
+            border: 3px solid #ff4a8b;
+            color: #ff4a8b;
+        }
+        #startButton { top: 70%; }
+        #restartButton {
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #instructions {
+            display: none;
+            position: absolute;
+            width: calc(100% - 40px);
+            max-width: 600px;
+            box-sizing: border-box;
+            text-align: center;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            color: white;
+            font-family: 'Roboto Mono';
+            z-index: 99;
+            padding: 10px;
+        }
+        #gameTitle {
+            font-family: 'Bricolage Grotesque', sans-serif;   
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            top: -20px;
+        }
+        @media (min-width: 520px) {
+            #gameTitle {
+                font-size: 64px;
+            }
+        }
+        #gameTitle::before {
+            content: " ";
+            display: block;
+            height: 40px;
+            width: 100%;
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            pointer-events: none;
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        .float img {
+            animation: float 3s ease-in-out infinite;
+        }
+        @media (max-width: 520px) {
+            #instructions {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <div id="instructions">
+        <div id="gameTitle">Space Adventure</div>
+        <div class="float"><img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1715475408/spaceship-sprite_w3gb6f.svg" height="60px"></div>
+        <p>Click or tap to make the spaceship fly!</p>
+        <p>Avoid the planets to score points!</p>
+    </div>
+    <button id="startButton">Start Game</button>
+    <button id="restartButton">Restart Game</button>
+
+    <!-- Game Script -->
+    <script type="module">
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const spaceshipImg = new Image();
+        const planetImgs = [
+            new Image(), new Image(), new Image(),
+            new Image(), new Image(), new Image()
+        ];
+        let imagesLoaded = 0;
+
+        function imageLoaded() {
+            imagesLoaded++;
+            if (imagesLoaded === 7) {
+                showStartScreen();
+            }
+        }
+
+        spaceshipImg.onload = imageLoaded;
+        planetImgs.forEach(img => img.onload = imageLoaded);
+
+        spaceshipImg.src = 'https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1715475408/spaceship-sprite_w3gb6f.svg';
+        planetImgs[0].src = 'https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1715566824/planet7-sprite_aqzbyk.png';
+        planetImgs[1].src = 'https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1715475427/planet1-sprite_jjv5jp.png';
+        planetImgs[2].src = 'https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1715475424/planet2-sprite_hlvcbm.png';
+        planetImgs[3].src = 'https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1715523872/planet4-sprite_wkahed.png';
+        planetImgs[4].src = 'https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1715523868/planet5-sprite_s6xhyf.png';
+        planetImgs[5].src = 'https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1715523865/planet6-sprite_agttqs.png';
+
+        let spaceship, planets, frame, score, gameOver;
+        const spaceshipWidth = 60;
+        const spaceshipHeight = 42;
+        const borderHeight = 25;
+
+        const startButton = document.getElementById('startButton');
+        const restartButton = document.getElementById('restartButton');
+
+        function init() {
+            spaceship = { x: 100, y: (canvas.height - 2 * borderHeight) / 2 + borderHeight, vy: 0 };
+            planets = [];
+            frame = 0;
+            score = 0;
+            gameOver = false;
+            resizeCanvas();
+            updateBackground();
+            gameLoop();
+            startButton.style.display = 'none';
+            restartButton.style.display = 'none';
+            instructions.style.display = 'none';
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        startButton.addEventListener('click', startGame);
+        restartButton.addEventListener('click', init);
+        canvas.addEventListener('click', function() {
+            if (!gameOver) {
+                spaceship.vy = -5;
+            }
+        });
+
+        function startGame() {
+            init();
+        }
+
+        function drawSpaceship() {
+            ctx.drawImage(spaceshipImg, spaceship.x, spaceship.y, spaceshipWidth, spaceshipHeight);
+        }
+
+        function updateSpaceship() {
+            spaceship.vy += 0.1;
+            spaceship.y += spaceship.vy;
+
+            if (spaceship.y < borderHeight || spaceship.y > canvas.height - spaceshipHeight - borderHeight) {
+                endGame();
+            }
+        }
+
+        function drawPlanets() {
+            planets.forEach(planet => {
+                const size = planet.size * 50;
+                ctx.drawImage(planet.img, planet.x, planet.y, size, size);
+            });
+        }
+
+        function updatePlanets() {
+            if (frame % 100 === 0) {
+                const size = Math.random() * 0.5 + 0.5;
+                const y = Math.random() * ((canvas.height - 2 * borderHeight) - (size * 50)) + borderHeight;
+                planets.push({
+                    x: canvas.width,
+                    y,
+                    img: planetImgs[Math.floor(Math.random() * planetImgs.length)],
+                    size: size,
+                    passed: false
+                });
+            }
+            planets.forEach(planet => {
+                planet.x -= 2;
+                if (!planet.passed && planet.x + planet.size * 50 < spaceship.x) {
+                    planet.passed = true;
+                    score++;
+                }
+            });
+            planets = planets.filter(planet => planet.x + planet.size * 50 > 0);
+        }
+
+        function checkCollision() {
+            planets.forEach(planet => {
+                const size = planet.size * 50;
+                if (spaceship.x < planet.x + size && spaceship.x + spaceshipWidth > planet.x &&
+                    spaceship.y < planet.y + size && spaceship.y + spaceshipHeight > planet.y &&
+                    planet.y > borderHeight && planet.y + size < canvas.height - borderHeight) {
+                    endGame();
+                }
+            });
+        }
+
+        function scoreDisplay() {
+            ctx.fillStyle = 'white';
+            ctx.font = '24px Roboto Mono';
+            const scorePositionX = 20;
+            const scorePositionY = 50;
+            ctx.fillText(`Score: ${score}`, scorePositionX, scorePositionY);
+        }
+
+        let bgOffset = 0;
+
+        function updateBackground() {
+            bgOffset -= 0.5;
+            canvas.style.backgroundPosition = `${bgOffset}px 0`;
+        }
+
+        function gameLoop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            updateBackground();
+            drawSpaceship();
+            updateSpaceship();
+            drawPlanets();
+            updatePlanets();
+            checkCollision();
+            if (!gameOver) {
+                scoreDisplay();
+            }
+            frame++;
+            if (!gameOver) {
+                requestAnimationFrame(gameLoop);
+            }
+        }
+
+        function endGame() {
+            gameOver = true;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.font = 'bold 36px Bricolage Grotesque';
+            ctx.fillStyle = 'white';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            ctx.fillText("Game Over!", canvas.width / 2, canvas.height / 2 - 100);
+            ctx.font = '24px Roboto Mono';
+            ctx.fillText(`Score: ${score}`, canvas.width / 2, canvas.height / 2 - 60);
+
+            restartButton.style.display = 'block';
+        }
+
+        function showStartScreen() {
+            ctx.fillStyle = '#44148f';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            instructions.style.display = 'block';
+            startButton.style.display = 'block';
+        }
+
+        window.onload = () => {
+            resizeCanvas();
+            updateBackground();
+        };
+    </script>
+</body>
+</html>
