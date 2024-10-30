@@ -63,8 +63,10 @@
             gap: 20px;
             align-items: center;
         }
-        .font-size-buttons span {
-            font-weight: bold;
+        .font-size-buttons label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         .preview-wrapper {
             position: relative;
@@ -116,7 +118,7 @@
         #rsvp {
             top: 1387px; left: 357px; width: 485px; height: 100px;
         }
-        h2 {
+        h1 {
             font-family: 'Bricolage Grotesque', sans-serif;
             text-align: center;
         }
@@ -159,46 +161,60 @@
             background-color: var(--arena-purple);
             transition: 0.3s ease-in-out;
         }
-        .color-picker-container {
-            position: relative;
-            width: fit-content;
-        }
-        .color-picker-button {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            border: 2px solid var(--arena-black);
-            box-shadow: 0px 7px 0px var(--arena-black-30);
-            cursor: pointer;
-            background-color: var(--arena-light-gray); /* Default color to be shown initially */
-        }
+.color-picker-container {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Make it a perfect circle */
+    border: 2px solid var(--arena-black);
+    box-shadow: 0px 7px 0px var(--arena-black-30);
+    cursor: pointer;
+    background-color: #320775; /* Default color */
+}
+
+.color-picker-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Hide the color input but keep it clickable */
+    cursor: pointer; /* Make sure users know they can click here */
+}
+.headershadow {
+    text-shadow: 3px 3px 0px var(--arena-black-30);
+}
+
+
     </style>
 </head>
 <body>
 
-    <h2>Customize Your Invitation</h2>
+    <h1 class="headershadow">Customize Your Invitation</h1>
     <div class="editor-container">
         
         <!-- Input form -->
         <div class="form-container">
-            <label for="backgroundColor">
-                Background Colour:
-                <div class="color-picker-container">
-                    <input type="color" id="backgroundColor" class="color-picker-button" value="#320775" oninput="updateBackgroundColor()">
-                </div>
-            </label>
+<label for="backgroundColor">
+    Background Colour:
+    <div class="color-picker-container" onclick="document.getElementById('backgroundColor').click()">
+        <input type="color" id="backgroundColor" class="color-picker-button" value="#320775" oninput="updateBackgroundColor()">
+    </div>
+</label>
+
             
             <label for="eventTitleInput">
                 <input type="text" id="eventTitleInput" class="boxshadow" style="font-family: 'Roboto Mono', monospace;" placeholder="Event Title" oninput="updateText('eventTitle')">
             </label>
             
-            <div class="font-size-buttons">
-                <span>Event Title Font Size:</span>
-                <button onclick="updateFontSize('eventTitle', 'small')">S</button>
-                <button onclick="updateFontSize('eventTitle', 'medium')">M</button>
-                <button onclick="updateFontSize('eventTitle', 'large')">L</button>
-            </div>
+            <label class="font-size-buttons" for="eventTitleFontSize">
+                Event Title Font Size:
+                <div>
+                    <button onclick="updateFontSize('eventTitle', 'small')">S</button>
+                    <button onclick="updateFontSize('eventTitle', 'medium')">M</button>
+                    <button onclick="updateFontSize('eventTitle', 'large')">L</button>
+                </div>
+            </label>
             
             <label for="dateInput">
                 <input type="text" id="dateInput" class="boxshadow" style="font-family: 'Roboto Mono', monospace;" placeholder="Date" oninput="updateText('date')">
@@ -241,11 +257,12 @@
         }
 
         // Function to update the background color of the preview live as the color picker is used
-        function updateBackgroundColor() {
-            const colorValue = document.getElementById("backgroundColor").value;
-            document.getElementById("imageContainer").style.backgroundColor = colorValue;
-            document.querySelector('.color-picker-button').style.backgroundColor = colorValue; // Update button color as well
-        }
+function updateBackgroundColor() {
+    const colorValue = document.getElementById("backgroundColor").value;
+    document.querySelector('.color-picker-container').style.backgroundColor = colorValue; // Update color picker container background
+    document.getElementById("imageContainer").style.backgroundColor = colorValue; // Update preview container as well
+}
+
 
         // Function to update the font size of the event title
         function updateFontSize(id, size) {
