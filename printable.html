@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitation Editor</title>
+    <!-- Google Font Import -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             display: flex;
@@ -21,11 +23,13 @@
             flex-direction: column;
             gap: 10px;
         }
-        /* Preview container (400x600 for easier editing) */
+        /* Full-resolution container scaled down for preview */
         .preview-container {
             position: relative;
-            width: 400px;
-            height: 600px;
+            width: 1200px;
+            height: 1800px;
+            transform: scale(0.33); /* Scale down to show at ~400x600 */
+            transform-origin: top left; /* Anchor scale to top left */
             border: 2px solid #000;
         }
         .preview-container img {
@@ -35,99 +39,91 @@
         .overlay-text {
             position: absolute;
             color: black;
-            font-size: 18px;
+            font-size: 54px; /* Full size font */
             font-weight: bold;
             pointer-events: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: 'Roboto Mono', monospace; /* Apply Roboto Mono font */
         }
-        #eventTitle { top: 120px; left: 20px; width: 360px; text-align: center; }
-        #date { top: 320px; left: 20px; width: 360px; text-align: center; }
-        #startTime { top: 370px; left: 20px; width: 170px; text-align: center; }
-        #endTime { top: 370px; right: 20px; width: 170px; text-align: center; }
-        #rsvp { top: 420px; left: 20px; width: 360px; text-align: center; }
-
-        /* Hidden full-resolution container (1200x1800) */
-        .fullsize-container {
-            display: none;
-            position: relative;
-            width: 1200px;
-            height: 1800px;
+        /* Specific positions for each text input at full resolution */
+        #eventTitle {
+            top: 648px; left: 91px; width: 1017px; height: 220px; 
         }
-        .fullsize-container img {
-            width: 100%;
-            height: 100%;
+        #date {
+            top: 944px; left: 91px; width: 1017px; height: 100px;
         }
-        .fullsize-text {
-            position: absolute;
-            color: black;
-            font-size: 54px; /* 3x the preview font size */
-            font-weight: bold;
-            pointer-events: none;
+        #startTime {
+            top: 1162px; left: 91px; width: 485px; height: 100px;
         }
-        #fullEventTitle { top: 360px; left: 60px; width: 1080px; text-align: center; }
-        #fullDate { top: 960px; left: 60px; width: 1080px; text-align: center; }
-        #fullStartTime { top: 1110px; left: 60px; width: 510px; text-align: center; }
-        #fullEndTime { top: 1110px; right: 60px; width: 510px; text-align: center; }
-        #fullRsvp { top: 1260px; left: 60px; width: 1080px; text-align: center; }
+        #endTime {
+            top: 1162px; right: 92px; width: 485px; height: 100px;
+        }
+        #rsvp {
+            top: 1387px; left: 357px; width: 485px; height: 100px;
+        }
     </style>
 </head>
 <body>
 
-    <h2>Customize Your Invitation v1</h2>
+    <h2>Customize Your Invitation</h2>
     <div class="editor-container">
         
         <!-- Input form -->
         <div class="form-container">
-            <input type="text" id="eventTitleInput" placeholder="Event Title" oninput="updateText('eventTitle', 'fullEventTitle')">
-            <input type="text" id="dateInput" placeholder="Date" oninput="updateText('date', 'fullDate')">
-            <input type="text" id="startTimeInput" placeholder="Start Time" oninput="updateText('startTime', 'fullStartTime')">
-            <input type="text" id="endTimeInput" placeholder="End Time" oninput="updateText('endTime', 'fullEndTime')">
-            <input type="text" id="rsvpInput" placeholder="RSVP To" oninput="updateText('rsvp', 'fullRsvp')">
+            <input type="text" id="eventTitleInput" placeholder="Event Title" oninput="updateText('eventTitle')">
+            <input type="text" id="dateInput" placeholder="Date" oninput="updateText('date')">
+            <input type="text" id="startTimeInput" placeholder="Start Time" oninput="updateText('startTime')">
+            <input type="text" id="endTimeInput" placeholder="End Time" oninput="updateText('endTime')">
+            <input type="text" id="rsvpInput" placeholder="RSVP To" oninput="updateText('rsvp')">
             <button onclick="saveImage()">Save Invitation</button>
         </div>
 
-        <!-- Preview container (scaled down) -->
+        <!-- Full-resolution preview container (scaled down only visually) -->
         <div class="preview-container" id="imageContainer">
-            <img src="printables/set_01/01.jpg" alt="Invitation Background" id="backgroundImage">
-            <div class="overlay-text" id="eventTitle">Event Title</div>
-            <div class="overlay-text" id="date">Date</div>
-            <div class="overlay-text" id="startTime">Start Time</div>
-            <div class="overlay-text" id="endTime">End Time</div>
-            <div class="overlay-text" id="rsvp">RSVP To</div>
-        </div>
-
-        <!-- Hidden full-resolution container for saving -->
-        <div class="fullsize-container" id="fullImageContainer">
-            <img src="printables/set_01/01.jpg" alt="Invitation Background">
-            <div class="fullsize-text" id="fullEventTitle">Event Title</div>
-            <div class="fullsize-text" id="fullDate">Date</div>
-            <div class="fullsize-text" id="fullStartTime">Start Time</div>
-            <div class="fullsize-text" id="fullEndTime">End Time</div>
-            <div class="fullsize-text" id="fullRsvp">RSVP To</div>
+            <img src="https://sarnialasertag.com/printables/set_01/template.png" alt="Invitation Background" id="backgroundImage">
+            <div class="overlay-text" id="eventTitle">Robbie's Birthday!</div>
+            <div class="overlay-text" id="date">January 15, 2024</div>
+            <div class="overlay-text" id="startTime">5:30pm</div>
+            <div class="overlay-text" id="endTime">7:30pm</div>
+            <div class="overlay-text" id="rsvp">519 123 4567</div>
         </div>
 
     </div>
 
     <script>
-        // Update both preview and full-resolution text
-        function updateText(previewId, fullId) {
-            const inputValue = document.getElementById(previewId + "Input").value;
-            document.getElementById(previewId).innerText = inputValue;
-            document.getElementById(fullId).innerText = inputValue;
+        // Function to update the text on the preview
+        function updateText(id) {
+            const inputValue = document.getElementById(id + "Input").value;
+            document.getElementById(id).innerText = inputValue;
         }
 
-        // Capture and save the full-resolution image
         function saveImage() {
-            const container = document.getElementById("fullImageContainer");
+            const container = document.getElementById("imageContainer");
 
-            html2canvas(container, {
-                scale: 1, // Scale is 1 because the container is already at full size
-                width: 1200, // Full resolution width
-                height: 1800 // Full resolution height
+            // Create a deep clone of the container
+            const clone = container.cloneNode(true);
+            clone.style.transform = "none"; // Remove the transform for full resolution
+            clone.style.position = "absolute";
+            clone.style.top = "-9999px"; // Position it off-screen
+            clone.style.left = "-9999px"; // Position it off-screen
+            document.body.appendChild(clone);
+
+            // Capture the clone using html2canvas
+            html2canvas(clone, {
+                scale: 1, // Ensure full-size capture
+                width: 1200,
+                height: 1800
             }).then(canvas => {
                 const link = document.createElement("a");
                 link.href = canvas.toDataURL("image/png");
                 link.download = "custom-invitation.png";
                 link.click();
+
+                // Remove the clone after capturing
+                document.body.removeChild(clone);
             });
         }
     </script>
