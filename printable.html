@@ -5,32 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitation Editor</title>
     <!-- Google Font Import -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Bricolage+Grotesque&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --arena-dark-purple: #320775;
+            --arena-purple: #44148f;
+            --arena-magenta: #990099;
+            --arena-pink: #ffb0db;
+            --arena-green: #d5de58;
+            --arena-light-gray: #eee;
+            --arena-white: #fff;
+            --arena-black: #090909;
+            --arena-black-30: rgba(9, 9, 9, 0.43);
+            --arena-dark-blue: #14088e;
+            --arena-light-blue: #8ac2d9;
+            --arena-blue: #3292e0;
+            --arena-lavender: #be95ff;
+            --arena-deep-purple: #8b40ff;
+            --arena-light-purple: #d0a4e1;
+            --arena-teal: #6cf7f3;
+            --arena-dark-gray: #333;
+            --arena-yellow: #edf763;
+        }
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            align-items: start;
-            font-family: Arial, sans-serif;
+            align-items: center;
+            font-family: 'Roboto Mono', monospace;
+            background-color: var(--arena-purple);
+            color: white;
             margin: 20px;
+            overflow: hidden; /* Prevent scrolling */
         }
         .editor-container {
             display: flex;
-            gap: 20px;
+            gap: 40px;
         }
         .form-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 20px;
+            row-gap: 15px;
+            max-width: 600px;
+            align-items: center;
+        }
+        .form-container label {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            align-items: center;
             gap: 10px;
+            grid-column: span 2;
+        }
+        .font-size-buttons {
+            grid-column: span 2;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .font-size-buttons span {
+            font-weight: bold;
+        }
+        .preview-wrapper {
+            position: relative;
+            width: 400px;
+            height: 600px;
+            overflow: hidden;
         }
         /* Full-resolution container scaled down for preview */
         .preview-container {
-            position: relative;
+            position: absolute; /* Position absolute to remove impact on document flow */
+            top: 0;
+            left: 0;
             width: 1200px;
             height: 1800px;
             transform: scale(0.33); /* Scale down to show at ~400x600 */
             transform-origin: top left; /* Anchor scale to top left */
             border: 2px solid #000;
+            background-color: var(--arena-dark-purple);
         }
         .preview-container img {
             width: 100%;
@@ -64,6 +116,63 @@
         #rsvp {
             top: 1387px; left: 357px; width: 485px; height: 100px;
         }
+        h2 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            text-align: center;
+        }
+        .boxshadow {
+            border: 2px solid var(--arena-black);
+            box-shadow: 0px 7px 0px var(--arena-black-30);
+            border-radius: 8px;
+            padding: 10px; /* Added padding for better visibility */
+            font-size: 1.1rem; /* Increased font size */
+            width: 100%;
+        }
+        button {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.1rem;
+            padding: 15px;
+            background-color: var(--arena-magenta);
+            color: var(--arena-white);
+            border: 2px solid var(--arena-black);
+            border-radius: 8px;
+            box-shadow: 0px 7px 0px var(--arena-black-30);
+            cursor: pointer;
+            width: 100%;
+            grid-column: span 2;
+        }
+        button:hover {
+            background-color: var(--arena-purple);
+            transition: 0.3s ease-in-out;
+        }
+        .font-size-buttons button {
+            font-family: 'Roboto Mono', monospace;
+            padding: 10px;
+            background-color: var(--arena-magenta);
+            color: var(--arena-white);
+            border: 2px solid var(--arena-black);
+            border-radius: 8px;
+            cursor: pointer;
+            width: 60px;
+        }
+        .font-size-buttons button:hover {
+            background-color: var(--arena-purple);
+            transition: 0.3s ease-in-out;
+        }
+        .color-picker-container {
+            position: relative;
+            width: fit-content;
+        }
+        .color-picker-button {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 2px solid var(--arena-black);
+            box-shadow: 0px 7px 0px var(--arena-black-30);
+            cursor: pointer;
+            background-color: var(--arena-light-gray); /* Default color to be shown initially */
+        }
     </style>
 </head>
 <body>
@@ -73,22 +182,58 @@
         
         <!-- Input form -->
         <div class="form-container">
-            <input type="text" id="eventTitleInput" placeholder="Event Title" oninput="updateText('eventTitle')">
-            <input type="text" id="dateInput" placeholder="Date" oninput="updateText('date')">
-            <input type="text" id="startTimeInput" placeholder="Start Time" oninput="updateText('startTime')">
-            <input type="text" id="endTimeInput" placeholder="End Time" oninput="updateText('endTime')">
-            <input type="text" id="rsvpInput" placeholder="RSVP To" oninput="updateText('rsvp')">
-            <button onclick="saveImage()">Save Invitation</button>
+            <label for="backgroundColor">
+                Background Colour:
+                <div class="color-picker-container">
+                    <input type="color" id="backgroundColor" class="color-picker-button" value="#320775" oninput="updateBackgroundColor()">
+                </div>
+            </label>
+            
+            <label for="eventTitleInput">
+                Event Title:
+                <input type="text" id="eventTitleInput" class="boxshadow" placeholder="Event Title" oninput="updateText('eventTitle')">
+            </label>
+            
+            <div class="font-size-buttons">
+                <span>Event Title Font Size:</span>
+                <button onclick="updateFontSize('eventTitle', 'small')">S</button>
+                <button onclick="updateFontSize('eventTitle', 'medium')">M</button>
+                <button onclick="updateFontSize('eventTitle', 'large')">L</button>
+            </div>
+            
+            <label for="dateInput">
+                Date:
+                <input type="text" id="dateInput" class="boxshadow" placeholder="Date" oninput="updateText('date')">
+            </label>
+            
+            <label for="startTimeInput">
+                Start Time:
+                <input type="text" id="startTimeInput" class="boxshadow" placeholder="Start Time" oninput="updateText('startTime')">
+            </label>
+            
+            <label for="endTimeInput">
+                End Time:
+                <input type="text" id="endTimeInput" class="boxshadow" placeholder="End Time" oninput="updateText('endTime')">
+            </label>
+            
+            <label for="rsvpInput">
+                RSVP To:
+                <input type="text" id="rsvpInput" class="boxshadow" placeholder="RSVP To" oninput="updateText('rsvp')">
+            </label>
+            
+            <button class="hero" onclick="saveImage()">Save Invitation</button>
         </div>
 
-        <!-- Full-resolution preview container (scaled down only visually) -->
-        <div class="preview-container" id="imageContainer">
-            <img src="https://sarnialasertag.com/printables/set_01/template.png" alt="Invitation Background" id="backgroundImage">
-            <div class="overlay-text" id="eventTitle">Robbie's Birthday!</div>
-            <div class="overlay-text" id="date">January 15, 2024</div>
-            <div class="overlay-text" id="startTime">5:30pm</div>
-            <div class="overlay-text" id="endTime">7:30pm</div>
-            <div class="overlay-text" id="rsvp">519 123 4567</div>
+        <!-- Wrapper to control preview container overflow -->
+        <div class="preview-wrapper">
+            <div class="preview-container" id="imageContainer">
+                <img src="https://sarnialasertag.com/printables/set_01/template.png" alt="Invitation Background" id="backgroundImage">
+                <div class="overlay-text" id="eventTitle">Robbie's Birthday!</div>
+                <div class="overlay-text" id="date">January 15, 2024</div>
+                <div class="overlay-text" id="startTime">5:30pm</div>
+                <div class="overlay-text" id="endTime">7:30pm</div>
+                <div class="overlay-text" id="rsvp">519 123 4567</div>
+            </div>
         </div>
 
     </div>
@@ -98,6 +243,26 @@
         function updateText(id) {
             const inputValue = document.getElementById(id + "Input").value;
             document.getElementById(id).innerText = inputValue;
+        }
+
+        // Function to update the background color of the preview live as the color picker is used
+        function updateBackgroundColor() {
+            const colorValue = document.getElementById("backgroundColor").value;
+            document.getElementById("imageContainer").style.backgroundColor = colorValue;
+            document.querySelector('.color-picker-button').style.backgroundColor = colorValue; // Update button color as well
+        }
+
+        // Function to update the font size of the event title
+        function updateFontSize(id, size) {
+            let fontSizeValue;
+            if (size === 'small') {
+                fontSizeValue = '36px';
+            } else if (size === 'medium') {
+                fontSizeValue = '54px';
+            } else if (size === 'large') {
+                fontSizeValue = '72px';
+            }
+            document.getElementById(id).style.fontSize = fontSizeValue;
         }
 
         function saveImage() {
