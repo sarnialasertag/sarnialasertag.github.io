@@ -14,20 +14,20 @@
 		<filter x="-50%" y="-50%" width="200%" height="200%" id="f6" ><feDropShadow dx="5.162187927159415" dy="7.372368398600925" stdDeviation="0" flood-color="#000000" flood-opacity=".4"/></filter>
 	</defs>
 	<style>
-		.s0 { filter: url(#f1);fill: #ffffff } 
-		.s1 { filter: url(#f2);fill: #ffffff } 
+		.s0 { opacity: .8;filter: url(#f1);fill: #ffffff } 
+		.s1 { opacity: .8;filter: url(#f2);fill: #ffffff } 
 		.s2 { fill: #000000 } 
-		.s3 { filter: url(#f3);fill: #ffffff } 
+		.s3 { opacity: .8;filter: url(#f3);fill: #ffffff } 
 		.s4 { fill: #ffffff } 
-		.s5 { filter: url(#f4);fill: #ffffff } 
-		.s6 { filter: url(#f5);fill: #ffffff } 
-		.s7 { filter: url(#f6);fill: #ffffff } 
+		.s5 { opacity: .8;filter: url(#f4);fill: #ffffff } 
+		.s6 { opacity: .8;filter: url(#f5);fill: #ffffff } 
+		.s7 { opacity: .8;filter: url(#f6);fill: #ffffff } 
 	</style>
 	<use id="Layer 2" style="opacity: 0" href="#img1" x="0" y="0"/>
 	<use id="Layer 4" href="#img2" x="-98" y="1254"/>
-	<use id="sparkle_02 copy" href="#img3" x="1039" y="381"/>
-	<use id="sparkle_01" href="#img4" x="28" y="69"/>
-	<use id="You're invited!" href="#img5" x="222" y="95"/>
+	<use id="sparkle_02 copy" style="opacity: .9" href="#img3" x="1035" y="371"/>
+	<use id="sparkle_01" style="opacity: .9" href="#img4" x="24" y="59"/>
+	<use id="You're invited!" href="#img5" x="218" y="85"/>
 	<path id="Layer 1" class="s0" d="m111 648.5h977c11 0 20 8.9 20 20v178.9c0 11-9 20-20 20h-977c-11 0-20-9-20-20v-178.9c0-11.1 9-20 20-20z"/>
 	<path id="Layer 1 copy 2" class="s1" d="m111 1625.5h977c11 0 20 9 20 20v64.6c0 11.1-9 20-20 20h-977c-11 0-20-8.9-20-20v-64.6c0-11 9-20 20-20z"/>
 	<path id="The Arena 1886 London Line, Sarn" class="s2" aria-label="The Arena
