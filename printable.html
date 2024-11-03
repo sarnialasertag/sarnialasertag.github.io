@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+    function loadGoogleAnalytics() {
+        var script = document.createElement("script");
+        script.async = true;
+        script.src = "https://www.googletagmanager.com/gtag/js?id=G-G2VXSD6SG9";
+        document.head.appendChild(script);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-G2VXSD6SG9', {
+            'anonymize_ip': true
+        });
+    }
+
+    // Load Google Analytics immediately
+    loadGoogleAnalytics();
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Arena - Sarnia Laser Tag</title>
       <!-- Other meta tags and links -->
-      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-capable" content="no">
       <meta name="mobile-web-app-status-bar-style" content="translucent">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="description" content="Dive into adventure at Sarnia's ultimate spot with laser tag, rock climbing, and mini golf. Visit The Arena in Sarnia for an unforgettable experience!">
