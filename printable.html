@@ -117,7 +117,7 @@
             top: 1162px; right: 92px; width: 485px; height: 100px;
         }
         #rsvp {
-            top: 1387px; left: 357px; width: 485px; height: 100px;
+            top: 1387px; left: 91px; width: 1017px; height: 100px;
         }
         h1 {
             font-family: 'Bricolage Grotesque', sans-serif;
@@ -211,7 +211,7 @@
 
             
             <label for="eventTitleInput">
-                <input type="text" id="eventTitleInput" class="boxshadow" style="font-family: 'Roboto Mono', monospace;" placeholder="Event Title" oninput="updateText('eventTitle')">
+                <input type="text" id="eventTitleInput" class="boxshadow" style="font-family: 'Roboto Mono', monospace;" placeholder="Event Title" maxlength="38" oninput="updateText('eventTitle')">
             </label>
             
             <label class="font-size-buttons" for="eventTitleFontSize">
@@ -224,24 +224,24 @@
             </label>
             
             <label for="dateInput">
-                <input type="text" id="dateInput" class="boxshadow" style="font-family: 'Roboto Mono', monospace;" placeholder="Date" oninput="updateText('date')">
+                <input type="text" id="dateInput" class="boxshadow" style="font-family: 'Roboto Mono', monospace;" placeholder="Date" maxlength="31" oninput="updateText('date')">
             </label>
             
             <label for="startTimeInput">
-                <input type="text" id="startTimeInput" class="boxshadow" style="font-family: 'Roboto Mono', monospace;" placeholder="Start Time" oninput="updateText('startTime')">
+                <input type="text" id="startTimeInput" class="boxshadow" style="font-family: 'Roboto Mono', monospace;" placeholder="Start Time" maxlength="14" oninput="updateText('startTime')">
             </label>
             
             <label for="endTimeInput">
-                <input type="text" id="endTimeInput" class="boxshadow" style="font-family: 'Roboto Mono', monospace;" placeholder="End Time" oninput="updateText('endTime')">
+                <input type="text" id="endTimeInput" class="boxshadow" style="font-family: 'Roboto Mono', monospace;" placeholder="End Time" maxlength="14" oninput="updateText('endTime')">
             </label>
             
             <label for="rsvpInput">
-                <input type="text" id="rsvpInput" class="boxshadow" style="font-family: 'Roboto Mono', monospace;" placeholder="RSVP To" oninput="updateText('rsvp')">
+                <input type="text" id="rsvpInput" class="boxshadow" style="font-family: 'Roboto Mono', monospace;" placeholder="RSVP To" maxlength="31" oninput="updateText('rsvp')">
             </label>
             
             <label class="opacity-slider">
                 Overlay Opacity:
-                <input type="range" id="overlayOpacity" min="0" max="1" step="0.01" value="1" oninput="updateOverlayOpacity()">
+                <input type="range" id="overlayOpacity" min="0" max="1" step="0.01" value="0.5" oninput="updateOverlayOpacity()">
             </label>
             
             <button class="hero" onclick="saveImage()">Save Invitation</button>
@@ -250,7 +250,7 @@
         <!-- Wrapper to control preview container overflow -->
         <div class="preview-wrapper">
             <div class="preview-container" id="imageContainer">
-                <img src="https://sarnialasertag.com/printables/set_01/WavesOverlay.svg" alt="Overlay Image" id="overlayImage" style="opacity: 1; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
+                <img src="https://sarnialasertag.com/printables/set_01/WavesOverlay.svg" alt="Overlay Image" id="overlayImage" style="opacity: 0.5; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
                 <img src="https://sarnialasertag.com/printables/set_01/template.svg" alt="Invitation Background" id="backgroundImage" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2;">
                 <div class="overlay-text" id="eventTitle" style="z-index: 5">Robbie's Birthday!</div>
                 <div class="overlay-text" id="date" style="z-index: 5">January 15, 2024</div>
