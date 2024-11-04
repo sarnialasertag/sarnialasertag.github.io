@@ -63,17 +63,18 @@
             --arena-dark-gray: #333;
             --arena-yellow: #edf763;
         }
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Roboto Mono', monospace;
-            background-color: var(--arena-purple);
-            color: white;
-            margin: 20px;
-            overflow: hidden; /* Prevent scrolling */
-        }
+            body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Roboto Mono', monospace;
+        background-color: var(--arena-purple);
+        color: white;
+        margin: 20px;
+        max-height: 100vh; /* Limits the height of the page to the viewport */
+        overflow-y: auto; /* Enables vertical scrolling */
+    }
         .editor-container {
             display: flex;
             gap: 40px;
@@ -275,6 +276,11 @@
     </div>
 
     <h1 class="headershadow">Customize Your Invitation</h1>
+	<p style="text-align: center;">
+    Use our easy invitation maker to create your own simple 4x6 invitations,<br>
+    easily printable at home, or your favourite printshop or photo kiosk!
+</p>
+
     <div class="editor-container">
         
         <!-- Input form -->
