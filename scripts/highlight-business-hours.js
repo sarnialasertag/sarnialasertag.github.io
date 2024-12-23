@@ -28,7 +28,7 @@ function getDateSuffix(date) {
 // Business hours for each day of the week
 const businessHours = {
     sunday: "11AM - 7PM",
-    montuesday: "Closed", // Combined for Monday and Tuesday
+    montuesday: "<b>Monday 23rd Only</b><br>12PM - 6PM", // Combined for Monday and Tuesday
     wednesday: "4PM - 8PM",
     thursday: "4PM - 8PM",
     friday: "4PM - 10PM",
@@ -39,6 +39,12 @@ const businessHours = {
 // Currently only showing Halloween
 const holidayHours = {
     "10-31": "Closed 🎃",  // Halloween
+	"12-25": "Closed 🎄",  // Christmas
+	"12-26": "Closed 🎁",  // Boxing day
+	"12-27": "12PM - 10PM<br>(Holiday Hours)",
+	"01-01": "Closed 🌟",  // New Years
+	"01-02": "12PM - 6PM",
+	"01-03": "12PM - 10PM<br>(Holiday Hours)",
 };
 
 // Object to map each day of the week to its class name and assign the date
