@@ -275,7 +275,7 @@ body, html {
 }
 
 .spacewaves {
-	background-image:url(https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1729963401/space-waves_stbof3.png);
+	background-image:url(images/ui/spacewave-top.webp);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-position: top center;
@@ -283,8 +283,8 @@ body, html {
 
 @media (max-width: 768px) {
 .spacewaves {
-	background-image:url(https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1729963401/space-waves_stbof3.png);
-	background-size: 200%;
+	background-image:url(images/ui/spacewave-top.webp);
+	background-size: 100%;
 	background-repeat: no-repeat;
 }
 }
@@ -1053,7 +1053,7 @@ nav ul li {
     padding: 20px 20px;
     color: var(--arena-light-gray);
     text-align: center;
-	background-image:url(https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1729963533/space-waves-2_jmc7hj.png);
+	background-image:url(images/ui/spacewave-btm.webp);
 	background-size: 100%;
 	background-repeat: no-repeat;
 }
