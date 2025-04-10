@@ -284,7 +284,7 @@ body, html {
 @media (max-width: 768px) {
 .spacewaves {
 	background-image:url(images/ui/spacewave-top.webp);
-	background-size: 100%;
+	background-size: 150%;
 	background-repeat: no-repeat;
 }
 }
@@ -1424,7 +1424,10 @@ nav ul li {
     }
 	.footer {
 		background-position: bottom;
+		background-size: 150%;
+		background-repeat: no-repeat;		
 	}
+
 }
 
 @media (max-width: 768px) {
