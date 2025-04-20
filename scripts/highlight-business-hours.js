@@ -37,7 +37,6 @@ const businessHours = {
 
 // Holiday hours for specific dates (format: "MM-DD")
 const holidayHours = {
-    "03-31": "Closed 🐣",  // Easter Sunday 2025
     "10-31": "Closed 🎃",  // Halloween
     "12-25": "Closed 🎄",  // Christmas
     "12-26": "Closed 🎁",  // Boxing day
@@ -45,6 +44,7 @@ const holidayHours = {
     "01-01": "Closed 🌟",  // New Years
     "01-02": "12PM - 6PM",
     "01-03": "12PM - 10PM<br>(Holiday Hours)",
+	"04-20": "Closed 🐣",  // Easter Sunday 2025
 };
 
 // Object to map each day of the week to its class name and assign the date
