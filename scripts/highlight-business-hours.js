@@ -28,7 +28,7 @@ function getDateSuffix(date) {
 // Business hours for each day of the week
 const businessHours = {
     sunday: "11AM - 7PM",
-    montuesday: "12PM - 6PM<br><small>(Closed Canada Day 🍁)</small>", // Combined for Monday and Tuesday
+    montuesday: "12PM - 6PM", // Combined for Monday and Tuesday
     wednesday: "12PM - 6PM",
     thursday: "12PM - 6PM",
     friday: "12PM - 10PM",
