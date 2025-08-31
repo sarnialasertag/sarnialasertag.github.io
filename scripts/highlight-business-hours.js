@@ -28,10 +28,10 @@ function getDateSuffix(date) {
 // Business hours for each day of the week
 const businessHours = {
     sunday: "11AM - 7PM",
-    montuesday: "12PM - 6PM", // Combined for Monday and Tuesday
-    wednesday: "12PM - 6PM",
-    thursday: "12PM - 6PM",
-    friday: "12PM - 10PM",
+    montuesday: "Closed 🚫", // Combined for Monday and Tuesday
+    wednesday: "4PM - 8PM",
+    thursday: "4PM - 8PM",
+    friday: "4PM - 10PM",
     saturday: "12PM - 10PM",
 };
 
