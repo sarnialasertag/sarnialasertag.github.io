@@ -2,35 +2,36 @@
 <html lang="en">
    <head>
 	<script>
-    // This script will run before any HTML is rendered
-    document.addEventListener('DOMContentLoaded', function () {
-      const cookiesAccepted = localStorage.getItem('cookiesAccepted');
-      if (cookiesAccepted === null) {
-        // If no decision yet, make the banner visible
-        document.getElementById('cookie-banner').style.display = 'block';
-      } else if (cookiesAccepted === 'true') {
-        // If cookies were accepted, load analytics immediately
-        loadGoogleAnalytics();
-      }
-    });
+		// This script will run before any HTML is rendered
+		document.addEventListener('DOMContentLoaded', function () {
+		  const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+		  if (cookiesAccepted === null) {
+			// If no decision yet, make the banner visible
+			document.getElementById('cookie-banner').style.display = 'block';
+		  } else if (cookiesAccepted === 'true') {
+			// If cookies were accepted, load analytics immediately
+			loadGoogleAnalytics();
+		  }
+		});
 
-    function loadGoogleAnalytics() {
-      var script = document.createElement("script");
-      script.async = true;
-      script.src = "https://www.googletagmanager.com/gtag/js?id=G-G2VXSD6SG9";
-      document.head.appendChild(script);
+		function loadGoogleAnalytics() {
+		  var script = document.createElement("script");
+		  script.async = true;
+		  script.defer = true; // add this line
+		  script.src = "https://www.googletagmanager.com/gtag/js?id=G-G2VXSD6SG9";
+		  document.head.appendChild(script);
 
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){ dataLayer.push(arguments); }
+		  gtag('js', new Date());
+		  gtag('config', 'G-G2VXSD6SG9', { 'anonymize_ip': true });
+		}
 
-      gtag('config', 'G-G2VXSD6SG9', {
-        'anonymize_ip': true
-      });
-    }
-  </script>
+	</script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+	<link rel="dns-prefetch" href="https://unpkg.com">
 
 
       <title>The Arena - Sarnia Laser Tag</title>
@@ -53,18 +54,16 @@
       <link rel="preload" href="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide01_ntfdq3.png" as="image">
       <link rel="preload" href="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide02_qnp48e.png" as="image">
       <link rel="preload" href="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide03_l6jgoz.png" as="image">
-      <link rel="preload" href="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide04_po0zbq.png" as="image">
-      <link rel="preload" href="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide05_w7tosn.png" as="image">
-      <link rel="preload" href="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805064/slide06_s3ixrt.png" as="image">
-      <link rel="preload" href="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725840536/slide07_urkz1b.png" as="image">
-      <link rel="preload" href="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725840536/slide08_zi7cym.png" as="image">
+
       <link rel="stylesheet" href="https://unpkg.com/flickity@2.2.2/dist/flickity.min.css">
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
       <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;800&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-      <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-      <link rel="stylesheet" href="style.css">
+      
+      <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="style.css"></noscript>
+
 	  
    </head>
    <body>
@@ -822,13 +821,17 @@
          </div>
       </div>
       <!-- JavaScript Files -->
-      <script src="scripts/swiper-init.js"></script>
-      <script src="scripts/toggle-faq.js"></script>
-      <script src="scripts/testimonial-animation.js"></script>
-      <script src="scripts/ribbon-scroll.js"></script>
-      <script src="scripts/mobile-nav.js"></script>
-      <script src="scripts/back-to-top.js"></script>
-      <script src="scripts/highlight-business-hours.js"></script>
-      <script src="scripts/weekly-deals-image.js"></script>	
+<script src="https://unpkg.com/flickity@2.2.2/dist/flickity.pkgd.min.js" defer></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
+
+<script src="scripts/swiper-init.js" defer></script>
+<script src="scripts/toggle-faq.js" defer></script>
+<script src="scripts/testimonial-animation.js" defer></script>
+<script src="scripts/ribbon-scroll.js" defer></script>
+<script src="scripts/mobile-nav.js" defer></script>
+<script src="scripts/back-to-top.js" defer></script>
+<script src="scripts/highlight-business-hours.js" defer></script>
+<script src="scripts/weekly-deals-image.js" defer></script>
+
    </body>
 </html>
