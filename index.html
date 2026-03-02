@@ -1,837 +1,810 @@
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-	<script>
-		// This script will run before any HTML is rendered
-		document.addEventListener('DOMContentLoaded', function () {
-		  const cookiesAccepted = localStorage.getItem('cookiesAccepted');
-		  if (cookiesAccepted === null) {
-			// If no decision yet, make the banner visible
-			document.getElementById('cookie-banner').style.display = 'block';
-		  } else if (cookiesAccepted === 'true') {
-			// If cookies were accepted, load analytics immediately
-			loadGoogleAnalytics();
-		  }
-		});
+---
+layout: default
+title: Home
+---
 
-		function loadGoogleAnalytics() {
-		  var script = document.createElement("script");
-		  script.async = true;
-		  script.defer = true; // add this line
-		  script.src = "https://www.googletagmanager.com/gtag/js?id=G-G2VXSD6SG9";
-		  document.head.appendChild(script);
+<section class="relative overflow-hidden pt-8 pb-24 md:pt-20 md:pb-48 bg-arena-dark-purple isolate">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-arena-purple/30 via-arena-dark-purple to-arena-dark-purple pointer-events-none -z-10"></div>
 
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){ dataLayer.push(arguments); }
-		  gtag('js', new Date());
-		  gtag('config', 'G-G2VXSD6SG9', { 'anonymize_ip': true });
-		}
-
-	</script>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
-	<link rel="dns-prefetch" href="https://unpkg.com">
-
-
-      <title>The Arena - Sarnia Laser Tag</title>
-      <!-- Other meta tags and links -->
-      <meta name="apple-mobile-web-app-capable" content="yes">
-      <meta name="mobile-web-app-status-bar-style" content="translucent">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="Dive into adventure at Sarnia's ultimate spot with laser tag, rock climbing, and mini golf. Visit The Arena in Sarnia for an unforgettable experience!">
-      <meta name="keywords" content="Sarnia, laser tag, rock climbing, mini golf, group events, fun activities, family entertainment, Sarnia laser tag, The Arena Sarnia, birthday parties">
-      <meta property="og:title" content="The Arena - Sarnia's Ultimate Adventure Spot" />
-      <meta property="og:description" content="Get ready for an unforgettable experience at The Arena in Sarnia! Enjoy thrilling laser tag, challenging rock climbing, and relaxing mini golf all in one place. Perfect for families, groups, and adventure-seekers." />
-      <meta property="og:image" content="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1729955525/previewsocial.png" />
-      <!-- Theme color for mobile browsers -->
-      <meta name="theme-color" content="var(--arena-purple)">
-      <!-- Favicon -->
-      <link rel="icon" href="images/favicon.png" type="image/png">
-      <!-- Apple Touch Icon (for iOS devices when added to home screen) -->
-      <link rel="apple-touch-icon" href="images/icon.png">
-      <!-- Styles and links -->
-      <link rel="preload" href="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide01_ntfdq3.png" as="image">
-      <link rel="preload" href="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide02_qnp48e.png" as="image">
-      <link rel="preload" href="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide03_l6jgoz.png" as="image">
-
-      <link rel="stylesheet" href="https://unpkg.com/flickity@2.2.2/dist/flickity.min.css">
-      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-      <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;800&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-      
-      <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
-	  <noscript><link rel="stylesheet" href="style.css"></noscript>
-
-	  
-   </head>
-   <body>
-   <div id="cookie-banner" style="display: none;">
-    <span>
-      We use cookies to understand how visitors use our site and to help us improve it. No ads, just insights to make your experience better.
-      <a href="/privacy-policy.html" id="learn-more-link">Learn More</a>.
-    </span>
-    <button id="accept-cookies-btn">Accept</button>
-    <button id="decline-cookies-btn">Decline</button>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const banner = document.getElementById('cookie-banner');
-      const acceptBtn = document.getElementById('accept-cookies-btn');
-      const declineBtn = document.getElementById('decline-cookies-btn');
-
-      // If the user accepts cookies, set consent and load Google Analytics
-      acceptBtn.addEventListener('click', function () {
-        localStorage.setItem('cookiesAccepted', 'true');
-        loadGoogleAnalytics();
-        banner.style.display = 'none';
-      });
-
-      // If the user declines cookies, hide the banner
-      declineBtn.addEventListener('click', function () {
-        localStorage.setItem('cookiesAccepted', 'false');
-        banner.style.display = 'none';
-      });
-    });
-  </script>
-      <div class="purplebg spacewaves">
-        <div class="container">
-            <div class="header">
-				<div class="logo logo-large">
-					<img src="images/logo_tagline.svg" alt="Logo with tagline" loading="lazy">
-				</div>
-				<div class="logo logo-mobile">
-					<img src="images/logo_notag.svg" alt="Logo without tagline" loading="lazy">
-				</div>
-               <div class="full-nav">
-                  <nav>
-                     <ul>
-                        <li><a href="#activities">Activities</a></li>
-                        <li><a href="#pricing">Prices</a></li>
-                        <li><a href="#promos">Promotions</a></li>
-                        <li><a href="#bookonline">Book Online</a></li>
-                        <li><a href="https://app.squareup.com/gift/XCE2PQ427HSWG/order">eGift Cards</a></li>
-                        <li><a href="#visit">Contact Us</a></li>
-                     </ul>
-                  </nav>
-               </div>
-               <i class='bx bx-menu menu-icon' name='menu' onclick="toggleMobileNav()"></i>
-               <div class="mobile-nav" id="mobileNav">
-                  <i class="bx bx-x-circle close-icon" onclick="toggleMobileNav()"></i>
-                  <nav>
-                     <ul>
-                        <li><a href="#activities">Activities</a></li>
-                        <li><a href="#pricing">Prices</a></li>
-                        <li><a href="#promos">Promotions</a></li>
-                        <li><a href="#bookonline">Book Online</a></li>
-                        <li><a href="https://app.squareup.com/gift/XCE2PQ427HSWG/order">eGift Cards</a></li>
-                        <li><a href="#visit">Contact Us</a></li>
-                     </ul>
-                  </nav>
-               </div>
-            </div>
-            <button class="backtotop" id="backToTopBtn">
-            <i class='bx bx-up-arrow-alt top-icon'></i>
-            </button>
-            <section class="hero">
-               <div class="text">
-                  <div style="display: flex; align-items: center; justify-content: center; margin-top: 60px; margin-bottom: 20px;">
-                     <div style="display: flex; align-items: center;">
-                        <i class="icon-sparkle" style="margin-top: -20px; margin-right: 15px; width: 50px; height: 50px;"></i>
-                     </div>
-                     <div style="text-align: center;">
-                        <h1 style="margin: 0; font-size: 3em;" class="headershadow">Welcome adventurers!</h1>
-                     </div>
-                     <div style="display: flex; align-items: center;">
-                        <i class="icon-twinkle" style="margin-bottom: -20px; margin-left: 10px; width: 50px; height: 50px;"></i>
-                     </div>
-                  </div>
-                  <p>
-					Step into Sarnia’s go-to spot for nonstop fun and chill vibes. Take aim in our multi-level <span class="highlight-pink-text">laser tag</span> arena—loaded with sneaky hideouts and perfect perch spots. Scale new heights on the <span class="highlight-blue-text">rock climbing</span> wall and put your skills to the test. Or slow things down with a round of <span class="highlight-purple-text">mini golf</span>, where each hole adds its own twist. Whether you're chasing thrills or just looking to unwind, this is your place to do it all.
-                  </p>
-               </div>
-               <div class="image main">
-                  <img src="https://res.cloudinary.com/di8j84ent/image/upload/f_auto/v1759670234/images/welcome-hero-nograin-600_kb65cs.webp" loading="lazy">
-               </div>
-            </section>
-            <div class="threepath">
-               <img src="https://sarnialasertag.com/images/threepath.svg" loading="lazy">
-            </div>
-            <div class="onepath">
-               <img src="https://sarnialasertag.com/images/onepath.svg" loading="lazy">
-            </div>
-            <section class="activities" id="activities">
-               <div class="activity laser">
-                  <img src="https://res.cloudinary.com/di8j84ent/image/upload/f_auto,q_auto/v1759667481/images/lasertag-hero_hbbrud.webp" alt="Laser Tag" loading="lazy">
-                  <div class="text-content">
-                     <h3>Laser Tag</h3>
-                     <p>Our laser tag arena features a full <span class="highlight-pink-text">two-storey</span> layout designed for nonstop action. Navigate winding corridors, surprise your opponents from elevated spots, and make the most of every level. With <span class="highlight-pink-text">intense, multi-level gameplay</span>, every match feels like a real mission.</p>
-                  </div>
-               </div>
-               <div class="squiggle">
-                  <img src="https://sarnialasertag.com/images/squiggle.svg" loading="lazy">
-               </div>
-               <div class="activity rockclimb">
-                  <img src="https://res.cloudinary.com/di8j84ent/image/upload/f_auto,q_auto/v1759667482/images/rockclimb-hero_gnim6y.webp" alt="Rock Climbing" loading="lazy">
-                  <div class="text-content">
-                     <h3>Rock Climbing</h3>
-                     <p>Take on the challenge of our rock climbing wall and see how far you can push yourself. Every grip and step tests your <span class="highlight-blue-text">strength, focus, and determination</span>. Whether you're racing to the top or climbing at your own pace, it’s all about beating your own best and enjoying the climb.</p>
-
-                  </div>
-               </div>
-               <div class="squiggle rev">
-                  <img src="https://sarnialasertag.com/images/squiggle.svg" loading="lazy">
-               </div>
-               <div class="activity">
-                  <img src="https://res.cloudinary.com/di8j84ent/image/upload/f_auto,q_auto/v1759667481/images/minigolf-hero_lfgukf.webp" alt="Mini Golf" loading="lazy">
-                  <div class="text-content">
-                     <h3>Mini Golf</h3>
-                     <p>Looking for something laid-back but still a good time? Jump into a round of mini golf. Our colourful course is full of clever obstacles and sneaky turns that keep things interesting. Line up your shot, go for that <span class="highlight-purple-text">hole-in-one</span>, and enjoy some easygoing competition along the way.</p>
-
-                  </div>
-               </div>
-            </section>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center text-center">
+        
+        <div class="absolute top-[5%] left-[5%] md:top-[10%] md:left-[22%] pointer-events-none z-10 animate-sparkle-1">
+            <svg width="160" height="160" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-arena-yellow drop-shadow-[0_0_20px_rgba(237,247,99,0.8)] animate-sparkle-pulse" style="animation-delay: 0.2s;" aria-hidden="true">
+                <path d="M100 0 C105 70 130 95 200 100 C130 105 105 130 100 200 C95 130 70 105 0 100 C70 95 95 70 100 0 Z" fill="currentColor"/>
+            </svg>
         </div>
-		 <div class="carousel" data-flickity='{ "wrapAround": true, "autoPlay": 3000, "lazyLoad": true, "pageDots": false, "prevNextButtons": false, "contain": true }'>
-            <div class="carousel-cell">
-               <img 
-                  src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide01_ntfdq3.png" 
-                  alt="Slide 1"
-                  style="transform: rotate(-3deg);" loading="lazy">
-            </div>
-            <div class="carousel-cell">
-               <img 
-                  src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide02_qnp48e.png" 
-                  alt="Slide 2"
-                  style="transform: rotate(2deg);" loading="lazy">
-            </div>
-            <div class="carousel-cell">
-               <img 
-                  src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide03_l6jgoz.png" 
-                  alt="Slide 3"
-                  style="transform: rotate(-2deg);" loading="lazy">
-            </div>
-            <div class="carousel-cell">
-               <img 
-                  src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide04_po0zbq.png" 
-                  alt="Slide 4"
-                  style="transform: rotate(1deg);" loading="lazy">
-            </div>
-            <div class="carousel-cell">
-               <img 
-                  src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805062/slide05_w7tosn.png" 
-                  alt="Slide 5"
-                  style="transform: rotate(-3deg);" loading="lazy">
-            </div>
-            <div class="carousel-cell">
-               <img 
-                  src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725805064/slide06_s3ixrt.png" 
-                  alt="Slide 6"
-                  style="transform: rotate(1deg);" loading="lazy">
-            </div>
-            <div class="carousel-cell">
-               <img 
-                  src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725840536/slide07_urkz1b.png" 
-                  alt="Slide 7"
-                  style="transform: rotate(-2deg);" loading="lazy">
-            </div>
-            <div class="carousel-cell">
-               <img 
-                  src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1725840536/slide08_zi7cym.png" 
-                  alt="Slide 8"
-                  style="transform: rotate(1deg);" loading="lazy">
-            </div>
-         </div>
-         <script src="https://unpkg.com/flickity@2.2.2/dist/flickity.pkgd.min.js"></script>
-      </div>
-      <img 
-         src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png" 
-         alt="" 
-         srcset="
-         https://res.cloudinary.com/di8j84ent/image/upload/w_512,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 512w, 
-         https://res.cloudinary.com/di8j84ent/image/upload/w_1024,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 1024w, 
-         https://res.cloudinary.com/di8j84ent/image/upload/w_2048,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 2048w, 
-         https://res.cloudinary.com/di8j84ent/image/upload/w_4096,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 4096w" 
-         sizes="200vw" 
-         style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:fill;image-rendering:auto" 
-         loading="lazy">
-      <div class="container">
-         <section class="hero" id="pricing">
-            <div class="text full-width">
-               <div style="display: flex; align-items: center; justify-content: center;">
-                  <div style="display: flex; align-items: center;">
-                     <i class="icon-sparkle" style="margin-top: -20px; margin-right: 15px; width: 50px; height: 50px;"></i>
-                  </div>
-                  <div style="text-align: center;">
-                     <h1 style="margin: 0;" class="headershadow">Our Prices</h1>
-                  </div>
-                  <div style="display: flex; align-items: center;">
-                     <i class="icon-twinkle" style="margin-bottom: -20px; margin-left: 10px; width: 50px; height: 50px;"></i>
-                  </div>
-               </div>
-               <p>We make it easy to have fun without breaking the bank. Whether you're dropping in with a friend or planning a group outing, our activities are ready when you are—no stress, just good times.</p>
-            </div>
-         </section>
-         <section class="pricing">
-            <div class="price-category">
-               <div class="double">
-                  <h1><span class="highlight-blue">Walk-In Prices</span></h1>
-               </div>
-<div class="price-item price-div">
-  <img src="images/icons/golf_flat_colour.svg" alt="Mini Golf" loading="lazy">
-  <div>
-    <h3>Mini Golf</h3>
-    <p><strong>$10 per person</strong></p>
-    <p>One round 10-hole mini golf</p>
-  </div>
-</div>
 
-<div class="price-item price-div">
-  <img src="images/icons/tag_flat_colour.svg" alt="Laser Tag" style="transform: rotate(-25deg);" loading="lazy">
-  <div>
-    <h3>Laser Tag</h3>
-    <p><strong>$14 per person</strong></p>
-    <p>20 minute game of laser tag</p>
-  </div>
-</div>
+        <div class="absolute top-[25%] right-[5%] md:top-[32%] md:right-[20%] pointer-events-none z-10 animate-sparkle-2">
+            <svg width="120" height="120" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-arena-pale-magenta drop-shadow-[0_0_20px_rgba(181,38,126,0.8)] animate-sparkle-pulse" style="animation-delay: 1.5s;" aria-hidden="true">
+                <path d="M100 0 C105 70 130 95 200 100 C130 105 105 130 100 200 C95 130 70 105 0 100 C70 95 95 70 100 0 Z" fill="currentColor"/>
+            </svg>
+        </div>
 
-<div class="price-item price-div">
-  <img src="images/icons/tag_flat_colour.svg" alt="Laser Tag" style="transform: rotate(-25deg);" loading="lazy">
-  <div>
-    <h3>Laser Tag</h3>
-    <p><strong>$16 per person</strong></p>
-    <p>30 minute game of laser tag</p>
-  </div>
-</div>
+        <div class="absolute top-[0%] right-[10%] md:top-[0%] md:right-[35%] pointer-events-none z-10 animate-sparkle-3">
+            <svg width="90" height="90" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-arena-teal drop-shadow-[0_0_20px_rgba(108,247,243,0.8)] animate-sparkle-pulse" style="animation-delay: 0.8s;" aria-hidden="true">
+                <path d="M100 0 C105 70 130 95 200 100 C130 105 105 130 100 200 C95 130 70 105 0 100 C70 95 95 70 100 0 Z" fill="currentColor"/>
+            </svg>
+        </div>
 
-<div class="price-item price-div">
-  <img src="images/icons/climb_flat_colour.svg" alt="Rock Climbing" loading="lazy">
-  <div>
-    <h3>Rock Climbing</h3>
-    <p><strong>$16 per person</strong></p>
-    <p>3 rock climbs</p>
-  </div>
-</div>
-
-<div class="price-item">
-  <img src="images/icons/climb_flat_colour.svg" alt="Rock Climbing" loading="lazy">
-  <div>
-    <h3>Rock Climbing</h3>
-    <p><strong>$20 per person</strong></p>
-    <p>30 minutes of rock climbs</p>
-  </div>
-</div>
-
-<div class="price-item">
-  <img src="images/icons/climb_flat_colour.svg" alt="Rock Climbing" loading="lazy">
-  <div>
-    <h3>Rock Climbing</h3>
-    <p><strong>$25 per person</strong></p>
-    <p>One hour of rock climbs</p>
-  </div>
-</div>
-
-            </div>
-            <div class="squiggle rev">
-               <img src="https://sarnialasertag.com/images/squiggle.svg" loading="lazy">
-            </div>
-            <div class="price-category">
-               <div class="double">
-                  <h1><span class="highlight-pink">Group Prices</span></h1>
-               </div>
-               <div class="group-package double">
-                  <img src="images/icons/group_flat_colour.svg" alt="Package" loading="lazy">
-                  <div>
-                     <h2>Keep In Mind</h2>
-                     <p>Groups must have 6 people minimum. Pricing is per person.</p>
-                  </div>
-               </div>
-               <div class="group-package price-div">
-                  <img src="images/icons/1_flat_colour.svg" alt="Package 1" loading="lazy">
-                  <div>
-                     <h3>Double Trouble</h3>
-                     <p><strong>$26 per person</strong></p>
-                     <p><i class='bx bx-check check-icon'></i> Two 20 minute games of laser tag</p>
-                  </div>
-               </div>
-               <div class="group-package price-div">
-                  <img src="images/icons/2_flat_colour.svg" alt="Package 2" loading="lazy">
-                  <div>
-                     <h3>Climb & Conquer</h3>
-                     <p><strong>$32 per person</strong></p>
-                     <p><i class='bx bx-check check-icon'></i> Two 20 minute games of laser tag<br>
-                        <i class='bx bx-check check-icon'></i> Two rock climbs
-                     </p>
-                  </div>
-               </div>
-               <div class="group-package price-div double">
-                  <img src="images/icons/3_flat_colour.svg" alt="Package 3" loading="lazy">
-                  <div>
-                     <h3>Putt & Play</h3>
-                     <p><strong>$32 per person</strong></p>
-                     <p><i class='bx bx-check check-icon'></i> Two 20 minute games of laser tag<br>
-                        <i class='bx bx-check check-icon'></i> One round of 10-hole mini golf
-                     </p>
-                  </div>
-               </div>
-            </div>
-         </section>
-         <div class="squiggle-right">
-            <img src="https://sarnialasertag.com/images/squiggle-right.svg" loading="lazy">
-         </div>
-         <section class="hero circle">
-            <div class="text full-width">
-               <h1 class="headershadow">Hosting a Larger Event?</h1>
-               <a href="/org_contact.html"><button><i class="icon-sparkle"></i> Reach out to us directly!</button></a>
-            </div>
-         </section>
-      </div>
-      <img 
-         src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1723741926/squiggle-trans-purple_weytxa.png" 
-         alt="" 
-         srcset="
-         https://res.cloudinary.com/di8j84ent/image/upload/w_512,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 512w, 
-         https://res.cloudinary.com/di8j84ent/image/upload/w_1024,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 1024w, 
-         https://res.cloudinary.com/di8j84ent/image/upload/w_2048,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 2048w, 
-         https://res.cloudinary.com/di8j84ent/image/upload/w_4096,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 4096w" 
-         sizes="200vw" 
-         style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:fill;image-rendering:auto" 
-         loading="lazy">
-      <div class="purplebg">
-         <div class="container">
-            <section class="testimonials">
-               <section class="hero">
-                  <div class="text full-width">
-                     <div style="display: flex; align-items: center; justify-content: center;">
-                        <div style="display: flex; align-items: center;">
-                           <i class="icon-sparkle" style="margin-top: -20px; margin-right: 15px; width: 50px; height: 50px;"></i>
-                        </div>
-                        <div style="text-align: center;">
-                           <h1 style="margin: 0;" class="headershadow">People Are Talking!</h1>
-                        </div>
-                        <div style="display: flex; align-items: center;">
-                           <i class="icon-twinkle" style="margin-bottom: -20px; margin-left: 10px; width: 50px; height: 50px;"></i>
-                        </div>
-                     </div>
-                     <p>We love hearing that you had a great visit! Share your experience with us <a href="contact.html" class="underline-effect">here!</a></p>
-                  </div>
-               </section>
-<section class="testimonials">
-   <div class="testimonial righttilt">
-      <img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1712442347/marcus.svg" class="yellow" alt="Customer Review" loading="lazy">
-      <p>"I tried the rock climbing wall for the first time and it was actually really fun. Some of the routes were tough but the staff were super encouraging and gave helpful tips." 
-      <h3>Marcus W.</h3>
-      </p>
-   </div>
-   <div class="straightpath">
-      <img src="https://sarnialasertag.com/images/straightpath.svg" loading="lazy">
-   </div>
-   <div class="testimonial lefttilt">
-      <img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1712442345/priya.svg" class="pink" alt="Customer Review" loading="lazy">
-      <p>"We had my kid’s birthday party here and it went so smoothly. The mini golf was a hit and the staff made everything super easy. Everyone had a great time." 
-      <h3>Priya R.</h3>
-      </p>
-   </div>
-   <div class="straightpath rev">
-      <img src="https://sarnialasertag.com/images/straightpath.svg" loading="lazy">
-   </div>
-   <div class="testimonial righttilt">
-      <img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1712442345/alex.svg" class="blue" alt="Customer Review" loading="lazy">
-      <p>"We did a few rounds of laser tag and it was intense in the best way. The arena design keeps you moving and thinking the whole time. Definitely coming back." 
-      <h3>Alex G.</h3>
-      </p>
-   </div>
-   <div class="straightpath">
-      <img src="https://sarnialasertag.com/images/straightpath.svg" loading="lazy">
-   </div>
-   <div class="testimonial lefttilt">
-      <img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1712442346/jenna.svg" class="blue" alt="Customer Review" loading="lazy">
-      <p>"We booked a team event for work and it was a hit. Everyone got into it, even the quiet ones. It was a fun way to break the ice and do something active together." 
-      <h3>Jenna K.</h3>
-      </p>
-   </div>
-   <div class="straightpath rev">
-      <img src="https://sarnialasertag.com/images/straightpath.svg" loading="lazy">
-   </div>
-   <div class="testimonial righttilt">
-      <img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1712442344/sophia.svg" class="yellow" alt="Customer Review" loading="lazy">
-      <p>"We had my son’s birthday at The Arena and it was great. The staff took care of everything and made it really easy. The kids had a blast and the parents got to relax a bit too." 
-      <h3>Sophia M.</h3>
-      </p>
-   </div>
-   <div class="straightpath">
-      <img src="https://sarnialasertag.com/images/straightpath.svg" loading="lazy">
-   </div>
-   <div class="testimonial lefttilt">
-      <img src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1712442345/darren.svg" class="pink" alt="Customer Review" loading="lazy">
-      <p>"We stopped in for mini golf on a rainy day and had a great time. The course was clever and just tricky enough to keep things interesting. We'll be back for sure." 
-      <h3>Darren L.</h3>
-      </p>
-   </div>
+        <div class="relative z-20 flex flex-col items-center w-full">
+            <img src="/images/assets/welcome_hero.png" alt="The Arena Adventures - Welcome" class="w-full max-w-[320px] md:max-w-[400px] h-auto drop-shadow-2xl rounded-3xl" onerror="this.onerror=null; this.src='https://placehold.co/400x300/320775/be95ff?text=Welcome+Adventurers'">
+            
+            <h1 class="text-5xl sm:text-7xl md:text-8xl font-extrabold leading-[0.9] md:leading-[0.7] -mt-10 md:-mt-20 drop-shadow-2xl font-bricolage text-center relative z-30">
+                <span class="block text-white">Welcome</span>
+                <span class="block text-transparent bg-clip-text bg-gradient-to-r from-arena-lavender to-arena-teal">Adventurers!</span>
+            </h1>
+        </div>
+        
+        <p class="text-xl md:text-2xl text-arena-light-purple max-w-4xl mx-auto mt-12 mb-10 leading-relaxed relative z-20">
+            Step into Sarnia's go-to spot for nonstop fun and chill vibes. Take aim in our multi-level laser tag arena—loaded with sneaky hideouts and perfect perch spots. Scale new heights on the rock climbing wall and put your skills to the test. Or slow things down with a round of mini golf, where each hole adds its own twist. Whether you're chasing thrills or just looking to unwind, this is your place to do it all.
+        </p>
+    </div>
 </section>
 
-         </div>
-         
-      </div>
-      <img 
-         src="https://res.cloudinary.com/di8j84ent/image/upload/v1723741147/squiggle-purple-trans_fwbpmp.png" 
-         alt="" 
-         srcset="
-         https://res.cloudinary.com/di8j84ent/image/upload/w_512,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 512w, 
-         https://res.cloudinary.com/di8j84ent/image/upload/w_1024,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 1024w, 
-         https://res.cloudinary.com/di8j84ent/image/upload/w_2048,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 2048w, 
-         https://res.cloudinary.com/di8j84ent/image/upload/w_4096,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 4096w" 
-         sizes="200vw" 
-         style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:fill;image-rendering:auto" 
-         loading="lazy">
-      <div class="container">
-         <section class="hero" id="promos">
-            <div class="text full-width">
-               <div style="display: flex; align-items: center; justify-content: center;">
-                  <div style="display: flex; align-items: center;">
-                     <i class="icon-sparkle" style="margin-top: -20px; margin-right: 15px; width: 50px; height: 50px;"></i>
-                  </div>
-                  <div style="text-align: center;">
-                     <h1 style="margin: 0;" class="headershadow">Rocket Powered Rates!</h1>
-                  </div>
-                  <div style="display: flex; align-items: center;">
-                     <i class="icon-twinkle" style="margin-bottom: -20px; margin-left: 10px; width: 50px; height: 50px;"></i>
-                  </div>
-               </div>
-               <p>Every week we offer daily specials on select activities! Looking for a great deal? You found it!</p>
-			   <section class="specials-section">
-			      <div class="specials-package">
-				    <img src="images/mff.webp" alt="Package 2" loading="lazy">
-                     <div class="header-container">
-                        <h3>Every Wednesday - Friday</h3>
-                        <p class="price">$36 per person</p>
-                        <p class="packtime">Minimum 4 people - Walk-In Only</p>
-                     </div>
-                     <ul>
-                        <li><i class='bx bx-check check-icon'></i> One 30-minute game of laser tag</li>
-						<li><i class='bx bx-check check-icon'></i> Three rock climbs</li>
-						<li><i class='bx bx-check check-icon'></i> One round of 10-hole mini golf</li>
-                     </ul>
-                  </div>
-			      <div class="specials-package">
-				    <img src="images/ff.webp" alt="Package 2" loading="lazy">
-                     <div class="header-container">
-                        <h3>Every Friday</h3>
-                        <p class="price">$14 per person</p>
-                        <p class="packtime">Walk-In Only</p>
-                     </div>
-                     <ul>
-                        <li><i class='bx bx-check check-icon'></i> One 30-minute game of laser tag</li>
-                     </ul>
-                  </div>					  
-			   </section>
-               <p>All prices displayed are walk-in prices only, are priced per person, and cannot be combined with any other offer or promotion.</p>
-            </div>
-         </section>
-      </div>
-      <img 
-         src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1723741926/squiggle-trans-purple_weytxa.png" 
-         alt="" 
-         srcset="
-         https://res.cloudinary.com/di8j84ent/image/upload/w_512,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 512w, 
-         https://res.cloudinary.com/di8j84ent/image/upload/w_1024,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 1024w, 
-         https://res.cloudinary.com/di8j84ent/image/upload/w_2048,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 2048w, 
-         https://res.cloudinary.com/di8j84ent/image/upload/w_4096,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 4096w" 
-         sizes="200vw" 
-         style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:fill;image-rendering:auto" 
-         loading="lazy">
-      <div class="purplebg">
-         <div class="container">
-            <section class="hero">
-               <div class="text">
-                  <div style="display: flex; align-items: center; justify-content: center; margin-top: 60px; margin-bottom: 20px;">
-                     <div style="display: flex; align-items: center;">
-                        <i class="icon-sparkle" style="margin-top: -20px; margin-right: 15px; width: 50px; height: 50px;"></i>
-                     </div>
-                     <div style="text-align: center;">
-                        <h1 style="margin: 0; font-size: 3em;" class="headershadow">Gift a Galaxy of Fun!</h1>
-                     </div>
-                     <div style="display: flex; align-items: center;">
-                        <i class="icon-twinkle" style="margin-bottom: -20px; margin-left: 10px; width: 50px; height: 50px;"></i>
-                     </div>
-                  </div>
-                  <p>
-                     Why not give the gift they <i>really</i> want? Choose one of our e-gift cards for your friends, family, or anyone special!
-                  </p>
-                  <p>
-                     <a href="https://app.squareup.com/gift/XCE2PQ427HSWG/order">
-                     <button><i class="icon-sparkle"></i> Get an e-gift card!</button>
-                     </a>
-                  </p>
-               </div>
-				<div class="image main">
-					<object type="image/svg+xml" data="images/giftcard.svg" class="svg-container svg-desktop"></object>
-					<img src="images/giftcard-still.svg" alt="Gift Card" class="svg-container svg-mobile" loading="lazy">
-				</div>
-			</section>
-         </div>
-      </div>
-      <img 
-         src="https://res.cloudinary.com/di8j84ent/image/upload/v1723741147/squiggle-purple-trans_fwbpmp.png" 
-         alt="" 
-         srcset="
-         https://res.cloudinary.com/di8j84ent/image/upload/w_512,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 512w, 
-         https://res.cloudinary.com/di8j84ent/image/upload/w_1024,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 1024w, 
-         https://res.cloudinary.com/di8j84ent/image/upload/w_2048,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 2048w, 
-         https://res.cloudinary.com/di8j84ent/image/upload/w_4096,q_auto/v1723741147/squiggle-purple-trans_fwbpmp.png 4096w" 
-         sizes="200vw" 
-         style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:fill;image-rendering:auto" 
-         loading="lazy">  
-      <div class="container">
-         <section id="bookonline">
-            <div class="container">
-               <section class="hero">
-                  <div class="text full-width">
-                     <div style="display: flex; align-items: center; justify-content: center;">
-                        <div style="display: flex; align-items: center;">
-                           <i class="icon-sparkle" style="margin-top: -20px; margin-right: 15px; width: 50px; height: 50px;"></i>
-                        </div>
-                        <div style="text-align: center;">
-                           <h1 style="margin: 0;" class="headershadow">Book Your Group Visit Online!</h1>
-                        </div>
-                        <div style="display: flex; align-items: center;">
-                           <i class="icon-twinkle" style="margin-bottom: -20px; margin-left: 10px; width: 50px; height: 50px;"></i>
-                        </div>
-                     </div>
-                     <p>No need to stress about the details – we've made it super easy to book ahead online. Lock in your plans, secure your spot, and get ready for a blast!</p>
-                  </div>
-               </section>
-               <div class="toggleHeader" onclick="toggleVisibility('faq0', this)">
-                  <h2>How does group pricing work?</h2>
-                  <i class='faqbx bx bx-down-arrow-circle' id="arrow-faq0"></i>
-               </div>
-               <div id="faq0" class="faqcontent">
-                  <h2><i class="icon-sparkle"></i> It's simple!</h2>
-                  <p>Our group packages are priced per person and include access to all listed activities within that package, as well as a private party room. 
-                     To qualify for group pricing and the private room, each group must consist of at least 6 participants. Please note, the maximum number of people per group is limited to 20 at any time.
-                  </p>
-                  <p>When you arrive for your event, we will check you in, confirm the number of guests and finalize payment. We do not take payments online.</p>
-                  <p>Are you looking to book for a larger event for a business, school or organization? 
-                     <a href="org_contact.html" class="underline-effect">Reach out to us directly</a>.
-                  </p>
-               </div>
-               <div class="toggleHeader" onclick="toggleVisibility('faq3', this)">
-                  <h2>Is there a minimum or maxium amount of people I can have?</h2>
-                  <i class='faqbx bx bx-down-arrow-circle' id="arrow-faq3"></i>
-               </div>
-               <div id="faq3" class="faqcontent">
-                  <h2><i class="icon-sparkle"></i> Yes!</h2>
-                  <p>To qualify for group pricing and the private room, each group must consist of at least 6 participants. Please note, the maximum number of people per group is limited to 20 at any time.
-                  </p>
-                  <p>Are you looking to book for a larger event for a business, school or organization? 
-                     <a href="org_contact.html" class="underline-effect">Reach out to us directly</a>.
-                  </p>
-               </div>
-               <div class="toggleHeader" onclick="toggleVisibility('faq1', this)">
-                  <h2>Will my group have a private room available to them?</h2>
-                  <i class='faqbx bx bx-down-arrow-circle' id="arrow-faq1"></i>
-               </div>
-               <div id="faq1" class="faqcontent">
-                  <h2><i class="icon-sparkle"></i> Yes!</h2>
-                  <p>Throughout your booking slot, you'll have exclusive access to a private party room. It's your space to decorate and use as needed for your event. Enjoy the privacy and flexibility to make your celebration perfect!</p>
-               </div>
-               <div class="toggleHeader" onclick="toggleVisibility('faq2', this)">
-                  <h2>Can I bring in my own food for my event?</h2>
-                  <i class='faqbx bx bx-down-arrow-circle' id="arrow-faq2"></i>
-               </div>
-               <div id="faq2" class="faqcontent">
-                  <h2><i class="icon-sparkle"></i> Yes!</h2>
-                  <p>You're welcome to bring your favorite treats, like a birthday cake or snacks, along with non-alcoholic beverages to enjoy during your event. Additionally, we offer a selection of personal-sized snacks including chips and chocolate bars, as well as soda and water available for purchase, should you need a little extra refreshment.</p>
-                  <p>Please note that The Arena maintains a <b>strict zero-tolerance policy regarding the presence and use of alcohol or drugs on the premises</b>. 
-                     We are committed to providing a safe and enjoyable environment for all guests. If any member of your party is found violating this policy, the entire group will be required to leave immediately, and no compensation will be offered for the disruption. 
-                     We appreciate your cooperation and understanding in helping us maintain a safe and welcoming space for everyone.
-                  </p>
-               </div>
-               <section class="booking-section">
-                  <div class="booking-package">
-                     <img src="https://res.cloudinary.com/di8j84ent/image/upload/v1710514210/1_1_ickk6k.png" alt="Package 1" loading="lazy">
-                     <div class="header-container">
-                        <h3>Double Trouble</h3>
-                        <p class="price">$26 per person</p>
-                        <p class="packtime">Approx. 1 hour 30 mins</p>
-                     </div>
-                     <ul>
-                        <li><i class='bx bx-check check-icon'></i> Two 20-minute games of laser tag</li>
-                     </ul>
-                     <a href="https://book.squareup.com/appointments/ubo4tlk6rwm1nl/location/3N7XM7GWRSW3E/services/XQ7BGO5JLRW4B3TO6AZI5SRX" class="book-now-btn"><i class="icon-sparkle"></i> Book Now</a>
-                  </div>
-                  <div class="booking-package">
-                     <img src="https://res.cloudinary.com/di8j84ent/image/upload/v1710514210/2_1_wsn2gy.png" alt="Package 2" loading="lazy">
-                     <div class="header-container">
-                        <h3>Climb & Conquer</h3>
-                        <p class="price">$32 per person</p>
-                        <p class="packtime">Approx. 2 hours</p>
-                     </div>
-                     <ul>
-                        <li><i class='bx bx-check check-icon'></i> Two 20-minute games of laser tag</li>
-                        <li><i class='bx bx-check check-icon'></i> Two rock climbs</li>
-                     </ul>
-                     <a href="https://book.squareup.com/appointments/ubo4tlk6rwm1nl/location/3N7XM7GWRSW3E/services/RTSWPT23H3HDAMH2N5WFM45Z" class="book-now-btn"><i class="icon-sparkle"></i> Book Now</a>
-                  </div>
-                  <div class="booking-package">
-                     <img src="https://res.cloudinary.com/di8j84ent/image/upload/v1710514250/3_5_n1vkc6.png" alt="Package 3" loading="lazy">
-                     <div class="header-container">
-                        <h3>Putt & Play</h3>
-                        <p class="price">$32 per person</p>
-                        <p class="packtime">Approx. 2 hours</p>
-                     </div>
-                     <ul>
-                        <li><i class='bx bx-check check-icon'></i> Two 20-minute games of laser tag</li>
-                        <li><i class='bx bx-check check-icon'></i> One round of 10-hole mini golf</li>
-                     </ul>
-                     <a href="https://book.squareup.com/appointments/ubo4tlk6rwm1nl/location/3N7XM7GWRSW3E/services/KUWB2SSAJRK5BXDXEIOFZNWO" class="book-now-btn"><i class="icon-sparkle"></i> Book Now</a>
-                  </div>
-               </section>
-            </div>
-         </section>
-      </div>
-      <div class="ribbon">
-         <div class="ribbontext">
-            Sarnia Plays Here <i class="icon-sparkle"></i> Sarnia Laughs Here <i class="icon-twinkle"></i> Sarnia Climbs Here <i class="icon-sparkle"></i> Sarnia Wins Here <i class="icon-twinkle"></i> Sarnia Putts Here 
-            Sarnia Parties Here <i class="icon-sparkle"></i> Sarnia Plays Here <i class="icon-twinkle"></i> Sarnia Laughs Here <i class="icon-sparkle"></i> Sarnia Climbs Here <i class="icon-twinkle"></i> Sarnia Wins Here <i class="icon-sparkle"></i> 
-            Sarnia Putts Here <i class="icon-twinkle"></i> Sarnia Parties Here <i class="icon-sparkle"></i> Sarnia Plays Here <i class="icon-twinkle"></i> Sarnia Laughs Here <i class="icon-sparkle"></i> Sarnia Climbs Here <i class="icon-twinkle"></i> 
-            Sarnia Wins Here <i class="icon-sparkle"></i> Sarnia Putts Here <i class="icon-twinkle"></i> Sarnia Parties Here <i class="icon-sparkle"></i> Sarnia Plays Here <i class="icon-sparkle"></i> Sarnia Laughs Here <i class="icon-twinkle"></i> Sarnia Climbs Here <i class="icon-sparkle"></i> Sarnia Wins Here <i class="icon-twinkle"></i> Sarnia Putts Here 
-            Sarnia Parties Here <i class="icon-sparkle"></i> Sarnia Plays Here <i class="icon-twinkle"></i> Sarnia Laughs Here <i class="icon-sparkle"></i> Sarnia Climbs Here <i class="icon-twinkle"></i> Sarnia Wins Here <i class="icon-sparkle"></i> 
-            Sarnia Putts Here <i class="icon-twinkle"></i> Sarnia Parties Here <i class="icon-sparkle"></i> Sarnia Plays Here <i class="icon-twinkle"></i> Sarnia Laughs Here <i class="icon-sparkle"></i> Sarnia Climbs Here <i class="icon-twinkle"></i> 
-            Sarnia Wins Here <i class="icon-sparkle"></i> Sarnia Putts Here <i class="icon-twinkle"></i> Sarnia Parties Here <i class="icon-sparkle"></i> 
-         </div>
-      </div>
-      <div class="container">
-         <section class="hero" id="visit">
-            <div class="text">
-               <div style="display: flex; align-items: center; justify-content: center;">
-                  <div style="display: flex; align-items: center;">
-                     <i class="icon-sparkle" style="margin-top: -20px; margin-right: 15px; width: 50px; height: 50px;"></i>
-                  </div>
-                  <div style="text-align: center;">
-                     <h1 style="margin: 0;" class="headershadow">Ready to Visit?</h1>
-                  </div>
-                  <div style="display: flex; align-items: center;">
-                     <i class="icon-twinkle" style="margin-bottom: -20px; margin-left: 10px; width: 50px; height: 50px;"></i>
-                  </div>
-               </div>
-               <p>We're over the moon with excitement at the thought of welcoming you! Our doors are open wide during our business hours. Navigate your way through the stars and drop by!
-               </p>
-               <p>
-                  <a href="tel:+15195421001"><button><i class='bx bxs-phone'></i> Call</button></a>
-                  <a href="contact.html"><button><i class='bx bxs-envelope'></i> Message</button></a>
-                  <a href="https://www.google.com/maps/dir/42.9802491,-81.2037244/1886+London+Line,+Sarnia,+ON+N7W+1B3/@42.9321471,-83.1115738,8z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x882583f032715077:0xdf8f3cb05927e5!2m2!1d-82.3151737!2d42.9853351?entry=ttu" target="_blank"><button><i class='bx bxs-map-pin'></i> Visit</button></a>
-               </p>
-            </div>
-            <div class="text">
-                <a href="https://www.google.com/maps/dir/42.9802491,-81.2037244/1886+London+Line,+Sarnia,+ON+N7W+1B3/@42.9321471,-83.1115738,8z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x882583f032715077:0xdf8f3cb05927e5!2m2!1d-82.3151737!2d42.9853351?entry=ttu" target="_blank">
-                  <!-- <img src="https://res.cloudinary.com/di8j84ent/image/upload/v1712845028/map_2_k1jpgv.png" alt="Business Location Map" border="0"> -->
-                  <img src="images/visit.svg" loading="lazy">
-               </a>
-            </div>
-         </section>
-         <section class="hours">
-            <div class="business-hours">
-               <div class="business-hour sunday">
-                  <p><b>SUN</b></p>
-                  <p>11AM - 7PM</p>
-               </div>
-               <div class="business-hour montuesday">
-                  <p><b>MON + TUES</b></p>
-                  <p>Monday 12PM - 6PM<br>Tuesday CLOSED</p>
-               </div>
-               <div class="business-hour wednesday">
-                  <p><b>WED</b></p>
-                  <p>CLOSED</p>
-               </div>
-               <div class="business-hour thursday">
-                  <p><b>THURS</b></p>
-                  <p>4PM - 8PM</p>
-               </div>
-               <div class="business-hour friday">
-                  <p><b>FRI</b></p>
-                  <p>4PM - 10PM</p>
-               </div>
-               <div class="business-hour saturday">
-                  <p><b>SAT</b></p>
-                  <p>12PM - 10PM</p>
-               </div>
-            </div>
-         </section>
-		 <section class="hero">
-               <div class="text full-width">
-                  <div style="display: flex; align-items: center; justify-content: center; margin-top: 60px; margin-bottom: 20px;">
-                     <div style="display: flex; align-items: center;">
-                        <i class="icon-sparkle" style="margin-top: -20px; margin-right: 15px; width: 50px; height: 50px;"></i>
-                     </div>
-                     <div style="text-align: center;">
-                        <h1 style="margin: 0; font-size: 3em;" class="headershadow">Keep the Adventure Going!</h1>
-                     </div>
-                     <div style="display: flex; align-items: center;">
-                        <i class="icon-twinkle" style="margin-bottom: -20px; margin-left: 10px; width: 50px; height: 50px;"></i>
-                     </div>
-                  </div>
-                  <p>
-                     Follow us for updates, special offers and more fun! 💖📲
-                  </p>
-                  <p>
-                     <a href="https://instagram.com/thearenasarnia" target="_blank">
-                     <button><i class="icon-sparkle"></i> @thearenasarnia</button>
-                     </a>
-					</p>
-               </div>
-			</section>
-			
-      </div>
-	  
+<section id="services" class="py-16 md:py-16 bg-arena-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-5xl font-bold text-center mb-4 text-arena-white font-bricolage">Our Activities</h2>
+        <p class="text-xl text-arena-light-purple text-center max-w-2xl mx-auto mb-16">
+            From action-packed to casual, we've got something for everyone
+        </p>
 
-      <img 
-         src="https://res.cloudinary.com/di8j84ent/image/upload/q_auto/v1723741926/squiggle-trans-purple_weytxa.png" 
-         alt="" 
-         srcset="
-         https://res.cloudinary.com/di8j84ent/image/upload/w_512,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 512w, 
-         https://res.cloudinary.com/di8j84ent/image/upload/w_1024,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 1024w, 
-         https://res.cloudinary.com/di8j84ent/image/upload/w_2048,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 2048w, 
-         https://res.cloudinary.com/di8j84ent/image/upload/w_4096,q_auto/v1723741926/squiggle-trans-purple_weytxa.png 4096w" 
-         sizes="200vw" 
-         style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:fill;image-rendering:auto" 
-         loading="lazy">
-      <div class="footer">
-         <div class="container">
-            <div class="footer-content">
-               <div class="footer-section">
-                  <h3>Follow Us!</h3>
-                  <div class="social-icons">
-                     <a href="https://www.facebook.com/thearenasarnia/" target="_blank" class="icon-link"><i class='bx bxl-facebook-circle'></i></a>
-                     <a href="https://www.instagram.com/thearenasarnia" target="_blank" class="icon-link"><i class='bx bxl-instagram'></i></a>
-                  </div>
-               </div>
-               <div class="footer-section">
-                  <h3>The Fine Print</h3>
-                  <p>All prices are displayed without applicable taxes and are subject to change without notice.</p>
-                  <p>The Arena - Sarnia Laser Tag is a local, independently owned and run business. We thank you for your continued support and patronage.</p>
-                  <p>By using our venue and facilities, you agree to abide by our <a href="/respect-responsible-use-policy.html" class="underline-effect">Respect & Responsible Use Policy</a> and <a href="/privacy-policy.html" class="underline-effect">Privacy Policy</a>.</p>
-               </div>
-            </div>
-            <div class="footer-bottom">
-               <p>&copy; 2024 Robbie Bennett Holdings Inc.</p>
-            </div>
-         </div>
-      </div>
-      <!-- JavaScript Files -->
-<script src="https://unpkg.com/flickity@2.2.2/dist/flickity.pkgd.min.js" defer></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <article class="p-8 bg-arena-dark-gray/50 border border-arena-deep-purple rounded-xl transition duration-300 focus-within:ring-2 focus-within:ring-arena-teal">
+                <div class="mb-6 aspect-square rounded-lg overflow-hidden">
+                    <img src="/images/assets/lasertag-hero.webp" alt="Multi-level laser tag arena" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x400/320775/21A9FC?text=Laser+Tag+Arena'" />
+                </div>
+                <div class="text-arena-blue mb-4" aria-hidden="true">
+                    <i class="ph-duotone ph-crosshair w-10 h-10 text-4xl"></i>
+                </div>
+                <h3 class="text-2xl font-semibold mb-3 text-arena-lavender">Laser Tag</h3>
+                <p class="text-arena-light-gray">Our laser tag arena features a full two-storey layout designed for nonstop action. Navigate winding corridors, surprise your opponents from elevated spots, and make the most of every level. With intense, multi-level gameplay, every match feels like a real mission.</p>
+            </article>
 
-<script src="scripts/swiper-init.js" defer></script>
-<script src="scripts/toggle-faq.js" defer></script>
-<script src="scripts/testimonial-animation.js" defer></script>
-<script src="scripts/ribbon-scroll.js" defer></script>
-<script src="scripts/mobile-nav.js" defer></script>
-<script src="scripts/back-to-top.js" defer></script>
-<script src="scripts/highlight-business-hours.js" defer></script>
-<script src="scripts/weekly-deals-image.js" defer></script>
+            
+            <article class="p-8 bg-arena-dark-gray/50 border border-arena-deep-purple rounded-xl transition duration-300 focus-within:ring-2 focus-within:ring-arena-teal">
+                <div class="mb-6 aspect-square rounded-lg overflow-hidden">
+                    <img src="/images/assets/rockclimb-hero.webp" alt="Indoor rock climbing wall" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x400/320775/B5267E?text=Rock+Climbing+Wall'" />
+                </div>
+                <div class="text-arena-pale-magenta mb-4" aria-hidden="true">
+                    <i class="ph-duotone ph-mountains w-10 h-10 text-4xl"></i>
+                </div>
+                <h3 class="text-2xl font-semibold mb-3 text-arena-lavender">Rock Climbing</h3>
+                <p class="text-arena-light-gray">Take on the challenge of our rock climbing wall and see how far you can push yourself. Every grip and step tests your strength, focus, and determination. Whether you're racing to the top or climbing at your own pace, it's all about beating your own best and enjoying the climb.</p>
+            </article>
 
-   </body>
-</html>
+            <article class="p-8 bg-arena-dark-gray/50 border border-arena-deep-purple rounded-xl transition duration-300 focus-within:ring-2 focus-within:ring-arena-teal">
+                <div class="mb-6 aspect-square rounded-lg overflow-hidden">
+                    <img src="/images/assets/minigolf-hero.webp" alt="Colorful mini golf course" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x400/320775/5ede58?text=Mini+Golf+Course'" />
+                </div>
+                <div class="text-arena-green mb-4" aria-hidden="true">
+                    <i class="ph-duotone ph-golf w-10 h-10 text-4xl"></i>
+                </div>
+                <h3 class="text-2xl font-semibold mb-3 text-arena-lavender">Mini Golf</h3>
+                <p class="text-arena-light-gray">Looking for something laid-back but still a good time? Jump into a round of mini golf. Our colourful course is full of clever obstacles and sneaky turns that keep things interesting. Line up your shot, go for that hole-in-one, and enjoy some easygoing competition along the way.</p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<section id="pricing" class="py-16 md:py-16 bg-arena-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-5xl font-bold text-center mb-4 text-arena-white border-t border-arena-lavender/50 pt-12 font-bricolage">Pricing & Passes</h2>
+        <p class="text-xl text-arena-light-purple text-center max-w-3xl mx-auto mb-16">
+            Choose the best way to play, from single entries to all-inclusive group passes.
+        </p>
+
+        <div class="grid lg:grid-cols-2 gap-10 mb-20">
+            
+            <div class="p-8 bg-arena-dark-gray/50 rounded-2xl border border-arena-deep-purple focus-within:ring-2 focus-within:ring-arena-teal">
+                <h3 class="text-3xl font-bold mb-8 text-arena-lavender border-b border-arena-lavender/50 pb-3 font-bricolage">Walk-In Prices</h3>
+                
+                <div class="space-y-6 md:space-y-6">
+                    
+                    <div class="flex items-start space-x-4 border-b border-arena-dark-gray pb-4">
+                        <i class="ph-duotone ph-golf text-5xl text-arena-green flex-shrink-0 mt-1" aria-hidden="true"></i>
+                        <div class="flex-1">
+                            <h4 class="text-lg md:text-xl font-semibold text-arena-white">Mini Golf</h4>
+                            <p class="text-sm md:text-base text-arena-light-gray">One round 10-hole mini golf</p>
+                        </div>
+                        <p class="text-arena-teal text-lg md:text-xl font-mono flex-shrink-0">$10 <span class="text-arena-light-gray/70 text-sm md:text-base font-normal">/ person</span></p>
+                    </div>
+
+                    
+                    <div class="flex items-start space-x-4 border-b border-arena-dark-gray pb-4">
+                        <i class="ph-duotone ph-crosshair text-5xl text-arena-blue flex-shrink-0 mt-1" aria-hidden="true"></i>
+                        <div class="flex-1">
+                            <h4 class="text-lg md:text-xl font-semibold text-arena-white">Laser Tag (20 min)</h4>
+                            <p class="text-sm md:text-base text-arena-light-gray">20 minute game of laser tag</p>
+                        </div>
+                        <p class="text-arena-teal text-lg md:text-xl font-mono flex-shrink-0">$14 <span class="text-arena-light-gray/70 text-sm md:text-base font-normal">/ person</span></p>
+                    </div>
+
+                    
+                    <div class="flex items-start space-x-4 border-b border-arena-dark-gray pb-4">
+                        <i class="ph-duotone ph-crosshair text-5xl text-arena-blue flex-shrink-0 mt-1" aria-hidden="true"></i>
+                        <div class="flex-1">
+                            <h4 class="text-lg md:text-xl font-semibold text-arena-white">Laser Tag (30 min)</h4>
+                            <p class="text-sm md:text-base text-arena-light-gray">30 minute game of laser tag</p>
+                        </div>
+                        <p class="text-arena-teal text-lg md:text-xl font-mono flex-shrink-0">$16 <span class="text-arena-light-gray/70 text-sm md:text-base font-normal">/ person</span></p>
+                    </div>
+
+                    
+                    <div class="flex items-start space-x-4 border-b border-arena-dark-gray pb-4">
+                        <i class="ph-duotone ph-mountains text-5xl text-arena-pale-magenta flex-shrink-0 mt-1" aria-hidden="true"></i>
+                        <div class="flex-1">
+                            <h4 class="text-lg md:text-xl font-semibold text-arena-white">Rock Climbing (3 Climbs)</h4>
+                            <p class="text-sm md:text-base text-arena-light-gray">3 rock climbs</p>
+                        </div>
+                        <p class="text-arena-teal text-lg md:text-xl font-mono flex-shrink-0">$16 <span class="text-arena-light-gray/70 text-sm md:text-base font-normal">/ person</span></p>
+                    </div>
+
+                    
+                    <div class="flex items-start space-x-4 border-b border-arena-dark-gray pb-4">
+                        <i class="ph-duotone ph-mountains text-5xl text-arena-pale-magenta flex-shrink-0 mt-1" aria-hidden="true"></i>
+                        <div class="flex-1">
+                            <h4 class="text-lg md:text-xl font-semibold text-arena-white">Rock Climbing (30 min)</h4>
+                            <p class="text-sm md:text-base text-arena-light-gray">30 minutes of rock climbs</p>
+                        </div>
+                        <p class="text-arena-teal text-lg md:text-xl font-mono flex-shrink-0">$20 <span class="text-arena-light-gray/70 text-sm md:text-base font-normal">/ person</span></p>
+                    </div>
+
+                    
+                    <div class="flex items-start space-x-4 pt-2">
+                        <i class="ph-duotone ph-mountains text-5xl text-arena-pale-magenta flex-shrink-0 mt-1" aria-hidden="true"></i>
+                        <div class="flex-1">
+                            <h4 class="text-lg md:text-xl font-semibold text-arena-white">Rock Climbing (60 min)</h4>
+                            <p class="text-sm md:text-base text-arena-light-gray">One hour of rock climbs</p>
+                        </div>
+                        <p class="text-arena-teal text-lg md:text-xl font-mono flex-shrink-0">$25 <span class="text-arena-light-gray/70 text-sm md:text-base font-normal">/ person</span></p>
+                    </div>
+                    
+                </div>
+            </div>
+
+            
+            <div class="p-8 bg-arena-dark-purple/50 rounded-2xl border border-arena-green focus-within:ring-2 focus-within:ring-arena-teal">
+                <h3 class="text-3xl font-bold mb-8 text-arena-green border-b border-arena-green/50 pb-3 font-bricolage">Group Prices</h3>
+                
+                <blockquote class="flex items-start p-4 mb-8 bg-arena-dark-gray/70 border-l-4 border-arena-yellow text-arena-light-purple italic text-sm md:text-base">
+                    <i class="ph ph-sparkle text-lg md:text-xl text-arena-yellow mr-2 mt-0.5 flex-shrink-0" aria-hidden="true"></i>
+                    <p>Keep in mind! Groups for these packages must have 6 people minimum. Pricing is per person.</p>
+                </blockquote>
+                
+                
+                <div class="space-y-6">
+                    
+                    <div class="flex items-start space-x-4 border-b border-arena-dark-gray pb-6">
+                        <i class="ph-duotone ph-number-circle-one text-5xl text-arena-lavender flex-shrink-0 mt-1 opacity-100" aria-hidden="true"></i>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h4 class="text-lg md:text-2xl font-semibold text-arena-white">Double Trouble</h4>
+                                <p class="text-arena-teal text-lg md:text-xl font-mono flex-shrink-0">$26 <span class="text-arena-light-gray/70 text-sm md:text-base font-normal">/ person</span></p>
+                            </div>
+                            <ul class="text-arena-light-gray text-sm md:text-base mt-2 space-y-1">
+                                <li class="flex items-start"><i class="ph ph-check text-arena-yellow mr-2 mt-0.5 flex-shrink-0" aria-hidden="true"></i><span><span class="font-bold text-arena-teal">Laser Tag:</span> Two 20 minute games</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="flex items-start space-x-4 border-b border-arena-dark-gray pb-6">
+                        <i class="ph-duotone ph-number-circle-two text-5xl text-arena-lavender flex-shrink-0 mt-1 opacity-100" aria-hidden="true"></i>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h4 class="text-lg md:text-2xl font-semibold text-arena-white">Climb & Conquer</h4>
+                                <p class="text-arena-teal text-lg md:text-xl font-mono flex-shrink-0">$32 <span class="text-arena-light-gray/70 text-sm md:text-base font-normal">/ person</span></p>
+                            </div>
+                            <ul class="text-arena-light-gray text-sm md:text-base mt-2 space-y-1">
+                                <li class="flex items-start"><i class="ph ph-check text-arena-yellow mr-2 mt-0.5 flex-shrink-0" aria-hidden="true"></i><span><span class="font-bold text-arena-teal">Laser Tag:</span> Two 20 minute games</span></li>
+                                <li class="flex items-start"><i class="ph ph-check text-arena-yellow mr-2 mt-0.5 flex-shrink-0" aria-hidden="true"></i><span><span class="font-bold text-arena-teal">Rock Climbing:</span> Two rock climbs</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    
+                    <div class="flex items-start space-x-4 pt-6">
+                        <i class="ph-duotone ph-number-circle-three text-5xl text-arena-lavender flex-shrink-0 mt-1 opacity-100" aria-hidden="true"></i>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h4 class="text-lg md:text-2xl font-semibold text-arena-white">Putt & Play</h4>
+                                <p class="text-arena-teal text-lg md:text-xl font-mono flex-shrink-0">$32 <span class="text-arena-light-gray/70 text-sm md:text-base font-normal">/ person</span></p>
+                            </div>
+                            <ul class="text-arena-light-gray text-sm md:text-base mt-2 space-y-1">
+                                <li class="flex items-start"><i class="ph ph-check text-arena-yellow mr-2 mt-0.5 flex-shrink-0" aria-hidden="true"></i><span><span class="font-bold text-arena-teal">Laser Tag:</span> Two 20 minute games</span></li>
+                                <li class="flex items-start"><i class="ph ph-check text-arena-yellow mr-2 mt-0.5 flex-shrink-0" aria-hidden="true"></i><span><span class="font-bold text-arena-teal">Mini Golf:</span> One round of 10-hole mini golf</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <h3 id="all-inclusive" class="text-5xl font-bold text-center mb-4 text-arena-white border-t border-arena-lavender/50 pt-12 font-bricolage">All-Inclusive Group Packages</h3>
+        <p class="text-lg text-arena-light-purple text-center max-w-3xl mx-auto mb-16">
+            Book online! All packages below require a minimum of 6 people.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <article class="p-8 bg-arena-dark-gray/50 rounded-2xl shadow-glow-green border border-arena-green relative flex flex-col justify-between focus-within:ring-2 focus-within:ring-arena-teal">
+                
+                <div class="absolute -top-3 right-4 transform rotate-6 bg-arena-green text-arena-black text-sm font-bold px-4 py-1 rounded-full shadow-lg z-10">
+                    Most Popular!
+                </div>
+                <div class="text-center">
+                    <i class="ph-duotone ph-number-circle-one text-7xl text-arena-green mb-4" aria-hidden="true"></i>
+                    <h4 class="text-3xl font-extrabold mb-2 text-arena-white">Double Trouble</h4>
+                    <p class="text-2xl font-bold mb-2 text-arena-lavender">$26 per person</p>
+                    <p class="text-lg text-arena-light-purple mb-6">Approx. 1 hour 30 mins</p>
+                    
+                    <ul class="text-left space-y-3 pt-4 border-t border-arena-dark-gray">
+                        <li class="flex items-start text-arena-light-gray">
+                            <i class="ph ph-check text-arena-yellow mr-3 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            Two 20-minute games of laser tag
+                        </li>
+                    </ul>
+                </div>
+                <a href="#contact" class="mt-8 btn-primary bg-arena-purple text-arena-white hover:bg-arena-deep-purple">
+                    Book Now
+                </a>
+            </article>
+
+            <article class="p-8 bg-arena-dark-gray/50 rounded-2xl border border-arena-deep-purple flex flex-col justify-between focus-within:ring-2 focus-within:ring-arena-teal">
+                <div class="text-center">
+                    <i class="ph-duotone ph-number-circle-two text-7xl text-arena-green mb-4" aria-hidden="true"></i>
+                    <h4 class="text-3xl font-extrabold mb-2 text-arena-white">Climb & Conquer</h4>
+                    <p class="text-2xl font-bold mb-2 text-arena-lavender">$32 per person</p>
+                    <p class="text-lg text-arena-light-purple mb-6">Approx. 2 hours</p>
+
+                    <ul class="text-left space-y-3 pt-4 border-t border-arena-dark-gray">
+                        <li class="flex items-start text-arena-light-gray">
+                            <i class="ph ph-check text-arena-yellow mr-3 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            Two 20-minute games of laser tag
+                        </li>
+                        <li class="flex items-start text-arena-light-gray">
+                            <i class="ph ph-check text-arena-yellow mr-3 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            Two rock climbs
+                        </li>
+                    </ul>
+                </div>
+                <a href="#contact" class="mt-8 btn-primary bg-arena-purple text-arena-white hover:bg-arena-deep-purple">
+                    Book Now
+                </a>
+            </article>
+
+            <article class="p-8 bg-arena-dark-gray/50 rounded-2xl border border-arena-deep-purple flex flex-col justify-between focus-within:ring-2 focus-within:ring-arena-teal">
+                <div class="text-center">
+                    <i class="ph-duotone ph-number-circle-three text-7xl text-arena-green mb-4" aria-hidden="true"></i>
+                    <h4 class="text-3xl font-extrabold mb-2 text-arena-white">Putt & Play</h4>
+                    <p class="text-2xl font-bold mb-2 text-arena-lavender">$32 per person</p>
+                    <p class="text-lg text-arena-light-purple mb-6">Approx. 2 hours</p>
+
+                    <ul class="text-left space-y-3 pt-4 border-t border-arena-dark-gray">
+                        <li class="flex items-start text-arena-light-gray">
+                            <i class="ph ph-check text-arena-yellow mr-3 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            Two 20-minute games of laser tag
+                        </li>
+                        <li class="flex items-start text-arena-light-gray">
+                            <i class="ph ph-check text-arena-yellow mr-3 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            One round of 10-hole mini golf
+                        </li>
+                    </ul>
+                </div>
+                <a href="#contact" class="mt-8 btn-primary bg-arena-purple text-arena-white hover:bg-arena-deep-purple">
+                    Book Now
+                </a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="weekend-warrior-deal" class="py-12 md:py-20 bg-arena-dark-purple border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="lg:flex lg:items-center lg:justify-between lg:flex-row-reverse">
+            
+            <div class="lg:w-1/2 mb-10 lg:mb-0">
+                <img src="/images/assets/homeasset03.webp" 
+                    alt="Three friends rock climbing and playing mini golf" 
+                    class="rounded-xl shadow-glow-purple shadow-xl w-full"
+                    onerror="this.onerror=null; this.src='https://placehold.co/800x600/B5267E/090909?text=Weekend+Warrior+Pass'" />
+            </div>
+            
+            
+            <div class="lg:w-1/2 lg:pr-6 lg:mb-0">
+                <h2 class="text-5xl font-bold mb-4 text-arena-white font-bricolage">New climbing wall</h2>
+                <p class="text-2xl text-arena-teal mb-4">Now open</p>
+                
+                <p class="text-4xl font-extrabold text-arena-yellow mb-2">A modern update to an old fave</p>
+                <p class="text-lg text-arena-light-gray mb-8">
+                    Our rock climbing zone has been completely rebuilt from the ground up. The new wall features a clean modern design, fresh routes, and upgraded safety systems. It is easier to use for first timers, kids, and experienced climbers so everyone can feel confident on the wall.
+                </p>
+
+                <ul class="space-y-3 text-arena-white mb-10">
+                    <li class="flex items-start font-semibold">
+                        <i class="ph ph-check text-arena-green mr-3 mt-1 flex-shrink-0 text-xl" aria-hidden="true"></i>
+                        All new wall layout with modern holds and routes
+                    </li>
+                    <li class="flex items-start font-semibold">
+                        <i class="ph ph-check text-arena-green mr-3 mt-1 flex-shrink-0 text-xl" aria-hidden="true"></i>
+                        Upgraded safety equipment and clear step by step setup
+                    </li>
+                    <li class="flex items-start font-semibold">
+                        <i class="ph ph-check text-arena-green mr-3 mt-1 flex-shrink-0 text-xl" aria-hidden="true"></i>
+                        Climbing options for beginners, families, and advanced climbers
+                    </li>
+                </ul>
+                
+                <button onclick="shareDeal('Weekend Warrior Deal', 'weekend-warrior-deal')" class="btn-primary bg-arena-pale-magenta text-arena-white hover:bg-arena-pale-magenta-dark">
+                    <i class="ph ph-share-network mr-2 text-xl" aria-hidden="true"></i> Share Deal
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="mini-golf-feature" class="py-12 md:py-20 bg-arena-deep-purple">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="lg:flex lg:items-center lg:justify-between">
+            
+            <div class="lg:w-1/2 lg:pr-6 mb-10 lg:mb-0">
+                <img src="/images/assets/homeasset01.webp" 
+                    alt="Neon-lit laser tag arena with blue and red lights" 
+                    class="rounded-xl shadow-glow-purple shadow-xl w-full"
+                    onerror="this.onerror=null; this.src='https://placehold.co/800x600/21A9FC/090909?text=Fun+Friday+Laser+Tag'" />
+            </div>
+            
+            <div class="lg:w-1/2 lg:pl-6">
+                <h2 class="text-5xl font-bold mb-4 text-arena-white font-bricolage">Fun Fridays</h2>
+                <p class="text-2xl text-arena-teal mb-4">Every Friday</p>
+                
+                <p class="text-4xl font-extrabold text-arena-yellow mb-2">$14 per person</p>
+                <p class="text-lg text-arena-light-gray mb-8">
+                    Get the weekend started right with a dedicated 30-minute laser tag game for just $14. This special offer is available for walk-ins only, every Friday. Bring your friends and dominate the arena!
+                </p>
+
+                <ul class="space-y-3 text-arena-white mb-10">
+                    <li class="flex items-start font-semibold">
+                        <i class="ph ph-check text-arena-green mr-3 mt-1 flex-shrink-0 text-xl" aria-hidden="true"></i>
+                        One 30-minute game of laser tag
+                    </li>
+                    <li class="flex items-start font-semibold">
+                        <i class="ph ph-check text-arena-green mr-3 mt-1 flex-shrink-0 text-xl" aria-hidden="true"></i>
+                        Walk-In Only
+                    </li>
+                </ul>
+                
+                <button onclick="shareDeal('Fun Friday Deal', 'mini-golf-feature')" class="btn-primary bg-arena-blue text-arena-black hover:bg-arena-blue-dark">
+                    <i class="ph ph-share-network mr-2 text-xl" aria-hidden="true"></i> Share Deal
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="innovation-focus" class="py-12 md:py-20 bg-arena-dark-purple">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col-reverse lg:flex-row lg:items-center lg:justify-between">
+            
+            <div class="lg:w-1/2 lg:pr-6 lg:mb-0">
+                <h2 class="text-5xl font-bold mb-4 text-arena-white font-bricolage">The More For Four Deal</h2>
+                <p class="text-2xl text-arena-teal mb-4">Every Wednesday - Friday Get More Fun for Less!</p>
+                
+                <p class="text-4xl font-extrabold text-arena-yellow mb-2">$36 per person</p>
+                <p class="text-lg text-arena-light-gray mb-8">
+                    This walk-in only deal requires a minimum of 4 people. It's the perfect way to kick off the weekend with your crew!
+                </p>
+
+                <ul class="space-y-3 text-arena-white mb-10">
+                    <li class="flex items-start font-semibold">
+                        <i class="ph ph-check text-arena-green mr-3 mt-1 flex-shrink-0 text-xl" aria-hidden="true"></i>
+                        One 30-minute game of laser tag
+                    </li>
+                    <li class="flex items-start font-semibold">
+                        <i class="ph ph-check text-arena-green mr-3 mt-1 flex-shrink-0 text-xl" aria-hidden="true"></i>
+                        Three rock climbs
+                    </li>
+                    <li class="flex items-start font-semibold">
+                        <i class="ph ph-check text-arena-green mr-3 mt-1 flex-shrink-0 text-xl" aria-hidden="true"></i>
+                        One round of 10-hole mini golf
+                    </li>
+                </ul>
+
+                <button onclick="shareDeal('More For Four Deal', 'innovation-focus')" class="btn-primary bg-arena-blue text-arena-black hover:bg-arena-blue-dark">
+                    <i class="ph ph-share-network mr-2 text-xl" aria-hidden="true"></i> Share Deal
+                </button>
+            </div>
+            
+            <div class="lg:w-5/12 lg:pl-6 relative mb-8 lg:mb-0 flex items-center justify-center">
+                <div class="w-full max-w-sm mx-auto relative">
+                    <div class="relative overflow-hidden border-[8px] border-gray-600/60 bg-black/50" style="aspect-ratio: 9/11; border-radius: 3.5rem 3.5rem 0 0;">
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-4 bg-black rounded-b-xl z-20"></div>
+                        
+                        <div id="message-feed-container" class="w-full h-full pt-12 px-6 overflow-hidden">
+                            <div id="message-feed" class="message-area">
+                                <div id="typing-indicator" class="typing-indicator">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute bottom-0 left-0 right-0 w-full pointer-events-none z-50" style="height: 25%; background: linear-gradient(to top, #320775 0%, #320775 15%, rgba(50, 7, 117, 0.7) 40%, transparent 100%);"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="gift-cards-section" class="py-16 md:py-24 relative overflow-hidden bg-arena-deep-purple">
+    <div class="absolute inset-0 pointer-events-none z-0">
+        <div class="w-full h-full opacity-[0.10]" 
+             style="background-image: url('/images/assets/gcbg.webp'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-arena-white mb-6 font-bricolage">Give the Gift of Fun!</h2>
+            <p class="text-xl text-arena-light-purple mb-10">
+                Not sure what to get them? An e-gift card to The Arena is the perfect choice for birthdays, holidays, or just because. Instant delivery to their inbox.
+            </p>
+            <a href="https://app.squareup.com/gift/XCE2PQ427HSWG/order" target="_blank" rel="noopener noreferrer" class="btn-primary bg-arena-green text-arena-black hover:bg-arena-green-dark">
+                <i class="ph-duotone ph-gift text-2xl mr-3" aria-hidden="true"></i>
+                Purchase E-Gift Card
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="py-16 md:py-24 bg-arena-dark-purple border-t border-arena-deep-purple">
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="sr-only">Photo Gallery</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-4 h-auto md:h-[600px]">
+        
+            <div class="col-span-2 row-span-2 rounded-3xl overflow-hidden border border-arena-white/10 relative h-64 md:h-auto">
+                <img src="/images/slide/02.png" 
+                     alt="Gallery Image" 
+                     class="w-full h-full object-cover" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/800x800/320775/21A9FC?text=Image+1'"/>
+            </div>
+
+            <div class="col-span-1 row-span-1 rounded-3xl overflow-hidden border border-arena-white/10 relative h-32 md:h-auto">
+                <img src="/images/slide/01.png" 
+                     alt="Gallery Image" 
+                     class="w-full h-full object-cover" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x400/320775/5ede58?text=Image+2'"/>
+            </div>
+
+            <div class="col-span-1 row-span-1 rounded-3xl overflow-hidden border border-arena-white/10 relative h-32 md:h-auto">
+                <img src="/images/slide/03.png" 
+                     alt="Gallery Image" 
+                     class="w-full h-full object-cover" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x400/320775/990099?text=Image+3'"/>
+            </div>
+
+            <div class="col-span-1 row-span-1 rounded-3xl overflow-hidden border border-arena-white/10 relative h-32 md:h-auto">
+                <img src="/images/slide/04.png" 
+                     alt="Gallery Image" 
+                     class="w-full h-full object-cover" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x400/320775/edf763?text=Image+4'"/>
+            </div>
+
+            <div class="col-span-1 row-span-1 rounded-3xl overflow-hidden border border-arena-white/10 relative h-32 md:h-auto">
+                <img src="/images/slide/05.png" 
+                     alt="Gallery Image" 
+                     class="w-full h-full object-cover" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x400/320775/be95ff?text=Image+5'"/>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="faq" class="py-16 md:py-24 bg-arena-black">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-5xl font-bold text-center mb-12 text-arena-white font-bricolage">Group Booking FAQs</h2>
+        
+        <div class="space-y-4">
+            <details class="group bg-arena-dark-gray/50 border border-arena-deep-purple rounded-xl overflow-hidden transition-all duration-300 open:bg-arena-dark-purple/20 focus-within:ring-2 focus-within:ring-arena-teal">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <h3 class="text-xl font-bold text-arena-lavender">How does group pricing work?</h3>
+                    <span class="transition-transform group-open:rotate-180" aria-hidden="true">
+                        <i class="ph ph-caret-down text-arena-white text-xl"></i>
+                    </span>
+                </summary>
+                <div class="px-6 pb-6 text-arena-light-gray space-y-4">
+                    <p class="font-bold text-arena-white">It's simple!</p>
+                    <p>
+                        Our group packages are priced per person and include access to all listed activities within that package, as well as a private party room. 
+                        To qualify for group pricing and the private room, each group must consist of at least 6 participants. Please note, the maximum number of people per group is limited to 20 at any time.
+                    </p>
+                    <p>
+                        When you arrive for your event, we will check you in, confirm the number of guests and finalize payment. We do not take payments online.
+                    </p>
+                    <p>
+                        Are you looking to book for a larger event (20+ people) for a business, school or organization? <a href="org-contact.html" class="text-arena-teal underline hover:text-arena-white">Reach out to us directly.</a>
+                    </p>
+                </div>
+            </details>
+
+            <details class="group bg-arena-dark-gray/50 border border-arena-deep-purple rounded-xl overflow-hidden transition-all duration-300 open:bg-arena-dark-purple/20 focus-within:ring-2 focus-within:ring-arena-teal">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <h3 class="text-xl font-bold text-arena-lavender">Is there a minimum or maximum amount of people?</h3>
+                    <span class="transition-transform group-open:rotate-180" aria-hidden="true">
+                        <i class="ph ph-caret-down text-arena-white text-xl"></i>
+                    </span>
+                </summary>
+                <div class="px-6 pb-6 text-arena-light-gray space-y-4">
+                    <p class="font-bold text-arena-white">Yes!</p>
+                    <p>
+                        To qualify for group pricing and the private room, each group must consist of at least 6 participants. Please note, the maximum number of people per group is limited to 20 at any time.
+                    </p>
+                    <p>
+                        Are you looking to book for a larger event (20+ people) for a business, school or organization? <a href="org-contact.html" class="text-arena-teal underline hover:text-arena-white">Reach out to us directly.</a>
+                    </p>
+                </div>
+            </details>
+
+            <details class="group bg-arena-dark-gray/50 border border-arena-deep-purple rounded-xl overflow-hidden transition-all duration-300 open:bg-arena-dark-purple/20 focus-within:ring-2 focus-within:ring-arena-teal">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <h3 class="text-xl font-bold text-arena-lavender">Will my group have a private room available to them?</h3>
+                    <span class="transition-transform group-open:rotate-180" aria-hidden="true">
+                        <i class="ph ph-caret-down text-arena-white text-xl"></i>
+                    </span>
+                </summary>
+                <div class="px-6 pb-6 text-arena-light-gray space-y-4">
+                    <p class="font-bold text-arena-white">Yes!</p>
+                    <p>
+                        Throughout your booking slot, you'll have exclusive access to a private party room. It's your space to decorate and use as needed for your event. Enjoy the privacy and flexibility to make your celebration perfect!
+                    </p>
+                </div>
+            </details>
+
+            <details class="group bg-arena-dark-gray/50 border border-arena-deep-purple rounded-xl overflow-hidden transition-all duration-300 open:bg-arena-dark-purple/20 focus-within:ring-2 focus-within:ring-arena-teal">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <h3 class="text-xl font-bold text-arena-lavender">Can we bring outside food or drinks?</h3>
+                    <span class="transition-transform group-open:rotate-180" aria-hidden="true">
+                        <i class="ph ph-caret-down text-arena-white text-xl"></i>
+                    </span>
+                </summary>
+                <div class="px-6 pb-6 text-arena-light-gray space-y-4">
+                    <p class="font-bold text-arena-white">Yes!</p>
+                    <p>
+                        You're welcome to bring your favorite treats, like a birthday cake or snacks, along with non-alcoholic beverages to enjoy during your event. Additionally, we offer a selection of personal-sized snacks including chips and chocolate bars, as well as soda and water available for purchase, should you need a little extra refreshment.
+                    </p>
+                    <div class="p-4 bg-arena-dark-purple/40 border-l-4 border-arena-magenta rounded-r-lg">
+                        <p class="text-arena-white font-semibold mb-2">Please note that The Arena maintains a strict zero-tolerance policy regarding the presence and use of alcohol or drugs on the premises.</p>
+                        <p class="text-sm">
+                            We are committed to providing a safe and enjoyable environment for all guests. If any member of your party is found violating this policy, the entire group will be required to leave immediately, and no compensation will be offered for the disruption. We appreciate your cooperation and understanding in helping us maintain a safe and welcoming space for everyone.
+                        </p>
+                        <p class="text-sm mt-3">We encourage all guests to read our <a href="/respect-responsible-use-policy" class="text-arena-teal underline hover:text-arena-white transition-colors focus:ring-2 focus:ring-arena-teal rounded px-1">Respect & Responsible Use Policy</a> before visiting or booking to ensure you're familiar with all our venue guidelines.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<section class="bg-arena-deep-purple py-16">
+    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-5xl font-extrabold text-arena-white mb-4">Planning a Larger Event?</h2>
+        <p class="text-xl text-arena-light-purple mb-8">
+            We can make it work! If you're a school, business or other organization, reach out to us.
+        </p>
+
+        <a href="org-contact.html" class="btn-primary bg-arena-green text-arena-black hover:bg-arena-green-dark">
+           <i class="ph-duotone ph ph-paper-plane-right text-xl mr-2" aria-hidden="true"></i> Contact Us
+        </a>
+    </div>
+</section>
+
+<section id="hours" class="py-16 bg-arena-black border-t border-arena-deep-purple">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-5xl font-bold text-center mb-12 text-arena-white font-bricolage">Business Hours & Location</h2>
+        
+        <div class="grid grid-cols-2 lg:grid-cols-6 gap-6" id="hours-grid">
+            <div class="hours-card bg-arena-dark-gray/30 border border-arena-deep-purple/50 rounded-2xl overflow-hidden group focus-within:ring-2 focus-within:ring-arena-teal" id="card-0">
+                <div class="p-6 text-center flex flex-col h-full items-center justify-between">
+                    <div class="day-header-text text-arena-lavender font-bold uppercase text-xl">
+                        SUN
+                        <span class="day-date block text-sm opacity-70 font-normal mt-1"></span>
+                    </div>
+                    <div class="hour-text text-lg font-bold text-arena-white tracking-wide">
+                    </div>
+                </div>
+            </div>
+
+            <div class="hours-card bg-arena-dark-gray/30 border border-arena-deep-purple/50 rounded-2xl overflow-hidden group focus-within:ring-2 focus-within:ring-arena-teal" id="card-1">
+                <div class="p-6 text-center flex flex-col h-full items-center justify-between">
+                    <div class="day-header-text text-arena-lavender font-bold uppercase text-lg lg:text-xl">
+                        MON + TUES
+                        <span class="day-date block text-sm opacity-70 font-normal mt-1"></span>
+                    </div>
+                    <div class="hour-text text-lg font-bold text-arena-white tracking-wide">
+                    </div>
+                </div>
+            </div>
+
+            <div class="hours-card bg-arena-dark-gray/30 border border-arena-deep-purple/50 rounded-2xl overflow-hidden group focus-within:ring-2 focus-within:ring-arena-teal" id="card-2">
+                <div class="p-6 text-center flex flex-col h-full items-center justify-between">
+                    <div class="day-header-text text-arena-lavender font-bold uppercase text-xl">
+                        WED
+                        <span class="day-date block text-sm opacity-70 font-normal mt-1"></span>
+                    </div>
+                    <div class="hour-text text-lg font-bold text-arena-white tracking-wide">
+                    </div>
+                </div>
+            </div>
+
+            <div class="hours-card bg-arena-dark-gray/30 border border-arena-deep-purple/50 rounded-2xl overflow-hidden group focus-within:ring-2 focus-within:ring-arena-teal" id="card-3">
+                <div class="p-6 text-center flex flex-col h-full items-center justify-between">
+                    <div class="day-header-text text-arena-lavender font-bold uppercase text-xl">
+                        THURS
+                        <span class="day-date block text-sm opacity-70 font-normal mt-1"></span>
+                    </div>
+                    <div class="hour-text text-lg font-bold text-arena-white tracking-wide">
+                    </div>
+                </div>
+            </div>
+
+            <div class="hours-card bg-arena-dark-gray/30 border border-arena-deep-purple/50 rounded-2xl overflow-hidden group focus-within:ring-2 focus-within:ring-arena-teal" id="card-4">
+                <div class="p-6 text-center flex flex-col h-full items-center justify-between">
+                    <div class="day-header-text text-arena-lavender font-bold uppercase text-xl">
+                        FRI
+                        <span class="day-date block text-sm opacity-70 font-normal mt-1"></span>
+                    </div>
+                    <div class="hour-text text-lg font-bold text-arena-white tracking-wide">
+                    </div>
+                </div>
+            </div>
+
+            <div class="hours-card bg-arena-dark-gray/30 border border-arena-deep-purple/50 rounded-2xl overflow-hidden group focus-within:ring-2 focus-within:ring-arena-teal" id="card-5">
+                <div class="p-6 text-center flex flex-col h-full items-center justify-between">
+                    <div class="day-header-text text-arena-lavender font-bold uppercase text-xl">
+                        SAT
+                        <span class="day-date block text-sm opacity-70 font-normal mt-1"></span>
+                    </div>
+                    <div class="hour-text text-lg font-bold text-arena-white tracking-wide">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="py-16 md:py-24 bg-arena-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-5xl font-bold text-center mb-10 text-arena-white font-bricolage">Connect With Us</h2>
+        <p class="text-xl text-arena-lavender text-center max-w-2xl mx-auto mb-16">
+            Looking for more information? Need specific details? Reach out below! We reply within 24 hours.
+        </p>
+        
+        <div class="grid lg:grid-cols-2 gap-12 items-stretch">
+            <div class="relative w-full h-full min-h-[500px] flex flex-col justify-between overflow-hidden rounded-3xl bg-arena-deep-purple/20 border border-arena-purple/30 group focus-within:ring-2 focus-within:ring-arena-teal">
+                
+                <div class="absolute inset-0 opacity-20 pointer-events-none" 
+                     style="background-image: radial-gradient(#44148f 1px, transparent 1px); background-size: 30px 30px;">
+                </div>
+
+                <div class="relative flex-grow flex items-center justify-center pt-8 pb-20">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 animate-float-planet">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full drop-shadow-[0_0_30px_rgba(33,169,252,0.4)]" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="planetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#320775;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#14088e;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <circle cx="100" cy="100" r="90" fill="url(#planetGrad)" stroke="#44148f" stroke-width="2" />
+                            
+                            <path d="M40,90 Q60,60 90,80 T140,70 T170,100" fill="none" stroke="#6cf7f3" stroke-width="2" stroke-linecap="round" opacity="0.3" />
+                            <path d="M30,130 Q70,150 110,130 T160,140" fill="none" stroke="#be95ff" stroke-width="2" stroke-linecap="round" opacity="0.3" />
+                            <path d="M120,40 Q140,60 130,90" fill="none" stroke="#21A9FC" stroke-width="2" stroke-linecap="round" opacity="0.3" />
+                            
+                            <ellipse cx="100" cy="100" rx="110" ry="40" fill="none" stroke="#be95ff" stroke-width="1" stroke-dasharray="5,5" transform="rotate(-15 100 100)" opacity="0.4" />
+                        </svg>
+
+                        <div class="absolute top-[35%] left-[45%] transform -translate-x-1/2 -translate-y-1/2 z-10">
+                            <div class="relative">
+                                <div class="w-4 h-4 bg-arena-green rounded-full shadow-[0_0_15px_#5ede58] animate-ping absolute"></div>
+                                <div class="w-4 h-4 bg-arena-green rounded-full shadow-[0_0_15px_#5ede58] relative z-10 border-2 border-white"></div>
+                                <div class="w-0.5 h-16 bg-gradient-to-b from-arena-green to-transparent absolute left-1/2 transform -translate-x-1/2 top-4 opacity-50"></div>
+                            </div>
+                        </div>
+
+                        <div class="absolute top-[0%] left-[90%] transform -translate-x-1/2 z-20 w-48">
+                            <div class="animate-float-card bg-arena-dark-gray/90 backdrop-blur-md border border-arena-green/50 p-4 rounded-xl shadow-2xl">
+                                <div class="flex items-center gap-2 mb-2 border-b border-arena-green/30 pb-2">
+                                    <i class="ph-duotone ph-map-pin text-arena-green text-xl" aria-hidden="true"></i>
+                                    <span class="text-xs font-bold text-arena-green uppercase tracking-widest">Target Locked</span>
+                                </div>
+                                <div class="text-white text-sm font-semibold leading-tight">
+                                    The Arena
+                                </div>
+                                <div class="text-arena-light-gray text-xs mt-1 leading-relaxed">
+                                    1886 London Line, Sarnia
+                                </div>
+                            </div>
+                        </div>
+
+                        <i class="ph-duotone ph-crosshair text-arena-magenta text-2xl absolute top-0 right-0 md:top-10 md:right-10 opacity-60 animate-pulse" aria-hidden="true"></i>
+                        <i class="ph-duotone ph-planet text-arena-blue text-3xl absolute bottom-0 left-0 md:bottom-10 md:left-10 opacity-60" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-0 left-0 w-full p-6">
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="tel:5195421001" class="btn-primary bg-arena-yellow text-arena-black hover:bg-arena-yellow-dark">
+                            <i class="ph-duotone ph-phone-call text-xl mr-2" aria-hidden="true"></i>
+                            Call Us
+                        </a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=1886+London+Line,+Sarnia,+ON+N7W+1B3" target="_blank" rel="noopener noreferrer" class="btn-primary bg-arena-purple text-arena-white hover:bg-arena-deep-purple">
+                            <i class="ph-duotone ph-map-trifold text-xl mr-2" aria-hidden="true"></i>
+                            Get Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-arena-deep-purple/20 rounded-3xl border border-arena-purple/30 backdrop-blur-sm overflow-hidden h-full flex flex-col focus-within:ring-2 focus-within:ring-arena-teal">
+                
+                <div class="flex items-center p-4 bg-arena-dark-gray/90 border-b border-arena-deep-purple">
+                    <span class="ml-2 text-sm text-arena-light-gray font-mono font-bold tracking-wide uppercase">New Inquiry</span>
+                </div>
+
+                <form class="divide-y divide-arena-deep-purple/50 flex-grow flex flex-col" action="https://submit.jotform.com/submit/242914678028262" method="post" name="form_242914678028262" id="242914678028262" accept-charset="utf-8" autocomplete="on">
+                    <input type="hidden" name="formID" value="242914678028262" />
+                    <input type="hidden" name="simple_spc" value="242914678028262-242914678028262" />
+                    
+                    <div class="grid grid-cols-2 divide-x divide-arena-deep-purple/50">
+                        <div class="flex flex-col p-4">
+                            <label for="first-name" class="text-xs font-semibold text-arena-lavender uppercase mb-1">First Name</label>
+                            <input id="first-name" type="text" name="q3_name[first]" class="email-form-input w-full bg-transparent p-0 focus:ring-2 focus:ring-arena-teal placeholder-white/20" placeholder="Jane" required>
+                        </div>
+                        <div class="flex flex-col p-4">
+                            <label for="last-name" class="text-xs font-semibold text-arena-lavender uppercase mb-1">Last Name</label>
+                            <input id="last-name" type="text" name="q3_name[last]" class="email-form-input w-full bg-transparent p-0 focus:ring-2 focus:ring-arena-teal placeholder-white/20" placeholder="Doe" required>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col p-4">
+                        <label for="email" class="text-xs font-semibold text-arena-lavender uppercase mb-1">Email</label>
+                        <input id="email" type="email" name="q4_email" class="email-form-input w-full bg-transparent p-0 focus:ring-2 focus:ring-arena-teal placeholder-white/20" placeholder="jane.doe@example.com" required>
+                    </div>
+                    
+                    <div class="flex flex-col p-4">
+                        <label for="phone" class="text-xs font-semibold text-arena-lavender uppercase mb-1">Phone Number</label>
+                        <input id="phone" type="tel" name="q5_phoneNumber[full]" class="email-form-input w-full bg-transparent p-0 focus:ring-2 focus:ring-arena-teal placeholder-white/20" placeholder="(519) 000-0000" required>
+                    </div>
+                    
+                    <div class="p-4 flex-grow flex flex-col">
+                        <label for="message" class="text-xs font-semibold text-arena-lavender uppercase mb-1">Anything else we should know?</label>
+                        <textarea id="message" name="q6_anythingElse" class="flex-grow w-full bg-transparent text-arena-white p-0 border-none focus:ring-2 focus:ring-arena-teal resize-none placeholder-white/20 min-h-[120px]" placeholder="Tell us more about your event..."></textarea>
+                        
+                        <div class="flex justify-end items-center pt-6 border-t border-arena-deep-purple/50 mt-4">
+                            <button type="submit" class="btn-primary bg-arena-green text-arena-black hover:bg-arena-green-dark">
+                                <i class="ph ph-paper-plane-right mr-2" aria-hidden="true"></i> Send Message
+                            </button>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

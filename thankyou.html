@@ -1,86 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="5; url=index.html">
-    <title>Thank You!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+---
+layout: default
+title: Thank You
+---
 
-    <!-- Favicon -->
-    <link rel="icon" href="https://res.cloudinary.com/di8j84ent/image/upload/v1709228921/favicon2_cefnb0.png" type="image/png">
-    <link rel="apple-touch-icon" href="https://res.cloudinary.com/di8j84ent/image/upload/v1709228921/favicon_2023_dimp5x.png">
-
-    <style>
-        :root {
-            --arena-purple: #44148f;
-            --arena-magenta: #990099;
-            --arena-white: #fff;
-            --arena-black: #090909;
-            --arena-gray: #333;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--arena-purple);
-            color: var(--arena-white);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-        }
-
-        .container {
-            background-color: var(--arena-white);
-            color: var(--arena-black);
-            border: 2px solid var(--arena-black);
-            box-shadow: 0px 7px 0px rgba(9, 9, 9, 0.43);
-            border-radius: 8px;
-            padding: 40px;
-            max-width: 600px;
-        }
-
-        h1 {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            color: var(--arena-gray);
-            font-weight: 800;
-        }
-
-        p {
-            font-family: 'Roboto Mono', sans-serif;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-
-        .redirect-link {
-            font-weight: bold;
-            color: var(--arena-magenta);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .redirect-link:hover {
-            color: var(--arena-purple);
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Thank You!</h1>
-        <p>Your submission has been received. We appreciate your interest and will get back to you shortly.</p>
-        <p>Redirecting in <span id="countdown">5</span> seconds... or <a href="index.html" class="redirect-link">click here</a>.</p>
-    </div>
-    <script>
-        let countdownElement = document.getElementById('countdown');
-        let countdownValue = 5;
+<section class="py-12 md:py-16 bg-arena-black min-h-screen flex items-center">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
-        setInterval(() => {
-            countdownValue--;
-            countdownElement.textContent = countdownValue;
-        }, 1000);
-    </script>
-</body>
-</html>
+        <!-- Success Icon -->
+        <div class="mb-6 flex justify-center">
+            <div class="w-20 h-20 bg-arena-green/20 rounded-full flex items-center justify-center border-2 border-arena-green">
+                <i class="ph-duotone ph-check text-5xl text-arena-green" aria-hidden="true"></i>
+            </div>
+        </div>
+
+        <!-- Main Message -->
+        <h1 class="text-4xl md:text-5xl font-bold text-arena-white mb-3 font-bricolage">Thank You!</h1>
+        
+        <p class="text-lg text-arena-light-purple mb-6">
+            Your message has been sent successfully. We'll get back to you within 24 hours.
+        </p>
+
+        <!-- Countdown Timer -->
+        <div class="mb-8 space-y-3">
+            <p class="text-arena-lavender font-semibold text-sm">
+                Going home in...
+            </p>
+            <div class="text-6xl font-bold text-arena-green font-bricolage" id="countdown">
+                10
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    let seconds = 10;
+    const countdownEl = document.getElementById('countdown');
+
+    const interval = setInterval(() => {
+        seconds--;
+        countdownEl.textContent = seconds;
+
+        if (seconds <= 0) {
+            clearInterval(interval);
+            window.location.href = '/';
+        }
+    }, 1000);
+</script>
