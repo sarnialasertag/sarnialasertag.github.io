@@ -435,6 +435,25 @@
 
     <div id="toast-container"></div>
 
+    <!-- Consent Popup -->
+    <div id="consent-popup" class="fixed bottom-0 left-0 right-0 bg-arena-dark-purple border-t-2 border-arena-teal p-6 shadow-lg z-50 hidden">
+        <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div class="flex-1">
+                <p class="text-arena-white text-sm">
+                    We use analytics to understand how you use The Arena and improve your experience. No personal data is collected.
+                </p>
+            </div>
+            <div class="flex gap-3 whitespace-nowrap">
+                <button id="consent-decline" class="px-6 py-2 rounded-full border-2 border-arena-lavender text-arena-lavender hover:bg-arena-lavender hover:text-arena-black transition text-sm font-semibold">
+                    Decline
+                </button>
+                <button id="consent-accept" class="px-6 py-2 rounded-full bg-arena-green text-arena-black hover:bg-arena-yellow transition text-sm font-semibold">
+                    Accept
+                </button>
+            </div>
+        </div>
+    </div>
+
     {% include header.html %}
 
     <main id="main-content" class="pt-20">
@@ -471,6 +490,55 @@
         mobileNavLinks.forEach(link => {
             link.addEventListener('click', closeMenu);
         });
+
+        // ===== CONSENT & ANALYTICS =====
+        function initConsent() {
+            const consentPopup = document.getElementById('consent-popup');
+            const consentAccept = document.getElementById('consent-accept');
+            const consentDecline = document.getElementById('consent-decline');
+            const CONSENT_KEY = 'arena-analytics-consent';
+
+            // Check if user has already made a choice
+            const savedConsent = localStorage.getItem(CONSENT_KEY);
+            if (savedConsent) {
+                if (savedConsent === 'accepted') {
+                    loadGoogleAnalytics();
+                }
+                return; // Don't show popup if already decided
+            }
+
+            // Show popup for first-time visitors
+            consentPopup.classList.remove('hidden');
+
+            consentAccept.addEventListener('click', () => {
+                localStorage.setItem(CONSENT_KEY, 'accepted');
+                consentPopup.classList.add('hidden');
+                loadGoogleAnalytics();
+            });
+
+            consentDecline.addEventListener('click', () => {
+                localStorage.setItem(CONSENT_KEY, 'declined');
+                consentPopup.classList.add('hidden');
+            });
+        }
+
+        function loadGoogleAnalytics() {
+            var script = document.createElement("script");
+            script.async = true;
+            script.src = "https://www.googletagmanager.com/gtag/js?id=G-G2VXSD6SG9";
+            document.head.appendChild(script);
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-G2VXSD6SG9', { 'anonymize_ip': true });
+        }
+
+        // Initialize on page load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initConsent);
+        } else {
+            initConsent();
+        }
     </script>
 
 </body>

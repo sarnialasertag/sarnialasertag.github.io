@@ -1,0 +1,52 @@
+---
+layout: default
+title: Page Not Found
+permalink: /404.html
+---
+
+<section class="py-20 md:py-32 bg-arena-black min-h-screen flex items-center">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        
+        <!-- Error Icon -->
+        <div class="mb-8 flex justify-center">
+            <div class="text-9xl font-bold text-arena-blue font-bricolage">404</div>
+        </div>
+
+        <!-- Main Message -->
+        <h1 class="text-5xl md:text-6xl font-bold text-arena-white mb-4 font-bricolage">Oops! Page Not Found</h1>
+        
+        <p class="text-2xl text-arena-light-purple mb-8">
+            Looks like you've wandered into the void. The page you're looking for doesn't exist.
+        </p>
+
+        <p class="text-lg text-arena-light-gray mb-12 max-w-2xl mx-auto">
+            Don't worry though — you'll be taken back home soon where laser tag, rock climbing, and mini golf are all waiting for you!
+        </p>
+
+        <!-- Countdown Timer -->
+        <div class="mb-8 space-y-3">
+            <p class="text-arena-lavender font-semibold">
+                Redirecting in...
+            </p>
+            <div class="text-6xl font-bold text-arena-green font-bricolage" id="countdown">
+                10
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    let seconds = 10;
+    const countdownEl = document.getElementById('countdown');
+
+    const interval = setInterval(() => {
+        seconds--;
+        countdownEl.textContent = seconds;
+
+        if (seconds <= 0) {
+            clearInterval(interval);
+            window.location.href = '/';
+        }
+    }, 1000);
+</script>
