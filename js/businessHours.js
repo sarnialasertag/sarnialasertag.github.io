@@ -9,6 +9,10 @@ export function updateBusinessHours() {
             saturday: "12PM - 10PM"
         },
         holidays: {
+			"03-16": "12PM - 6PM<br><span class='text-sm opacity-80'>(March Break)</span>",
+			"03-17": "12PM - 6PM<br><span class='text-sm opacity-80'>(March Break)</span>",
+			"03-18": "12PM - 8PM<br><span class='text-sm opacity-80'>(March Break)</span>",
+			"03-19": "12PM - 8PM<br><span class='text-sm opacity-80'>(March Break)</span>",
             "10-31": "Closed 🎃",
             "12-25": "Closed 🎄",
             "12-26": "Closed 🎁",
