@@ -20,7 +20,8 @@ export function updateBusinessHours() {
             "01-01": "Closed 🌟",
             "01-02": "12PM - 6PM",
             "01-03": "12PM - 10PM<br><span class='text-sm opacity-80'>(Holiday Hours)</span>",
-            "04-20": "Closed 🐣",
+            "04-03": "Closed 🐣",
+			"04-05": "Closed 🐰",
             "07-01": "Closed 🍁"
         }
     };
