@@ -1,0 +1,255 @@
+---
+layout: default
+title: Gift Cards
+---
+
+<section class="py-16 md:py-24 bg-arena-black">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <h1 class="text-5xl md:text-6xl font-bold mb-4 text-arena-white font-bricolage">Gift Cards</h1>
+        <p class="text-xl text-arena-light-purple mb-4">
+            Give the gift of adventure. Choose from our gift card designs below.
+        </p>
+        <p class="text-lg text-arena-light-gray mb-12">
+            Select a design to proceed to secure checkout powered by Square.
+        </p>
+
+        <!-- Security Notice -->
+        <div class="bg-arena-deep-purple/30 border border-arena-blue/50 rounded-2xl p-8 mb-12">
+            <div class="flex items-start gap-4">
+                <i class="ph-duotone ph-lock text-3xl text-arena-blue flex-shrink-0 mt-1" aria-hidden="true"></i>
+                <div>
+                    <h3 class="text-xl font-bold text-arena-white mb-2">Secure Checkout</h3>
+                    <p class="text-arena-light-gray">
+                        All gift card purchases are processed securely through Square. Your payment information is safe and encrypted. You'll be redirected to Square's secure payment page when you select a design above.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Section -->
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+            <div class="text-center">
+                <i class="ph-duotone ph-envelope-open text-5xl text-arena-green mb-4" aria-hidden="true"></i>
+                <h3 class="text-xl font-bold text-arena-white mb-2 font-bricolage">Instant Delivery</h3>
+                <p class="text-arena-light-gray">Sent directly to their inbox immediately</p>
+            </div>
+            <div class="text-center">
+                <i class="ph-duotone ph-infinity text-5xl text-arena-teal mb-4" aria-hidden="true"></i>
+                <h3 class="text-xl font-bold text-arena-white mb-2 font-bricolage">No Expiration</h3>
+                <p class="text-arena-light-gray">Use it whenever they're ready</p>
+            </div>
+            <div class="text-center">
+                <i class="ph-duotone ph-pencil-line text-5xl text-arena-lavender mb-4" aria-hidden="true"></i>
+                <h3 class="text-xl font-bold text-arena-white mb-2 font-bricolage">Personalize</h3>
+                <p class="text-arena-light-gray">Add a custom message on checkout</p>
+            </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="flex justify-center mb-16">
+            <a href="https://app.squareup.com/gift/XCE2PQ427HSWG/order" target="_blank" rel="noopener noreferrer" class="btn-primary bg-arena-green text-arena-black hover:bg-arena-green-dark text-lg px-8 py-3 rounded-full flex items-center transition-colors">
+                <i class="ph-duotone ph-gift text-2xl mr-3" aria-hidden="true"></i>
+                Jump to Checkout
+            </a>
+        </div>
+
+        <!-- Gift Card Categories -->
+        <style>
+            .aspect-8-5 {
+                aspect-ratio: 8 / 5;
+            }
+            .carousel-container::-webkit-scrollbar {
+                display: none;
+            }
+            .carousel-container {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        </style>
+
+        <!-- Birthday Row -->
+        <div class="mb-20">
+            <div class="flex justify-between items-end mb-6">
+                <h2 class="text-3xl font-bold text-arena-white font-bricolage">Birthday</h2>
+                <div class="flex gap-2 md:hidden">
+                    <button class="bg-arena-blue text-arena-black rounded-full w-10 h-10 flex items-center justify-center" onclick="scrollCarousel('birthday-carousel', -1)">
+                        <i class="ph ph-caret-left text-xl"></i>
+                    </button>
+                    <button class="bg-arena-blue text-arena-black rounded-full w-10 h-10 flex items-center justify-center" onclick="scrollCarousel('birthday-carousel', 1)">
+                        <i class="ph ph-caret-right text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="relative group">
+                <div class="carousel-container overflow-x-auto scroll-smooth snap-x snap-mandatory flex gap-6 pb-4" id="birthday-carousel">
+                    <a href="https://app.squareup.com/gift/XCE2PQ427HSWG/order" target="_blank" rel="noopener noreferrer" class="snap-center flex-shrink-0 w-[85%] md:w-[calc(33.333%-1rem)]">
+                        <div class="rounded-2xl overflow-hidden shadow-lg aspect-8-5 bg-arena-dark-gray/50 border border-white/10">
+                            <img src="/images/gc/happyeverything.png" alt="Happy Everything Gift Card" class="w-full h-full object-cover">
+                        </div>
+                    </a>
+                    <a href="https://app.squareup.com/gift/XCE2PQ427HSWG/order" target="_blank" rel="noopener noreferrer" class="snap-center flex-shrink-0 w-[85%] md:w-[calc(33.333%-1rem)]">
+                        <div class="rounded-2xl overflow-hidden shadow-lg aspect-8-5 bg-arena-dark-gray/50 border border-white/10">
+                            <img src="/images/gc/tag-youre-it.png" alt="Tag you're it Gift Card" class="w-full h-full object-cover">
+                        </div>
+                    </a>
+                    <a href="https://app.squareup.com/gift/XCE2PQ427HSWG/order" target="_blank" rel="noopener noreferrer" class="snap-center flex-shrink-0 w-[85%] md:w-[calc(33.333%-1rem)]">
+                        <div class="rounded-2xl overflow-hidden shadow-lg aspect-8-5 bg-arena-dark-gray/50 border border-white/10">
+                            <img src="/images/gc/you-rock.png" alt="You rock Gift Card" class="w-full h-full object-cover">
+                        </div>
+                    </a>
+                    <a href="https://app.squareup.com/gift/XCE2PQ427HSWG/order" target="_blank" rel="noopener noreferrer" class="snap-center flex-shrink-0 w-[85%] md:w-[calc(33.333%-1rem)]">
+                        <div class="rounded-2xl overflow-hidden shadow-lg aspect-8-5 bg-arena-dark-gray/50 border border-white/10">
+                            <img src="/images/gc/happy-bday.png" alt="For You Gift Card" class="w-full h-full object-cover">
+                        </div>
+                    </a>
+                    <a href="https://app.squareup.com/gift/XCE2PQ427HSWG/order" target="_blank" rel="noopener noreferrer" class="snap-center flex-shrink-0 w-[85%] md:w-[calc(33.333%-1rem)]">
+                        <div class="rounded-2xl overflow-hidden shadow-lg aspect-8-5 bg-arena-dark-gray/50 border border-white/10">
+                            <img src="/images/gc/happy-bday-2.png" alt="For You Gift Card" class="w-full h-full object-cover">
+                        </div>
+                    </a>						
+                </div>
+                <button class="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 bg-arena-blue text-arena-black rounded-full w-12 h-12 items-center justify-center z-10 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity" onclick="scrollCarousel('birthday-carousel', -1)">
+                    <i class="ph ph-caret-left text-2xl"></i>
+                </button>
+                <button class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 bg-arena-blue text-arena-black rounded-full w-12 h-12 items-center justify-center z-10 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity" onclick="scrollCarousel('birthday-carousel', 1)">
+                    <i class="ph ph-caret-right text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Appreciation Row -->
+        <div class="mb-20">
+            <div class="flex justify-between items-end mb-6">
+                <h2 class="text-3xl font-bold text-arena-white font-bricolage">Appreciation</h2>
+                <div class="flex gap-2 md:hidden">
+                    <button class="bg-arena-blue text-arena-black rounded-full w-10 h-10 flex items-center justify-center" onclick="scrollCarousel('appreciation-carousel', -1)">
+                        <i class="ph ph-caret-left text-xl"></i>
+                    </button>
+                    <button class="bg-arena-blue text-arena-black rounded-full w-10 h-10 flex items-center justify-center" onclick="scrollCarousel('appreciation-carousel', 1)">
+                        <i class="ph ph-caret-right text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="relative group">
+                <div class="carousel-container overflow-x-auto scroll-smooth snap-x snap-mandatory flex gap-6 pb-4" id="appreciation-carousel">
+                    <a href="https://app.squareup.com/gift/XCE2PQ427HSWG/order" target="_blank" rel="noopener noreferrer" class="snap-center flex-shrink-0 w-[85%] md:w-[calc(33.333%-1rem)]">
+                        <div class="rounded-2xl overflow-hidden shadow-lg aspect-8-5 bg-arena-dark-gray/50 border border-white/10">
+                            <img src="/images/gc/tysm.png" alt="Thank You So Much Gift Card" class="w-full h-full object-cover">
+                        </div>
+                    </a>
+                    <a href="https://app.squareup.com/gift/XCE2PQ427HSWG/order" target="_blank" rel="noopener noreferrer" class="snap-center flex-shrink-0 w-[85%] md:w-[calc(33.333%-1rem)]">
+                        <div class="rounded-2xl overflow-hidden shadow-lg aspect-8-5 bg-arena-dark-gray/50 border border-white/10">
+                            <img src="/images/gc/couldnt-do-it-without-you.png" alt="Couldn't do it without you Gift Card" class="w-full h-full object-cover">
+                        </div>
+                    </a>
+                    <a href="https://app.squareup.com/gift/XCE2PQ427HSWG/order" target="_blank" rel="noopener noreferrer" class="snap-center flex-shrink-0 w-[85%] md:w-[calc(33.333%-1rem)]">
+                        <div class="rounded-2xl overflow-hidden shadow-lg aspect-8-5 bg-arena-dark-gray/50 border border-white/10">
+                            <img src="/images/gc/for-you.png" alt="For You Gift Card" class="w-full h-full object-cover">
+                        </div>
+                    </a>
+					
+                </div>
+                <button class="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 bg-arena-blue text-arena-black rounded-full w-12 h-12 items-center justify-center z-10 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity" onclick="scrollCarousel('appreciation-carousel', -1)">
+                    <i class="ph ph-caret-left text-2xl"></i>
+                </button>
+                <button class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 bg-arena-blue text-arena-black rounded-full w-12 h-12 items-center justify-center z-10 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity" onclick="scrollCarousel('appreciation-carousel', 1)">
+                    <i class="ph ph-caret-right text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Celebration Row -->
+        <div class="mb-20">
+            <div class="flex justify-between items-end mb-6">
+                <h2 class="text-3xl font-bold text-arena-white font-bricolage">Celebration</h2>
+                <div class="flex gap-2 md:hidden">
+                    <button class="bg-arena-blue text-arena-black rounded-full w-10 h-10 flex items-center justify-center" onclick="scrollCarousel('celebration-carousel', -1)">
+                        <i class="ph ph-caret-left text-xl"></i>
+                    </button>
+                    <button class="bg-arena-blue text-arena-black rounded-full w-10 h-10 flex items-center justify-center" onclick="scrollCarousel('celebration-carousel', 1)">
+                        <i class="ph ph-caret-right text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="relative group">
+                <div class="carousel-container overflow-x-auto scroll-smooth snap-x snap-mandatory flex gap-6 pb-4" id="celebration-carousel">
+                    <a href="https://app.squareup.com/gift/XCE2PQ427HSWG/order" target="_blank" rel="noopener noreferrer" class="snap-center flex-shrink-0 w-[85%] md:w-[calc(33.333%-1rem)]">
+                        <div class="rounded-2xl overflow-hidden shadow-lg aspect-8-5 bg-arena-dark-gray/50 border border-white/10">
+                            <img src="/images/gc/youre-a-star.png" alt="You're a star Gift Card" class="w-full h-full object-cover">
+                        </div>
+                    </a>
+                    <a href="https://app.squareup.com/gift/XCE2PQ427HSWG/order" target="_blank" rel="noopener noreferrer" class="snap-center flex-shrink-0 w-[85%] md:w-[calc(33.333%-1rem)]">
+                        <div class="rounded-2xl overflow-hidden shadow-lg aspect-8-5 bg-arena-dark-gray/50 border border-white/10">
+                            <img src="/images/gc/youre-a-hole-in-one.png" alt="You're a hole in one Gift Card" class="w-full h-full object-cover">
+                        </div>
+                    </a>
+                    <a href="https://app.squareup.com/gift/XCE2PQ427HSWG/order" target="_blank" rel="noopener noreferrer" class="snap-center flex-shrink-0 w-[85%] md:w-[calc(33.333%-1rem)]">
+                        <div class="rounded-2xl overflow-hidden shadow-lg aspect-8-5 bg-arena-dark-gray/50 border border-white/10">
+                            <img src="/images/gc/happyeverything.png" alt="Happy Everything Gift Card" class="w-full h-full object-cover">
+                        </div>
+                    </a>
+                </div>
+                <button class="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 bg-arena-blue text-arena-black rounded-full w-12 h-12 items-center justify-center z-10 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity" onclick="scrollCarousel('celebration-carousel', -1)">
+                    <i class="ph ph-caret-left text-2xl"></i>
+                </button>
+                <button class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 bg-arena-blue text-arena-black rounded-full w-12 h-12 items-center justify-center z-10 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity" onclick="scrollCarousel('celebration-carousel', 1)">
+                    <i class="ph ph-caret-right text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Seasonal Row -->
+        <div class="mb-20">
+            <div class="flex justify-between items-end mb-6">
+                <h2 class="text-3xl font-bold text-arena-white font-bricolage">Seasonal</h2>
+                <div class="flex gap-2 md:hidden">
+                    <button class="bg-arena-blue text-arena-black rounded-full w-10 h-10 flex items-center justify-center" onclick="scrollCarousel('seasonal-carousel', -1)">
+                        <i class="ph ph-caret-left text-xl"></i>
+                    </button>
+                    <button class="bg-arena-blue text-arena-black rounded-full w-10 h-10 flex items-center justify-center" onclick="scrollCarousel('seasonal-carousel', 1)">
+                        <i class="ph ph-caret-right text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="relative group">
+                <div class="carousel-container overflow-x-auto scroll-smooth snap-x snap-mandatory flex gap-6 pb-4" id="seasonal-carousel">
+                    <!-- Placeholders for future seasonal designs -->
+                    <div class="snap-center flex-shrink-0 w-[85%] md:w-[calc(33.333%-1rem)]">
+                        <div class="rounded-2xl overflow-hidden shadow-lg aspect-8-5 bg-arena-dark-gray/30 border border-white/5 flex flex-col items-center justify-center text-center p-6">
+                            <i class="ph ph-snowflake text-4xl text-arena-light-gray/20 mb-2"></i>
+                            <p class="text-arena-light-gray/40 font-medium">Coming Soon</p>
+                        </div>
+                    </div>
+                    <div class="snap-center flex-shrink-0 w-[85%] md:w-[calc(33.333%-1rem)]">
+                        <div class="rounded-2xl overflow-hidden shadow-lg aspect-8-5 bg-arena-dark-gray/30 border border-white/5 flex flex-col items-center justify-center text-center p-6">
+                            <i class="ph ph-sun text-4xl text-arena-light-gray/20 mb-2"></i>
+                            <p class="text-arena-light-gray/40 font-medium">Summer 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 bg-arena-blue text-arena-black rounded-full w-12 h-12 items-center justify-center z-10 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity" onclick="scrollCarousel('seasonal-carousel', -1)">
+                    <i class="ph ph-caret-left text-2xl"></i>
+                </button>
+                <button class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 bg-arena-blue text-arena-black rounded-full w-12 h-12 items-center justify-center z-10 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity" onclick="scrollCarousel('seasonal-carousel', 1)">
+                    <i class="ph ph-caret-right text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    function scrollCarousel(carouselId, direction) {
+        const carousel = document.getElementById(carouselId);
+        const cardWidth = carousel.querySelector('a, div').offsetWidth;
+        const gap = 24; // Equivalent to gap-6
+        const scrollAmount = cardWidth + gap;
+        
+        carousel.scrollBy({
+            left: direction * scrollAmount,
+            behavior: 'smooth'
+        });
+    }
+</script>
