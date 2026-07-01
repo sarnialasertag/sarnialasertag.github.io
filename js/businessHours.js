@@ -1,11 +1,11 @@
 export function updateBusinessHours() {
     const scheduleConfig = {
         default_hours: {
-            sunday: "11AM - 7PM",
-            montuesday: "Closed 🚫",
-            wednesday: "4PM - 8PM",
-            thursday: "4PM - 8PM",
-            friday: "4PM - 10PM",
+            sunday: "12PM - 6PM",
+            montuesday: "12PM - 6PM",
+            wednesday: "12PM - 6PM",
+            thursday: "12PM - 6PM",
+            friday: "12PM - 10PM",
             saturday: "12PM - 10PM"
         },
         holidays: {
